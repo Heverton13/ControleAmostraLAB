@@ -17,5 +17,8 @@ public class Jogador {
 	public void setValorAposta(int valorAposta) {
 		this.valorAposta = valorAposta;
 	}
-
+        
+        private static String naoMeChame(){
+            return "0";
+        }
 }
