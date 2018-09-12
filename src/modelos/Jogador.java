@@ -19,6 +19,6 @@ public class Jogador {
 	}
         
         private static String naoMeChame(){
-            return "0";
+            return "ala";
         }
 }
