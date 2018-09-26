@@ -1,34 +1,28 @@
 
-package modelos;
+package modelos.futuros;
 
 /**
  *
  * @author Heverton
  */
-public class Responsavel_Servico {
+public class Solicitante_Servico {
     
-    private String nome;
     private String cnpj;
     private String razao_Social;
     private String endereco;
+    private String cidade;
+    private String contato;
     private String email;
     private String telefone;
 
-    public Responsavel_Servico(String nome, String cnpj, String razao_Social, String endereco, String email, String telefone) {
-        this.nome = nome;
+    public Solicitante_Servico(String cnpj, String razao_Social, String endereco, String cidade, String contato, String email, String telefone) {
         this.cnpj = cnpj;
         this.razao_Social = razao_Social;
         this.endereco = endereco;
+        this.cidade = cidade;
+        this.contato = contato;
         this.email = email;
         this.telefone = telefone;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
     }
 
     public String getCnpj() {
@@ -55,6 +49,22 @@ public class Responsavel_Servico {
         this.endereco = endereco;
     }
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
+    }
+
     public String getEmail() {
         return email;
     }
@@ -70,6 +80,5 @@ public class Responsavel_Servico {
     public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
-    
     
 }

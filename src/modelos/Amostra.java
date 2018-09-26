@@ -10,10 +10,9 @@ public class Amostra {
     private String id_amostra;
     private String descricao;
     private int frascos;
-    //Private String Analise Requeridas, nessa parte sera usada enum, ainda sera visto sobre, podemos pesquisar so para demonstracao
     private String observacoes;
-    private Solicitante_Academico sa; // essa parte sera revista pois pode ter mais de um solicitante, 
-    private Responsavel r; // mesma coisa da de cima as proximas modelagens resolveram essa inconsistencia (heranca)
+    private Solicitante_Academico sa;  
+    private Responsavel r; 
 
     public Amostra(String id_amostra, String descricao, int frascos, String observacoes, Solicitante_Academico sa, Responsavel r) {
         this.id_amostra = id_amostra;
@@ -71,7 +70,5 @@ public class Amostra {
     public void setR(Responsavel r) {
         this.r = r;
     }
-    
-    
-    
+        
 }
