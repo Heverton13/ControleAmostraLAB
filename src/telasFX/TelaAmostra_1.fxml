@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="537.0" prefWidth="783.0" type="BorderPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TelaDaAmostraControl">
    <left>
       <VBox prefHeight="479.0" prefWidth="166.0" style="-fx-background-color: #98FB98;" BorderPane.alignment="CENTER">
          <children>
@@ -179,4 +179,4 @@
             <JFXTextField fx:id="IdentificacaoAmostra" layoutX="191.0" layoutY="12.0" prefHeight="25.0" prefWidth="353.0" />
          </children></AnchorPane>
    </center>
-</BorderPane>
+</fx:root>

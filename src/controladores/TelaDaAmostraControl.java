@@ -6,55 +6,53 @@
 package controladores;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXCheckBox;
-import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
- * @author Heverton
+ * @author Aluno
  */
-public class TelaAmostraController implements Initializable {
+public class TelaDaAmostraControl implements Initializable {
 
     @FXML
-    private JFXButton bt_cadeslocitante;
+    private JFXButton BtInicio;
     @FXML
-    private JFXButton bt_amostra;
+    private JFXButton Btlogin;
     @FXML
-    private JFXButton bt_fim_amostra;
+    private JFXButton BtSolicitante;
     @FXML
-    private JFXButton bt_sair;
+    private JFXButton BtAmostra;
     @FXML
-    private JFXTextField id_amostra;
+    private JFXButton BtHistorico;
     @FXML
-    private JFXTextField descricao;
+    private JFXButton BtPedido;
     @FXML
-    private JFXTextField qtd_frascos;
+    private JFXButton BtAjuda;
     @FXML
-    private JFXTextField nome_responsavel;
+    private JFXButton BtSair;
     @FXML
-    private JFXTextField nome_recebido;
+    private AnchorPane DataAmostra;
     @FXML
-    private JFXTextArea text_obs;
+    private JFXTimePicker HoraAmostra;
     @FXML
-    private JFXDatePicker data_recebido;
+    private JFXTextField Frascos;
     @FXML
-    private JFXTimePicker hora_recido;
+    private JFXTextField Observacoes;
     @FXML
-    private JFXCheckBox op_umidade;
+    private JFXTextField RecebidoPor;
     @FXML
-    private JFXCheckBox op_ms;
+    private JFXTextField Responsavel;
     @FXML
-    private JFXCheckBox op_ee;
+    private JFXTextField Descricao;
     @FXML
-    private JFXCheckBox op_todos;
+    private JFXTextField IdentificacaoAmostra;
 
     /**
      * Initializes the controller class.
