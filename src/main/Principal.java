@@ -24,7 +24,7 @@ public class Principal extends Application {
     
     public void start(Stage stage) throws Exception {
         
-		Parent root = FXMLLoader.load(getClass().getResource("TelaPrincipal.fxml"));
+		Parent root = FXMLLoader.load(getClass().getResource("/TelaPrincipal.fxml"));
                 Scene scene = new Scene(root);
                 
                 stage.setScene(scene);

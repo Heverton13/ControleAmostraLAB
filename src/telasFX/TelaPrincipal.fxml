@@ -71,7 +71,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtAmostra" alignment="BASELINE_LEFT" prefHeight="54.0" prefWidth="164.0" text="Amostra" textFill="#111010">
+            <JFXButton fx:id="BtAmostra" alignment="BASELINE_LEFT" onAction="#adicionarAmostra" prefHeight="54.0" prefWidth="164.0" text="Amostra" textFill="#111010">
                <font>
                   <Font size="17.0" />
                </font>
