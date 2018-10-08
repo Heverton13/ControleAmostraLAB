@@ -56,13 +56,14 @@ public class ControladorPrincipal implements Initializable {
     
     @FXML
     
-    private void cadastroSolcitante(){
-        
+    private void cadastroSolicitante(){
         try {
-            Parent cadastroSolicitante = FXMLLoader.load(getClass().getResource("/telasFX/CadastroSolicitante"));
+            URL url = getClass().getResource("/telasFX/CadastroSolicitante.fxml");
+            Parent cadastroSolicitante = FXMLLoader.load(url);
             borderPrincipal.setCenter(cadastroSolicitante);
             labelPrincipal.setText("Cadastro de Solitantes");
         } catch (IOException ex) {
+            ex.printStackTrace();
             Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
