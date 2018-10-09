@@ -6,41 +6,21 @@
 package controladores;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.layout.AnchorPane;
 
 /**
  * FXML Controller class
  *
- * @author Aluno
+ * @author Heverton
  */
-public class TelaDaAmostraControl implements Initializable {
+public class ControladorAmostra implements Initializable {
 
-    @FXML
-    private JFXButton BtInicio;
-    @FXML
-    private JFXButton Btlogin;
-    @FXML
-    private JFXButton BtSolicitante;
-    @FXML
-    private JFXButton BtAmostra;
-    @FXML
-    private JFXButton BtHistorico;
-    @FXML
-    private JFXButton BtPedido;
-    @FXML
-    private JFXButton BtAjuda;
-    @FXML
-    private JFXButton BtSair;
-    @FXML
-    private AnchorPane DataAmostra;
-    @FXML
-    private JFXTimePicker HoraAmostra;
     @FXML
     private JFXTextField Frascos;
     @FXML
@@ -53,6 +33,14 @@ public class TelaDaAmostraControl implements Initializable {
     private JFXTextField Descricao;
     @FXML
     private JFXTextField IdentificacaoAmostra;
+    @FXML
+    private JFXTimePicker HoraAmostra;
+    @FXML
+    private JFXDatePicker DataAmostra1;
+    @FXML
+    private JFXButton selecionarAnalises;
+    @FXML
+    private JFXButton concluirAmostra;
 
     /**
      * Initializes the controller class.

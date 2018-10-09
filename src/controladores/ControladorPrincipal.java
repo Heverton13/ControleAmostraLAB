@@ -34,8 +34,6 @@ public class ControladorPrincipal implements Initializable {
     @FXML
     private JFXButton Btlogin;
     @FXML
-    private JFXButton BtSolicitante;
-    @FXML
     private JFXButton BtAmostra;
     @FXML
     private JFXButton BtHistorico;
@@ -45,6 +43,8 @@ public class ControladorPrincipal implements Initializable {
     private JFXButton BtAjuda;
     @FXML
     private JFXButton BtSair;
+    @FXML
+    private JFXButton btSolicitante;
 
     /**
      * Initializes the controller class.
@@ -55,8 +55,9 @@ public class ControladorPrincipal implements Initializable {
     }    
     
     @FXML
-    
     private void cadastroSolicitante(){
+        
+        System.out.println("teste");
         try {
             URL url = getClass().getResource("/telasFX/CadastroSolicitante.fxml");
             Parent cadastroSolicitante = FXMLLoader.load(url);
@@ -64,20 +65,21 @@ public class ControladorPrincipal implements Initializable {
             labelPrincipal.setText("Cadastro de Solitantes");
         } catch (IOException ex) {
             ex.printStackTrace();
-            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
     
     @FXML
     private void adicionarAmostra(){
-        
+        System.out.println("teste");
         try {
             Parent adicionarAmostra = FXMLLoader.load(getClass().getResource("/telasFX/TelaAmostra_1.fxml"));
             borderPrincipal.setCenter(adicionarAmostra);
             labelPrincipal.setText("Cadastro de Amostras");
         } catch (IOException ex) {
-            Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+            ex.printStackTrace();
+            //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
      
     }

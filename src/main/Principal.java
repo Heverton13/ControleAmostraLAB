@@ -22,6 +22,7 @@ public class Principal extends Application {
         launch(args);
     }
     
+    @Override
     public void start(Stage stage) throws Exception {
         
 		Parent root = FXMLLoader.load(getClass().getResource("/telasFX/TelaPrincipal.fxml"));
