@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
 
 /**
  * FXML Controller class
@@ -45,6 +46,8 @@ public class ControladorPrincipal implements Initializable {
     private JFXButton BtSair;
     @FXML
     private JFXButton btSolicitante;
+    @FXML
+    private Pane paneInicial;
 
     /**
      * Initializes the controller class.
@@ -53,6 +56,14 @@ public class ControladorPrincipal implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+    
+    
+     @FXML
+    private void inicio(){
+        borderPrincipal.setCenter(paneInicial);
+        labelPrincipal.setText("LABORATÓRIO");
+     
+    }
     
     @FXML
     private void cadastroSolicitante(){

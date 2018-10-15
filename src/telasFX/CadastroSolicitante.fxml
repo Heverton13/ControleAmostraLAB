@@ -4,20 +4,19 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorSolicitante">
+<VBox alignment="CENTER" prefHeight="465.0" prefWidth="617.0" spacing="40.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorSolicitante">
    <children>
-      <AnchorPane prefHeight="465.0" prefWidth="617.0">
+      <JFXTextField fx:id="NomeAutorizador" focusColor="MEDIUMSEAGREEN" labelFloat="true" prefHeight="25.0" prefWidth="503.0" promptText="Autorizado por:" />
+      <JFXTextField fx:id="TelefoneSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" prefHeight="25.0" prefWidth="508.0" promptText="Telefone:" />
+      <JFXTextField fx:id="EmailSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" prefHeight="25.0" prefWidth="504.0" promptText="E-mail:" />
+      <JFXTextField fx:id="NomeSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" prefHeight="25.0" prefWidth="501.0" promptText="Nome do Solicitante:" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
-            <JFXButton layoutX="446.0" layoutY="32.0" prefHeight="47.0" prefWidth="38.0" textFill="TRANSPARENT">
-               <font>
-                  <Font size="1.0" />
-               </font>
-            </JFXButton>
-            <JFXButton fx:id="BtAdicionar" layoutX="14.0" layoutY="329.0" prefHeight="55.0" prefWidth="165.0" style="-fx-background-color: #3CB371;" text="Adicionar" textFill="#323131">
+            <JFXButton fx:id="BtAdicionar" prefHeight="55.0" prefWidth="165.0" style="-fx-background-color: #3CB371;" text="Adicionar" textFill="#323131">
                <font>
                   <Font size="20.0" />
                </font>
@@ -29,7 +28,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtCancelar" layoutX="430.0" layoutY="329.0" prefHeight="36.0" prefWidth="157.0" style="-fx-background-color: #3CB371;" text="Cancelar">
+            <JFXButton fx:id="BtCancelar" prefHeight="36.0" prefWidth="157.0" style="-fx-background-color: #3CB371;" text="Cancelar">
                <font>
                   <Font size="20.0" />
                </font>
@@ -41,7 +40,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtEditar" layoutX="231.0" layoutY="329.0" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #3CB371;" text="Editar" textFill="#323131">
+            <JFXButton fx:id="BtEditar" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #3CB371;" text="Editar" textFill="#323131">
                <font>
                   <Font size="20.0" />
                </font>
@@ -53,11 +52,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXTextField fx:id="NomeAutorizador" focusColor="MEDIUMSEAGREEN" labelFloat="true" layoutX="36.0" layoutY="112.0" prefHeight="25.0" prefWidth="503.0" promptText="Autorizado por:" />
-            <JFXTextField fx:id="TelefoneSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" layoutX="34.0" layoutY="167.0" prefHeight="25.0" prefWidth="508.0" promptText="Telefone:" />
-            <JFXTextField fx:id="EmailSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" layoutX="36.0" layoutY="226.0" prefHeight="25.0" prefWidth="504.0" promptText="E-mail:" />
-            <JFXTextField fx:id="NomeSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" layoutX="38.0" layoutY="43.0" prefHeight="25.0" prefWidth="501.0" promptText="Nome do Solicitante:" />
          </children>
-      </AnchorPane>
+      </HBox>
    </children>
 </VBox>
