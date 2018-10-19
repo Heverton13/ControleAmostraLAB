@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane fx:id="borderPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorPrincipal">
+<BorderPane fx:id="borderPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorPrincipal">
    <top>
       <HBox alignment="CENTER" prefHeight="75.0" prefWidth="783.0" spacing="20.0" style="-fx-background-color: #3CB371;" BorderPane.alignment="CENTER">
          <children>
@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="Btlogin" alignment="BASELINE_LEFT" prefHeight="53.0" prefWidth="304.0" text="Login" textFill="#111010">
+            <JFXButton fx:id="Btlogin" alignment="BASELINE_LEFT" onAction="#telaLogin" prefHeight="53.0" prefWidth="304.0" text="Login" textFill="#111010">
                <font>
                   <Font size="17.0" />
                </font>
@@ -83,7 +83,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtHistorico" alignment="BASELINE_LEFT" prefHeight="53.0" prefWidth="304.0" text="Histórico" textFill="#111010">
+            <JFXButton fx:id="BtHistorico" alignment="BASELINE_LEFT" onAction="#telaHistorico" prefHeight="53.0" prefWidth="304.0" text="Histórico" textFill="#111010">
                <font>
                   <Font size="17.0" />
                </font>
@@ -95,7 +95,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtPedido" alignment="BASELINE_LEFT" prefHeight="53.0" prefWidth="304.0" text="Pedido" textFill="#111010">
+            <JFXButton fx:id="BtPedido" alignment="BASELINE_LEFT" onAction="#telaEtiquera" prefHeight="53.0" prefWidth="304.0" text="Etiquetas" textFill="#111010">
                <font>
                   <Font size="17.0" />
                </font>
@@ -107,7 +107,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtAjuda" alignment="BASELINE_LEFT" prefHeight="53.0" prefWidth="304.0" text="Ajuda" textFill="#111010">
+            <JFXButton fx:id="BtAjuda" alignment="BASELINE_LEFT" onAction="#telaAjuda" prefHeight="53.0" prefWidth="304.0" text="Ajuda" textFill="#111010">
                <font>
                   <Font size="17.0" />
                </font>
@@ -119,7 +119,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtSair" alignment="BASELINE_LEFT" prefHeight="53.0" prefWidth="304.0" text="Sair" textFill="#111010">
+            <JFXButton fx:id="BtSair" alignment="BASELINE_LEFT" onAction="#sair" prefHeight="53.0" prefWidth="304.0" text="Sair" textFill="#111010">
                <font>
                   <Font size="17.0" />
                </font>

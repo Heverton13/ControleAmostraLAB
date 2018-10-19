@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
+<?import com.jfoenix.validation.IntegerValidator?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
@@ -16,8 +17,12 @@
       <JFXTextField fx:id="RecebidoPor" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="461.0" promptText="Recebido Por" />
       <JFXTextField fx:id="Responsavel" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="200.0" promptText="Responsável" />
       <JFXTextField fx:id="Observacoes" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="396.0" promptText="Observações" />
-      <JFXTimePicker fx:id="HoraAmostra" />
-      <JFXDatePicker fx:id="DataAmostra1" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+         <children>
+            <JFXDatePicker fx:id="dataAmostra" />
+            <JFXTimePicker fx:id="horaAmostra" />
+         </children>
+      </HBox>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
             <JFXButton fx:id="selecionarAnalises" prefHeight="43.0" prefWidth="142.0" style="-fx-background-color: #39da49;" text="Selecionar Análises">
@@ -32,5 +37,6 @@
             </JFXButton>
          </children>
       </HBox>
+      <IntegerValidator />
    </children>
 </VBox>

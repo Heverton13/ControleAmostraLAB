@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="600.0" spacing="30.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorEtiqueras">
+   <children>
+      <JFXButton fx:id="btSelecionar" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: #98FB98;" text="SELECIONAR AMOSTRA" />
+      <JFXButton fx:id="btGerar" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: #98FB98;" text="GERAR ETIQUETA" />
+   </children>
+</VBox>

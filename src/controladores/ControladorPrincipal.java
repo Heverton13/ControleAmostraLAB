@@ -94,4 +94,58 @@ public class ControladorPrincipal implements Initializable {
         }
      
     }
+    
+    @FXML
+    private void telaLogin(){
+         try {
+            Parent telaLogin = FXMLLoader.load(getClass().getResource("/telasFX/TelaLogin.fxml"));
+            borderPrincipal.setCenter(telaLogin);
+            labelPrincipal.setText("Tela de Login");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void telaHistorico(){
+         try {
+            Parent telaH = FXMLLoader.load(getClass().getResource("/telasFX/TelaHistorico.fxml"));
+            borderPrincipal.setCenter(telaH);
+            labelPrincipal.setText("Tela de Histórico");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void telaEtiquera(){
+         try {
+            Parent telaE = FXMLLoader.load(getClass().getResource("/telasFX/TelaEtiqueta.fxml"));
+            borderPrincipal.setCenter(telaE);
+            labelPrincipal.setText("Tela de Etiqueta");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+    private void telaAjuda(){
+         try {
+            Parent telaA = FXMLLoader.load(getClass().getResource("/telasFX/TelaAjuda.fxml"));
+            borderPrincipal.setCenter(telaA);
+            labelPrincipal.setText("Tela de Ajuda");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @FXML
+	private void sair() {
+		System.exit(0);
+	}
+    
 }
