@@ -8,13 +8,13 @@ package modelos;
 public class Solicitante_Academico {
     
     private String nome;
-    private Professor_Orientador po1;
+    private String id_Professor;
     private String telefone;
     private String email;
 
-    public Solicitante_Academico(String nome, Professor_Orientador po1, String telefone, String email) {
+    public Solicitante_Academico(String nome, String po1, String telefone, String email) {
         this.nome = nome;
-        this.po1 = po1;
+        this.id_Professor = po1;
         this.telefone = telefone;
         this.email = email;
     }
@@ -27,12 +27,12 @@ public class Solicitante_Academico {
         this.nome = nome;
     }
 
-    public Professor_Orientador getPo1() {
-        return po1;
+    public String getId_Professor() {
+        return id_Professor;
     }
 
-    public void setPo1(Professor_Orientador po1) {
-        this.po1 = po1;
+    public void setId_Professor(String id_Professor) {
+        this.id_Professor = id_Professor;
     }
 
     public String getTelefone() {

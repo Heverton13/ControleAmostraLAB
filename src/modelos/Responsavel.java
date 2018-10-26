@@ -1,6 +1,7 @@
 
 package modelos;
 
+import java.sql.Time;
 import java.util.Date;
 
 /**
@@ -11,10 +12,10 @@ public class Responsavel {
     
     private String nome;
     private Date data;
-    private String hora;
+    private Time hora;
     private String assinatura;
 
-    public Responsavel(String nome, Date data, String hora, String assinatura) {
+    public Responsavel(String nome, Date data, Time hora, String assinatura) {
         this.nome = nome;
         this.data = data;
         this.hora = hora;
@@ -37,11 +38,11 @@ public class Responsavel {
         this.data = data;
     }
 
-    public String getHora() {
+    public Time getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Time hora) {
         this.hora = hora;
     }
 

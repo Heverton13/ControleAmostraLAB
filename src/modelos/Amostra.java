@@ -1,6 +1,8 @@
 
 package modelos;
 
+import java.util.Date;
+
 /**
  *
  * @author Heverton
@@ -11,16 +13,27 @@ public class Amostra {
     private String descricao;
     private int frascos;
     private String observacoes;
-    private Solicitante_Academico sa;  
-    private Responsavel r; 
+    private Date data_entrada;
+    private String id_Solicitante;  
+    private String id_Responsavel; 
+    
+    enum Analises_Requeridas {
+    UMIDADE, MATERIA_SECA, MATERIA_MINERAL, EXTRATO_ETEREO, PROTEINA_BRUTA, FIBRA_EM_DERTERGENTE_ACIDO, 
+    FIBRA_EM_DERTEGENTE_NEUTRO,PROTEINA_INSULUVEL_EM_DETERGENTE_NEUTRO, 
+    PROTEINA_INSULUVEL_EM_DETERGENTE_ACIDO, CARBOIDRATOS_TOTAIS, CARBOIDRATOS_NAO_FIBROSOS,
+    LIGNINA, CELULOSE, 	HEMICELULOSE, ENERGIA_DISGESTIVEL, NUTRIENTES_DIGESTIVOS_TOTAIS;
+    };
+    private String analises_aequeridas;
 
-    public Amostra(String id_amostra, String descricao, int frascos, String observacoes, Solicitante_Academico sa, Responsavel r) {
+    public Amostra(String id_amostra, String descricao, int frascos, String observacoes, Date data_entrada, String id_Solicitante, String id_Responsavel, String ar) {
         this.id_amostra = id_amostra;
         this.descricao = descricao;
         this.frascos = frascos;
         this.observacoes = observacoes;
-        this.sa = sa;
-        this.r = r;
+        this.data_entrada = data_entrada;
+        this.id_Solicitante = id_Solicitante;
+        this.id_Responsavel = id_Responsavel;
+        this.analises_aequeridas = ar;
     }
 
     public String getId_amostra() {
@@ -55,20 +68,37 @@ public class Amostra {
         this.observacoes = observacoes;
     }
 
-    public Solicitante_Academico getSa() {
-        return sa;
+    public Date getData_entrada() {
+        return data_entrada;
     }
 
-    public void setSa(Solicitante_Academico sa) {
-        this.sa = sa;
+    public void setData_entrada(Date data_entrada) {
+        this.data_entrada = data_entrada;
     }
 
-    public Responsavel getR() {
-        return r;
+    public String getId_Solicitante() {
+        return id_Solicitante;
     }
 
-    public void setR(Responsavel r) {
-        this.r = r;
+    public void setId_Solicitante(String id_Solicitante) {
+        this.id_Solicitante = id_Solicitante;
     }
+
+    public String getId_Responsavel() {
+        return id_Responsavel;
+    }
+
+    public void setId_Responsavel(String id_Responsavel) {
+        this.id_Responsavel = id_Responsavel;
+    }
+
+    public String getAnalises_aequeridas() {
+        return analises_aequeridas;
+    }
+
+    public void setAnalises_aequeridas(String analises_aequeridas) {
+        this.analises_aequeridas = analises_aequeridas;
+    }
+    
         
 }
