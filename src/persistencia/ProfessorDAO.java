@@ -18,9 +18,9 @@ public class ProfessorDAO {
     
      private Conexao con = new Conexao();
      
-    private final String INSERTPROFESSOR = "INSERT INTO PROFESSOR (ID_PROFESSOR, NOME, DEPARTAMENTO, TELEFONE,EMAIL) VALUES (?,?,?,?,?)";
-    private final String UPDATEPROFESSOR = "UPDATE PROFESSOR SET NOME = ? WHERE NOME = ?";
-    private final String DELETEPROFESSOR = "DELETE FROM PROFESSOR WHERE NOME = ?";
+    private final String INSERTPROFESSOR = "INSERT INTO PROFESSOR (NOME_PROFESSOR, DEPARTAMENTO, TELEFONE, EMAIL_PROFESSOR) VALUES (?,?,?,?)";
+    private final String UPDATEPROFESSOR = "UPDATE PROFESSOR SET NOME_PROFESSOR = ?, DEPARTAMENTO = ?, TELEFONE = ?, EMAIL_PROFESSOR = ?";
+    private final String DELETEPROFESSOR = "DELETE FROM PROFESSOR WHERE ID_PROFESSOR = ?";
     //private final String LISTPROFESSOR = "SELECT * FROM PROFESSOR ORDER BY NOME_PROFESSOR";
     
     public boolean insertProfessor(Professor_Orientador p){
@@ -31,11 +31,11 @@ public class ProfessorDAO {
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(INSERTPROFESSOR);
                    
-            preparaInstrucao.setString(1, p.getId_professor());
-            preparaInstrucao.setString(2, p.getNome().toUpperCase());
-            preparaInstrucao.setString(3, p.getDepartamento().toUpperCase());
-            preparaInstrucao.setString(4, p.getTelefone());
-            preparaInstrucao.setString(5, p.getEmail().toUpperCase());        
+           
+            preparaInstrucao.setString(1, p.getNome().toUpperCase());
+            preparaInstrucao.setString(2, p.getDepartamento().toUpperCase());
+            preparaInstrucao.setString(3, p.getTelefone());
+            preparaInstrucao.setString(4, p.getEmail().toUpperCase());        
 
             preparaInstrucao.execute();
             con.desconecta();
@@ -46,7 +46,7 @@ public class ProfessorDAO {
       }
     }
 
- public boolean updateAmostra(String nome, Professor_Orientador p){
+ public boolean updateAmostra(Professor_Orientador p){
         
         try {
 		
@@ -54,8 +54,10 @@ public class ProfessorDAO {
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(UPDATEPROFESSOR);
 		
-            preparaInstrucao.setString(1, nome.toUpperCase());
-            preparaInstrucao.setString(2, p.getId_professor().toUpperCase());
+            preparaInstrucao.setString(1, p.getNome().toUpperCase());
+            preparaInstrucao.setString(2, p.getDepartamento().toUpperCase());
+            preparaInstrucao.setString(3, p.getTelefone().toUpperCase());
+            preparaInstrucao.setString(4, p.getEmail().toUpperCase());
             
             preparaInstrucao.execute();
             con.desconecta();
@@ -66,13 +68,13 @@ public class ProfessorDAO {
 
         }
     }
-public boolean deleteProfessor(Professor_Orientador p) {
+public boolean deleteProfessor(int id) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(DELETEPROFESSOR);
 
-			preparaInstrucao.setString(1, p.getNome());
+			preparaInstrucao.setInt(1, id);
 
 			preparaInstrucao.execute();
 

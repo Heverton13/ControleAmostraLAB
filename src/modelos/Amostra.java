@@ -16,10 +16,8 @@ public class Amostra {
     private int frascos;
     private String observacoes;
     private Date data_entrada;
-    private String id_Solicitante;  
-    private String id_Responsavel; 
     
-    enum Analises_Requeridas {
+    public enum Analises_Requeridas {
     UMIDADE, MATERIA_SECA, MATERIA_MINERAL, EXTRATO_ETEREO, PROTEINA_BRUTA, FIBRA_EM_DERTERGENTE_ACIDO, 
     FIBRA_EM_DERTEGENTE_NEUTRO,PROTEINA_INSULUVEL_EM_DETERGENTE_NEUTRO, 
     PROTEINA_INSULUVEL_EM_DETERGENTE_ACIDO, CARBOIDRATOS_TOTAIS, CARBOIDRATOS_NAO_FIBROSOS,
@@ -27,7 +25,7 @@ public class Amostra {
     };
     private String analises_aequeridas;
 
-    public Amostra(String id_amostra, int id_solicitante, int id_responsavel, String descricao, int frascos, String observacoes, Date data_entrada, String id_Solicitante, String id_Responsavel, String analises_aequeridas) {
+    public Amostra(String id_amostra, int id_solicitante, int id_responsavel, String descricao, int frascos, String observacoes, Date data_entrada, String analises_aequeridas) {
         this.id_amostra = id_amostra;
         this.id_solicitante = id_solicitante;
         this.id_responsavel = id_responsavel;
@@ -35,8 +33,18 @@ public class Amostra {
         this.frascos = frascos;
         this.observacoes = observacoes;
         this.data_entrada = data_entrada;
-        this.id_Solicitante = id_Solicitante;
-        this.id_Responsavel = id_Responsavel;
+        this.analises_aequeridas = analises_aequeridas;
+    }
+
+    public Amostra(int id_solicitante, int id_responsavel, String id_amostra, String descricao, int frascos, String observacoes, Date data_entrada, String analises_aequeridas) {
+        
+        this.id_solicitante = id_solicitante;
+        this.id_responsavel = id_responsavel;
+        this.id_amostra = id_amostra;
+        this.descricao = descricao;
+        this.frascos = frascos;
+        this.observacoes = observacoes;
+        this.data_entrada = data_entrada;
         this.analises_aequeridas = analises_aequeridas;
     }
 
@@ -95,23 +103,7 @@ public class Amostra {
     public void setData_entrada(Date data_entrada) {
         this.data_entrada = data_entrada;
     }
-
-    public String getId_Solicitante() {
-        return id_Solicitante;
-    }
-
-    public void setId_Solicitante(String id_Solicitante) {
-        this.id_Solicitante = id_Solicitante;
-    }
-
-    public String getId_Responsavel() {
-        return id_Responsavel;
-    }
-
-    public void setId_Responsavel(String id_Responsavel) {
-        this.id_Responsavel = id_Responsavel;
-    }
-
+    
     public String getAnalises_aequeridas() {
         return analises_aequeridas;
     }
@@ -121,5 +113,5 @@ public class Amostra {
     }
 
     
-        
+    
 }

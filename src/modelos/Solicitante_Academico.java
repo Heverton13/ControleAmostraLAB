@@ -7,31 +7,35 @@ package modelos;
  */
 public class Solicitante_Academico {
     
-    private String id_solicitante;
-
-    public String getId_solicitante() {
-        return id_solicitante;
-    }
-
-    public void setId_solicitante(String id_solicitante) {
-        this.id_solicitante = id_solicitante;
-    }
-
-    public Solicitante_Academico(String id_solicitante) {
-        this.id_solicitante = id_solicitante;
-    }
+    private int id_solicitante;
     private String nome;
-    private String id_Professor;
+    private int id_Professor;
     private String telefone;
     private String email;
 
-    public Solicitante_Academico(String nome, String po1, String telefone, String email) {
+    public Solicitante_Academico(int id_solicitante,int id_Professor, String nome, String telefone, String email) {
+        this.id_solicitante = id_solicitante;
+        this.nome = nome;
+        this.id_Professor = id_Professor;
+        this.telefone = telefone;
+        this.email = email;
+    }
+
+    public Solicitante_Academico(int po1, String nome, String telefone, String email) {
         this.nome = nome;
         this.id_Professor = po1;
         this.telefone = telefone;
         this.email = email;
     }
+    
+    public int getId_solicitante() {
+        return id_solicitante;
+    }
 
+    public void setId_solicitante(int id_solicitante) {
+        this.id_solicitante = id_solicitante;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -40,11 +44,11 @@ public class Solicitante_Academico {
         this.nome = nome;
     }
 
-    public String getId_Professor() {
+    public int getId_Professor() {
         return id_Professor;
     }
 
-    public void setId_Professor(String id_Professor) {
+    public void setId_Professor(int id_Professor) {
         this.id_Professor = id_Professor;
     }
 

@@ -18,9 +18,9 @@ public class ResponsavelDAO {
     
     private final Conexao con = new Conexao();
     
-        private final String INSERTRESPONSAVEL = "INSERT INTO RESPONSAVEL (ID_RESPONSABEL, ID_AMOSTRA, NOME_RESPONSAVEL, DATA_RECEBIMENTO, HORA, ASSINATURA) VALUES (?,?,?,?,?,?)";
-	private final String UPDATERESPONSAVEL = "UPDATE RESPONSAVEL SET NOME_RESPONSAVEL = ? WHERE NOME_RESPONSAVEL = ?";
-	private final String DELETERESPONSAVEL = "DELETE FROM RESPONSAVEL WHERE NOME_RESPONSAVEL = ?";
+        private final String INSERTRESPONSAVEL = "INSERT INTO RESPONSAVEL (NOME_RESPONSAVEL, DATA_RECEBIMENTO, HORA, ASSINATURA) VALUES (?,?,?,?)";
+	private final String UPDATERESPONSAVEL = "UPDATE RESPONSAVEL SET NOME_RESPONSAVEL = ?, DATA_RECEBIMENTO = ?, HORA = ?, ASSISNATURA = ?";
+	private final String DELETERESPONSAVEL = "DELETE FROM RESPONSAVEL WHERE ID_RESPONSAVEL = ?";
     
         public boolean insertAutor(Responsavel r) {
 		try {
@@ -28,12 +28,11 @@ public class ResponsavelDAO {
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(INSERTRESPONSAVEL);
 
-			preparaInstrucao.setString(1, r.getId_responsavel().toUpperCase());
-			preparaInstrucao.setString(2, r.getId_amostra().toUpperCase());
-                        preparaInstrucao.setString(3, r.getNome().toUpperCase());
-			preparaInstrucao.setDate(4, (Date) r.getData());
-                        preparaInstrucao.setTime(5, r.getHora());
-			preparaInstrucao.setString(6, r.getAssinatura().toUpperCase());
+			
+                        preparaInstrucao.setString(1, r.getNome().toUpperCase());
+			preparaInstrucao.setDate(2, new java.sql.Date(r.getData().getTime()));
+                        preparaInstrucao.setTime(3, r.getHora());
+			preparaInstrucao.setString(4, r.getAssinatura().toUpperCase());
 
 			preparaInstrucao.execute();
 
@@ -44,13 +43,16 @@ public class ResponsavelDAO {
 			return false;
 		}
 	}
-    public boolean updateResponsavel(String nome, Responsavel r) {
+    public boolean updateResponsavel(Responsavel r) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(UPDATERESPONSAVEL);
-			preparaInstrucao.setString(1, nome.toUpperCase());
-			preparaInstrucao.setString(2, r.getNome().toUpperCase());
+                        
+			preparaInstrucao.setString(1, r.getNome().toUpperCase());
+			preparaInstrucao.setDate(2, (Date) r.getData());
+                        preparaInstrucao.setTime(3, r.getHora());
+                        preparaInstrucao.setString(4, r.getAssinatura().toUpperCase());
 			preparaInstrucao.execute();
 
 			con.desconecta();
@@ -62,13 +64,13 @@ public class ResponsavelDAO {
 		}
 	}    
         
-    public boolean deleteResponsavel(Responsavel r) {
+    public boolean deleteResponsavel(int idResponsavel) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(DELETERESPONSAVEL);
 
-			preparaInstrucao.setString(1, r.getNome().toUpperCase());
+			preparaInstrucao.setInt(1, idResponsavel);
 
 			preparaInstrucao.execute();
 

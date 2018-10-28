@@ -8,23 +8,19 @@ package modelos;
 public class Professor_Orientador {
    
     
-    private String id_professor;
-
-    public String getId_professor() {
-        return id_professor;
-    }
-
-    public void setId_professor(String id_professor) {
-        this.id_professor = id_professor;
-    }
-
-    public Professor_Orientador(String id_professor) {
-        this.id_professor = id_professor;
-    }
+    private int id_professor;   
     private String nome;
     private String departamento;
     private String telefone;
     private String email;
+
+    public Professor_Orientador(int id_professor, String nome, String departamento, String telefone, String email) {
+        this.id_professor = id_professor;
+        this.nome = nome;
+        this.departamento = departamento;
+        this.telefone = telefone;
+        this.email = email;
+    }
 
     public Professor_Orientador(String nome, String departamento, String telefone, String email) {
         this.nome = nome;
@@ -64,5 +60,14 @@ public class Professor_Orientador {
     public void setEmail(String email) {
         this.email = email;
     }
+    
+    public int getId_professor() {
+        return id_professor;
+    }
+
+    public void setId_professor(int id_professor) {
+        this.id_professor = id_professor;
+    }
+
         
 }

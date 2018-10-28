@@ -15,8 +15,8 @@ import modelos.Solicitante_Academico;
 public class SolicitanteDAO {
     private final Conexao con = new Conexao();
     
-        private final String INSERTSOLICITANTE = "INSERT INTO SOLICITANTE (ID_SOLICITANTE, ID_PROFESSOR, NOME, TELEFONE, EMAIL) VALUES (?,?,?,?,?)";
-	private final String UPDATESOLICITANTE = "UPDATE SOLICITANTE SET ID_SOLICITANTE = ? WHERE ID_SOLICITANTE = ?";
+        private final String INSERTSOLICITANTE = "INSERT INTO SOLICITANTE (ID_PROFESSOR, NOME_SOLICITANTE, TELEFONE, EMAIL_SOLICITANTE) VALUES (?,?,?,?)";
+	private final String UPDATESOLICITANTE = "UPDATE SOLICITANTE SET ID_PROFESSOR = ?, NOME_SOLICITANTE =?, TELEFONE  = ?,EMAIL_SOLICITANTE = ?";
 	private final String DELETESOLICITANTE = "DELETE FROM SOLICITANTE WHERE ID_SOLICITANTE = ?";
     
         public boolean insertSolicitante(Solicitante_Academico s) {
@@ -25,8 +25,8 @@ public class SolicitanteDAO {
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(INSERTSOLICITANTE);
 
-			preparaInstrucao.setString(1, s.getId_solicitante().toUpperCase());
-                    //   preparaInstrucao.setString(2, s.getId_professor().toUpperCase());
+			
+                       preparaInstrucao.setInt(1, s.getId_Professor());
 			preparaInstrucao.setString(2, s.getNome().toUpperCase());
 			preparaInstrucao.setString(3, s.getTelefone());
                         preparaInstrucao.setString(4, s.getEmail().toUpperCase());
@@ -40,13 +40,16 @@ public class SolicitanteDAO {
 		}        
 }
         
-public boolean updateProfessor(String nome, Solicitante_Academico s) {
+public boolean updateProfessor(Solicitante_Academico s) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(UPDATESOLICITANTE);
 
-			preparaInstrucao.setString(1, s.getId_solicitante().toUpperCase());
+			preparaInstrucao.setInt(1, s.getId_Professor());
+                        preparaInstrucao.setString(2, s.getNome().toUpperCase());
+                        preparaInstrucao.setString(3, s.getTelefone().toUpperCase());
+                        preparaInstrucao.setString(4, s.getEmail().toUpperCase());
 
 			preparaInstrucao.execute();
 			con.desconecta();			
@@ -57,13 +60,13 @@ public boolean updateProfessor(String nome, Solicitante_Academico s) {
 
 		}
 	}
-public boolean deleteAutor(Solicitante_Academico s) {
+public boolean deleteAutor(int idSolicitante) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(DELETESOLICITANTE);
 
-			preparaInstrucao.setString(1, s.getId_solicitante().toUpperCase());
+			preparaInstrucao.setInt(1,  idSolicitante);
 			preparaInstrucao.execute();
 
 			con.desconecta();			

@@ -6,10 +6,19 @@
 package persistencia;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelos.Amostra;
+import modelos.Professor_Orientador;
+import modelos.Responsavel;
+import modelos.Solicitante_Academico;
 
 /**
  *
@@ -24,8 +33,9 @@ public class Conexao {
        postgre na máquina exemplo localhost:5432 ou localhost:5433 ou qualquer outro, sempre verificar
        o mesmo vale para p usuário e senha postados acima.
     */
-    private static final String CAMINHO = "jdbc:postgresql://localhost:5432/labnutricao";
+    private static final String CAMINHO = "jdbc:postgresql://localhost:5433/labnutricao";
     private static final String DRIVER = "org.postgresql.Driver";
+   
     private Connection conexao;
     
     public void conecta(){
@@ -52,4 +62,20 @@ public class Conexao {
     public Connection getConexao(){
         return conexao;
     }
+    
+    /*
+    public static void main(String[] args) throws ParseException {
+        Conexao con = new Conexao();
+        
+        AmostraDAO ata = new AmostraDAO();
+        SolicitanteDAO sa = new SolicitanteDAO();
+        
+        
+        Professor_Orientador p2 = new Professor_Orientador(3,"Procopio", "Matemática", "99443344", "procopio@gmail.com");
+        Solicitante_Academico ss = new Solicitante_Academico(1,3, "Heverton Gomes", "92544455", "evolui@gmail.com");
+        
+        
+                PARAR TESTES
+    }
+    */
 }

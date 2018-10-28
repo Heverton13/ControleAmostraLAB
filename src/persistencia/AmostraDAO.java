@@ -24,9 +24,9 @@ public class AmostraDAO {
     
     private Conexao con = new Conexao();
     
-    private final String INSERTAMOSTRA = "INSERT INTO AMOSTRA (IDENTIFICACAO_AMOSTRA, ID_SOLICITANTE, ID_REPONSAVEL, DESCRICAO, FRACOS,OBSERVACOES,DATA_ENTRADA,TIPO_AMOSTRA) VALUES (?,?,?,?,?,?)";
-    private final String UPDATEAMOSTRA = "UPDATE AMOSTRA SET IDENTIFICACAO_AMOSTRA = ? WHERE IDENTIFICACAO_AMOSTRA = ?";
-    private final String DELETEAAMOSTRA = "DELETE FROM AMOSTRA WHERE IDENTIFICACAO_AMOSTRA = ?";
+    private final String INSERTAMOSTRA = "INSERT INTO AMOSTRA (IDENTIFICACAO_AMOSTRA, ID_SOLICITANTE, ID_REPONSAVEL, DESCRICAO, FRACOS,OBSERVACOES,DATA_ENTRADA,TIPO_AMOSTRA) VALUES (?,?,?,?,?,?,?,?)";
+    private final String UPDATEAMOSTRA = "UPDATE AMOSTRA SET IDENTIFICACAO_AMOSTRA = ? ID_SOLICITANTE = ? ID_REPONSAVEL = ?, DESCRICAO = ?, FRACOS = ?, OBSERVACOES = ?, DATA_ENTRADA = ?, TIPO_AMOSTRA = ?";
+    private final String DELETEAAMOSTRA = "DELETE FROM AMOSTRA WHERE ID_AMOSTRA = ?";
     private final String LISTAMOSTRA = "SELECT * FROM AMOSTRA ORDER BY IDENTIFICACAO_AMOSTRA";
     
     public boolean inserirAmostra(Amostra a){
@@ -43,19 +43,15 @@ public class AmostraDAO {
                (Tirar dúvidas na terça)
             */
             
-            Solicitante_Academico sa = null;
-            Responsavel r = null;
             
             preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
-            preparaInstrucao.setInt(2, a.getId_solicitante());
-            preparaInstrucao.setInt(3, a.getId_responsavel());
+            preparaInstrucao.setInt(2, a.getId_responsavel());
+            preparaInstrucao.setInt(3, a.getId_solicitante());
             preparaInstrucao.setString(4, a.getDescricao().toUpperCase());
             preparaInstrucao.setInt(5, a.getFrascos());
             preparaInstrucao.setString(6, a.getObservacoes().toUpperCase());
             preparaInstrucao.setDate(7, (Date) a.getData_entrada());
-            preparaInstrucao.setString(8, a.getId_Solicitante().toUpperCase());
-            preparaInstrucao.setString(9, a.getId_Responsavel().toUpperCase());
-            preparaInstrucao.setString(10, a.getAnalises_aequeridas());
+            preparaInstrucao.setString(8, a.getAnalises_aequeridas());
 
             preparaInstrucao.execute();
             con.desconecta();
@@ -66,7 +62,7 @@ public class AmostraDAO {
         }
     }
     
-    public boolean updateAmostra(String identificacao, Amostra a){
+    public boolean updateAmostra(Amostra a){
         
         
         try {
@@ -76,8 +72,14 @@ public class AmostraDAO {
             preparaInstrucao = con.getConexao().prepareStatement(UPDATEAMOSTRA);
 
 			
-            preparaInstrucao.setString(1, identificacao.toUpperCase());
-            preparaInstrucao.setString(2, a.getId_amostra().toUpperCase());
+            preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
+            preparaInstrucao.setInt(2, a.getId_solicitante());
+            preparaInstrucao.setInt(3, a.getId_responsavel());
+            preparaInstrucao.setString(4, a.getDescricao().toUpperCase());
+            preparaInstrucao.setInt(5, a.getFrascos());
+            preparaInstrucao.setString(6, a.getObservacoes().toUpperCase());
+            preparaInstrucao.setDate(7, (Date) a.getData_entrada());
+            preparaInstrucao.setString(8, a.getAnalises_aequeridas().toUpperCase());
             
             preparaInstrucao.execute();
 
@@ -91,7 +93,7 @@ public class AmostraDAO {
         }
     }
     
-    public boolean deleteAmostra(Amostra a){
+    public boolean deleteAmostra(int idAmostra){
         
         try {
             
@@ -99,7 +101,7 @@ public class AmostraDAO {
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(DELETEAAMOSTRA);
 
-            preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
+            preparaInstrucao.setInt(1, idAmostra);
 
             preparaInstrucao.execute();
 
@@ -127,7 +129,7 @@ public class AmostraDAO {
 			
             while (rs.next()) { 
                 
-                Amostra a = new Amostra(rs.getString("IDENTIFICACAO_AMOSTRA"),rs.getInt("ID_Amostra"),rs.getInt("ID_RESPONSAVEL"), rs.getString("DESCRICAO"), rs.getInt("FRASCOS"), rs.getString("OBSERVACOES"), rs.getDate("DATA_ENTRADA"), rs.getString("SOLICITANTE_ACADEMICO"), rs.getString(LISTAMOSTRA),rs.getString("TIPO_AMOSTRA"));
+                Amostra a = new Amostra(rs.getString("IDENTIFICACAO_AMOSTRA"),rs.getInt("ID_Amostra"),rs.getInt("ID_RESPONSAVEL"), rs.getString("DESCRICAO"), rs.getInt("FRASCOS"), rs.getString("OBSERVACOES"), rs.getDate("DATA_ENTRADA"),rs.getString("TIPO_AMOSTRA"));
 		lista.add(a); 
                 
             }
