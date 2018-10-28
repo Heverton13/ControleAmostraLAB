@@ -7,6 +7,19 @@ package modelos;
  */
 public class Solicitante_Academico {
     
+    private String id_solicitante;
+
+    public String getId_solicitante() {
+        return id_solicitante;
+    }
+
+    public void setId_solicitante(String id_solicitante) {
+        this.id_solicitante = id_solicitante;
+    }
+
+    public Solicitante_Academico(String id_solicitante) {
+        this.id_solicitante = id_solicitante;
+    }
     private String nome;
     private String id_Professor;
     private String telefone;
