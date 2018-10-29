@@ -73,13 +73,11 @@ public class AmostraDAO {
 
 			
             preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
-            preparaInstrucao.setInt(2, a.getId_solicitante());
-            preparaInstrucao.setInt(3, a.getId_responsavel());
-            preparaInstrucao.setString(4, a.getDescricao().toUpperCase());
-            preparaInstrucao.setInt(5, a.getFrascos());
-            preparaInstrucao.setString(6, a.getObservacoes().toUpperCase());
-            preparaInstrucao.setDate(7, (Date) a.getData_entrada());
-            preparaInstrucao.setString(8, a.getAnalises_aequeridas().toUpperCase());
+            preparaInstrucao.setString(2, a.getDescricao().toUpperCase());
+            preparaInstrucao.setInt(3, a.getFrascos());
+            preparaInstrucao.setString(4, a.getObservacoes().toUpperCase());
+            preparaInstrucao.setDate(5, (Date) a.getData_entrada());
+            preparaInstrucao.setString(6, a.getAnalises_aequeridas().toUpperCase());
             
             preparaInstrucao.execute();
 
