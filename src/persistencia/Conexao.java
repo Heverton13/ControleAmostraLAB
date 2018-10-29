@@ -33,7 +33,7 @@ public class Conexao {
        postgre na máquina exemplo localhost:5432 ou localhost:5433 ou qualquer outro, sempre verificar
        o mesmo vale para p usuário e senha postados acima.
     */
-    private static final String CAMINHO = "jdbc:postgresql://localhost:5433/labnutricao";
+    private static final String CAMINHO = "jdbc:postgresql://localhost:5432/labnutricao";
     private static final String DRIVER = "org.postgresql.Driver";
    
     private Connection conexao;
@@ -69,13 +69,19 @@ public class Conexao {
         
         AmostraDAO ata = new AmostraDAO();
         SolicitanteDAO sa = new SolicitanteDAO();
+        ProfessorDAO pa = new ProfessorDAO();
         
         
-        Professor_Orientador p2 = new Professor_Orientador(3,"Procopio", "Matemática", "99443344", "procopio@gmail.com");
-        Solicitante_Academico ss = new Solicitante_Academico(1,3, "Heverton Gomes", "92544455", "evolui@gmail.com");
+        Professor_Orientador p2 = new Professor_Orientador(1,"Procopio", "Matemática", "99443344", "procopio@gmail.com");
+        Solicitante_Academico ss = new Solicitante_Academico(1,1, "Heverton Gomes", "92544455", "evolui@gmail.com");
         
+        sa.insertSolicitante(ss);
         
-                PARAR TESTES
+        //GET Values datepicker retornar um local date - transformar local date
+        
+        //Amostra a = new Amostra("AAA", 2,1,"TESTE", 2, "fff", data_entrada, "sss");
     }
+
     */
+    
 }

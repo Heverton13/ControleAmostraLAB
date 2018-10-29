@@ -19,7 +19,7 @@
                   <Image url="@../icones/icons8-tubo-de-ensaio-64.png" />
                </image>
             </ImageView>
-            <Label fx:id="labelPrincipal" prefHeight="24.0" prefWidth="361.0" text="Laboratório Multiusuário de Nutrição Animal">
+            <Label fx:id="labelPrincipal" prefHeight="24.0" prefWidth="361.0" text="Laboratório Multiusuário de Nutrição Animal" textAlignment="CENTER">
                <font>
                   <Font size="17.0" />
                </font>

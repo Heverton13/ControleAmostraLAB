@@ -5,18 +5,19 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
 <?import com.jfoenix.validation.IntegerValidator?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="465.0" prefWidth="617.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorAmostra">
+<VBox alignment="CENTER" prefHeight="466.0" prefWidth="617.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorAmostra">
    <children>
-      <JFXTextField fx:id="IdentificacaoAmostra" focusColor="#39da49" labelFloat="true" minHeight="-Infinity" prefHeight="25.0" prefWidth="538.0" promptText="Identificação da Amostra" />
-      <JFXTextField fx:id="Descricao" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="194.0" promptText="Descrição" />
-      <JFXTextField fx:id="Frascos" editable="false" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="496.0" promptText="Frascos" />
-      <JFXTextField fx:id="RecebidoPor" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="461.0" promptText="Recebido Por" />
-      <JFXTextField fx:id="Responsavel" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="200.0" promptText="Responsável" />
-      <JFXTextField fx:id="Observacoes" focusColor="#39da49" labelFloat="true" prefHeight="25.0" prefWidth="396.0" promptText="Observações" />
+      <JFXTextField fx:id="IdentificacaoAmostra" focusColor="#39da49" labelFloat="true" maxWidth="400.0" minHeight="-Infinity" prefHeight="25.0" prefWidth="538.0" promptText="Identificação da Amostra" />
+      <JFXTextField fx:id="Descricao" focusColor="#39da49" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="194.0" promptText="Descrição" />
+      <JFXTextField fx:id="Frascos" editable="false" focusColor="#39da49" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="496.0" promptText="Frascos" />
+      <JFXTextField fx:id="RecebidoPor" focusColor="#39da49" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="461.0" promptText="Recebido Por" />
+      <JFXTextField fx:id="Responsavel" focusColor="#39da49" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="200.0" promptText="Responsável" />
+      <JFXTextField fx:id="Observacoes" focusColor="#39da49" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="396.0" promptText="Observações" />
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
             <JFXDatePicker fx:id="dataAmostra" />
@@ -39,4 +40,7 @@
       </HBox>
       <IntegerValidator />
    </children>
+   <padding>
+      <Insets top="20.0" />
+   </padding>
 </VBox>
