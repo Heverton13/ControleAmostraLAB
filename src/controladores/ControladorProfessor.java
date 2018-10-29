@@ -6,7 +6,6 @@
 package controladores;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -18,14 +17,22 @@ import javafx.fxml.Initializable;
  *
  * @author Heverton
  */
-public class ControladorLogin implements Initializable {
+public class ControladorProfessor implements Initializable {
 
     @FXML
-    private JFXTextField loginUser;
+    private JFXTextField nomeProfessor;
     @FXML
-    private JFXPasswordField senhaUser;
+    private JFXTextField departamentoProfessor;
     @FXML
-    private JFXButton btAutenticar;
+    private JFXTextField telefoneProfessor;
+    @FXML
+    private JFXTextField emailProfessor;
+    @FXML
+    private JFXButton btCadastrar;
+    @FXML
+    private JFXButton btEditar;
+    @FXML
+    private JFXButton btExcluir;
 
     /**
      * Initializes the controller class.

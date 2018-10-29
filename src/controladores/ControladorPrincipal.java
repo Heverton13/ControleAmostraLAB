@@ -98,11 +98,11 @@ public class ControladorPrincipal implements Initializable {
     }
     
     @FXML
-    private void telaLogin(){
+    private void telaProfessor(){
          try {
-            Parent telaLogin = FXMLLoader.load(getClass().getResource("/telasFX/TelaLogin.fxml"));
+            Parent telaLogin = FXMLLoader.load(getClass().getResource("/telasFX/TelaProfessor.fxml"));
             borderPrincipal.setCenter(telaLogin);
-            labelPrincipal.setText("Tela de Login");
+            labelPrincipal.setText("Cadastro de Professor");
         } catch (IOException ex) {
             ex.printStackTrace();
             //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);

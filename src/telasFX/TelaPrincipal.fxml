@@ -47,7 +47,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="Btlogin" alignment="BASELINE_LEFT" onAction="#telaLogin" prefHeight="53.0" prefWidth="304.0" text="Login" textFill="#111010">
+            <JFXButton fx:id="Btlogin" alignment="BASELINE_LEFT" onAction="#telaProfessor" prefHeight="53.0" prefWidth="304.0" text="Orientador" textFill="#111010">
                <font>
                   <Font size="17.0" />
                </font>
