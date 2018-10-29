@@ -27,9 +27,8 @@ public class SolicitanteDAO {
 			con.conecta();
 			PreparedStatement preparaInstrucao;
 			preparaInstrucao = con.getConexao().prepareStatement(INSERTSOLICITANTE);
-
 			
-                       preparaInstrucao.setInt(1, s.getId_Professor());
+                        preparaInstrucao.setInt(1, s.getId_Professor());
 			preparaInstrucao.setString(2, s.getNome().toUpperCase());
 			preparaInstrucao.setString(3, s.getTelefone());
                         preparaInstrucao.setString(4, s.getEmail_solicitante().toUpperCase());
@@ -43,7 +42,7 @@ public class SolicitanteDAO {
 		}        
 }
         
-public boolean updateProfessor(Solicitante_Academico s) {
+public boolean updateSolicitante(Solicitante_Academico s) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;
@@ -60,10 +59,10 @@ public boolean updateProfessor(Solicitante_Academico s) {
 
 		} catch (SQLException e) {
 			return false;
-
 		}
 	}
-public boolean deleteAutor(int idSolicitante) {
+
+public boolean deleteSolicitante(int idSolicitante) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;

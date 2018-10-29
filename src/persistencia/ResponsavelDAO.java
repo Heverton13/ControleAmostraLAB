@@ -25,7 +25,7 @@ public class ResponsavelDAO {
 	private final String DELETERESPONSAVEL = "DELETE FROM RESPONSAVEL WHERE ID_RESPONSAVEL = ?";
         private final String LISTRESPONSAVEL = "SELECT * FROM RESPONSAVEL ORDER BY NOME";
         
-        public boolean insertAutor(Responsavel r) {
+        public boolean insertResponsavel(Responsavel r) {
 		try {
 			con.conecta();
 			PreparedStatement preparaInstrucao;

@@ -48,7 +48,7 @@ public class ProfessorDAO {
       }
     }
 
- public boolean updateAmostra(Professor_Orientador p){
+ public boolean updateProfessor(Professor_Orientador p){
         
         try {
 		
