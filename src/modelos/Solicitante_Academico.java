@@ -11,21 +11,21 @@ public class Solicitante_Academico {
     private String nome;
     private int id_Professor;
     private String telefone;
-    private String email;
+    private String email_solicitante;
 
-    public Solicitante_Academico(int id_solicitante,int id_Professor, String nome, String telefone, String email) {
+    public Solicitante_Academico(int id_solicitante,int id_Professor, String nome, String telefone, String email_solicitante) {
         this.id_solicitante = id_solicitante;
         this.nome = nome;
         this.id_Professor = id_Professor;
         this.telefone = telefone;
-        this.email = email;
+        this.email_solicitante = email_solicitante;
     }
 
-    public Solicitante_Academico(int po1, String nome, String telefone, String email) {
+    public Solicitante_Academico(int po1, String nome, String telefone, String email_solicitante) {
         this.nome = nome;
         this.id_Professor = po1;
         this.telefone = telefone;
-        this.email = email;
+        this.email_solicitante = email_solicitante;
     }
     
     public int getId_solicitante() {
@@ -60,12 +60,12 @@ public class Solicitante_Academico {
         this.telefone = telefone;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmail_solicitante() {
+        return email_solicitante;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail_solicitante(String email_solicitante) {
+        this.email_solicitante = email_solicitante;
     }
     
 }

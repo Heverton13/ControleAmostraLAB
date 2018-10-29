@@ -7,7 +7,9 @@ package persistencia;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import modelos.Responsavel;
 
 /**
@@ -21,7 +23,8 @@ public class ResponsavelDAO {
         private final String INSERTRESPONSAVEL = "INSERT INTO RESPONSAVEL (NOME_RESPONSAVEL, DATA_RECEBIMENTO, HORA, ASSINATURA) VALUES (?,?,?,?)";
 	private final String UPDATERESPONSAVEL = "UPDATE RESPONSAVEL SET NOME_RESPONSAVEL = ?, DATA_RECEBIMENTO = ?, HORA = ?, ASSISNATURA = ?";
 	private final String DELETERESPONSAVEL = "DELETE FROM RESPONSAVEL WHERE ID_RESPONSAVEL = ?";
-    
+        private final String LISTRESPONSAVEL = "SELECT * FROM RESPONSAVEL ORDER BY NOME";
+        
         public boolean insertAutor(Responsavel r) {
 		try {
 			con.conecta();
@@ -79,7 +82,30 @@ public class ResponsavelDAO {
 			return true;
 
 		} catch (SQLException e) {
-		}	
-                return false;	
+                   return false;	 
+                }	              
 	}
+    
+    public ArrayList<Responsavel> listResponsavel(){
+      
+      ArrayList<Responsavel> lista = new ArrayList<>(); 
+
+	try {			
+            con.conecta();
+            PreparedStatement preparaInstrucao;
+            preparaInstrucao = con.getConexao().prepareStatement(LISTRESPONSAVEL); 
+			
+            ResultSet rs = preparaInstrucao.executeQuery(); 
+			
+            while (rs.next()) { 
+                
+                Responsavel a = new Responsavel(rs.getInt("ID_RESPONSAVEL"),rs.getString("NOME"),rs.getDate("DATA"), rs.getTime("HORA"), rs.getString("ASSINATURA"));
+		lista.add(a);               
+            }           
+            con.desconecta();          
+            } catch (SQLException e) {
+            }
+            return lista;
+     
+  }
 }
