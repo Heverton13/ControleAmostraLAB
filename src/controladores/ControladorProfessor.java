@@ -11,11 +11,13 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
- * @author Heverton
+ * @author Heverton Gomes
  */
 public class ControladorProfessor implements Initializable {
 
@@ -28,11 +30,21 @@ public class ControladorProfessor implements Initializable {
     @FXML
     private JFXTextField emailProfessor;
     @FXML
+    private TableView<?> tabelaProfessor;
+    @FXML
+    private TableColumn<?, ?> nome;
+    @FXML
+    private TableColumn<?, ?> departamento;
+    @FXML
+    private TableColumn<?, ?> telefone;
+    @FXML
+    private TableColumn<?, ?> email;
+    @FXML
     private JFXButton btCadastrar;
     @FXML
-    private JFXButton btEditar;
-    @FXML
     private JFXButton btExcluir;
+    @FXML
+    private JFXButton btEditar;
 
     /**
      * Initializes the controller class.

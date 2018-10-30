@@ -2,55 +2,92 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="470.0" prefWidth="620.0" spacing="30.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorProfessor">
+<VBox alignment="CENTER" prefHeight="525.0" prefWidth="1016.0" spacing="30.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorProfessor">
    <children>
-      <ImageView fitHeight="119.0" fitWidth="169.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../icones/users.png" />
-         </image>
-      </ImageView>
-      <JFXTextField fx:id="nomeProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="NOME" unFocusColor="BLACK">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField fx:id="departamentoProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="DEPARTAMENTO" unFocusColor="BLACK">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField fx:id="telefoneProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="TELEFONE" unFocusColor="BLACK">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </JFXTextField>
-      <JFXTextField fx:id="emailProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="EMAIL" unFocusColor="BLACK">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </JFXTextField>
+      <HBox alignment="CENTER" prefHeight="46.0" prefWidth="1016.0" spacing="30.0">
+         <children>
+            <JFXTextField fx:id="nomeProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="NOME" unFocusColor="BLACK">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="departamentoProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="DEPARTAMENTO" unFocusColor="BLACK">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="52.0" prefWidth="1016.0" spacing="30.0">
+         <children>
+            <JFXTextField fx:id="telefoneProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="TELEFONE" unFocusColor="BLACK">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+            <JFXTextField fx:id="emailProfessor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="EMAIL" unFocusColor="BLACK">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </JFXTextField>
+         </children>
+      </HBox>
+      <TableView fx:id="tabelaProfessor" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="nome" prefWidth="75.0" text="NOME" />
+          <TableColumn fx:id="departamento" prefWidth="130.0" text="DEPARTAMENTO" />
+            <TableColumn fx:id="telefone" prefWidth="75.0" text="TELEFONE" />
+            <TableColumn fx:id="email" prefWidth="75.0" text="E-MAIL" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
          <children>
-            <JFXButton fx:id="btCadastrar" prefHeight="47.0" prefWidth="139.0" style="-fx-background-color: #39da49;" text="CADASTRAR">
+            <JFXButton fx:id="btCadastrar" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="CADASTRAR">
                <font>
                   <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icones/icons8-adicionar-usuário-masculino-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="btEditar" prefHeight="47.0" prefWidth="139.0" style="-fx-background-color: #0000FF;" text="EDITAR">
+            <JFXButton fx:id="btExcluir" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="EXCLUIR">
                <font>
                   <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icones/icons8-remover-usuário-masculino-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
-            <JFXButton fx:id="btExcluir" prefHeight="47.0" prefWidth="139.0" style="-fx-background-color: #FF0000;" text="EXCLUIR">
+            <JFXButton fx:id="btEditar" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="EDITAR">
                <font>
                   <Font size="15.0" />
                </font>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icones/icons8-lápis-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
          </children>
       </HBox>

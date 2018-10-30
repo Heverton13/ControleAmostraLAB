@@ -1,19 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="465.0" prefWidth="617.0" spacing="40.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorSolicitante">
+<VBox alignment="CENTER" prefHeight="662.0" prefWidth="1016.0" spacing="40.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorSolicitante">
    <children>
-      <JFXTextField fx:id="NomeAutorizador" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="503.0" promptText="Autorizado por:" />
-      <JFXTextField fx:id="TelefoneSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="508.0" promptText="Telefone:" />
-      <JFXTextField fx:id="EmailSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="504.0" promptText="E-mail:" />
-      <JFXTextField fx:id="NomeSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="501.0" promptText="Nome do Solicitante:" />
+      <HBox alignment="CENTER" prefHeight="39.0" prefWidth="617.0" spacing="30.0">
+         <children>
+            <JFXComboBox fx:id="comboProfessores" focusColor="MEDIUMSEAGREEN" prefHeight="25.0" prefWidth="399.0" promptText="AUTORIZADO POR:" />
+            <JFXTextField fx:id="NomeSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="501.0" promptText="NOME DO SOLICITANTE" />
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="55.0" prefWidth="1016.0" spacing="30.0">
+         <children>
+            <JFXTextField fx:id="TelefoneSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="508.0" promptText="TELEFONE" />
+            <JFXTextField fx:id="EmailSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="504.0" promptText="E-MAIL" />
+         </children>
+      </HBox>
+      <TableView fx:id="tableSolicitante" prefHeight="200.0" prefWidth="200.0">
+        <columns>
+          <TableColumn fx:id="nomeSolicitante" prefWidth="150.0" text="NOME DO SOLICITANTE" />
+            <TableColumn fx:id="telefoneSolicitante" prefWidth="75.0" text="TELEFONE" />
+            <TableColumn fx:id="emailSolicitante" prefWidth="75.0" text="E-MAIL" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
       <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
          <children>
             <JFXButton fx:id="BtAdicionar" prefHeight="55.0" prefWidth="165.0" style="-fx-background-color: #3CB371;" text="Adicionar" textFill="#323131">
@@ -28,7 +49,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtCancelar" prefHeight="36.0" prefWidth="157.0" style="-fx-background-color: #FF0000;" text="Cancelar">
+            <JFXButton fx:id="BtCancelar" prefHeight="36.0" prefWidth="157.0" style="-fx-background-color: #3CB371;" text="Cancelar">
                <font>
                   <Font size="20.0" />
                </font>
@@ -40,7 +61,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="BtEditar" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #0000FF;" text="Editar" textFill="#323131">
+            <JFXButton fx:id="BtEditar" prefHeight="55.0" prefWidth="156.0" style="-fx-background-color: #3CB371;" text="Editar" textFill="#323131">
                <font>
                   <Font size="20.0" />
                </font>
