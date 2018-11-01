@@ -22,6 +22,14 @@ import javafx.scene.control.TableView;
 public class ControladorProfessor implements Initializable {
 
     @FXML
+    private TableColumn<?, ?> email;
+    @FXML
+    private JFXButton btCadastrar;
+    @FXML
+    private JFXButton btExcluir;
+    @FXML
+    private JFXButton btEditar;
+    @FXML
     private JFXTextField nomeProfessor;
     @FXML
     private JFXTextField departamentoProfessor;
@@ -37,14 +45,6 @@ public class ControladorProfessor implements Initializable {
     private TableColumn<?, ?> departamento;
     @FXML
     private TableColumn<?, ?> telefone;
-    @FXML
-    private TableColumn<?, ?> email;
-    @FXML
-    private JFXButton btCadastrar;
-    @FXML
-    private JFXButton btExcluir;
-    @FXML
-    private JFXButton btEditar;
 
     /**
      * Initializes the controller class.

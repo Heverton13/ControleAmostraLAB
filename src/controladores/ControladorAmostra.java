@@ -5,6 +5,7 @@
  */
 package controladores;
 
+
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
@@ -13,35 +14,76 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 
 /**
  * FXML Controller class
  *
- * @author Heverton
+ * @author Denys
  */
 public class ControladorAmostra implements Initializable {
 
-    @FXML
-    private JFXTextField Frascos;
-    @FXML
-    private JFXTextField Observacoes;
-    @FXML
-    private JFXTextField RecebidoPor;
-    @FXML
-    private JFXTextField Responsavel;
-    @FXML
-    private JFXTextField Descricao;
-    @FXML
-    private JFXTextField IdentificacaoAmostra;
-    @FXML
-    private JFXTimePicker HoraAmostra;
-    @FXML
-    private JFXDatePicker DataAmostra1;
-    @FXML
-    private JFXButton selecionarAnalises;
-    @FXML
-    private JFXButton concluirAmostra;
+  @FXML
+    private JFXTextField idAmostra;
 
+    @FXML
+    private JFXTextField descricaoAmostra;
+
+    @FXML
+    private JFXTextField frascosAmostra;
+
+    @FXML
+    private JFXTextField recebidoPor;
+
+    @FXML
+    private JFXTextField responsavelAmostra;
+
+    @FXML
+    private JFXTextField obervacoesAmostra;
+
+    @FXML
+    private JFXDatePicker dataAmostra;
+
+    @FXML
+    private JFXTimePicker horaAmostra;
+
+    @FXML
+    private TableView<?> TabelaAmostra;
+
+    @FXML
+    private TableColumn<?, ?> id;
+
+    @FXML
+    private TableColumn<?, ?> descricao;
+
+    @FXML
+    private TableColumn<?, ?> frascos;
+
+    @FXML
+    private TableColumn<?, ?> recebido;
+
+    @FXML
+    private TableColumn<?, ?> responsavel;
+
+    @FXML
+    private TableColumn<?, ?> observacoes;
+
+    @FXML
+    private TableColumn<?, ?> data;
+
+    @FXML
+    private TableColumn<?, ?> hora;
+
+    @FXML
+    private JFXButton btCadastrarAmostra;
+
+    @FXML
+    private JFXButton btExcluirAmostra;
+
+    @FXML
+    private JFXButton btEditarAmostra;
+ 
     /**
      * Initializes the controller class.
      */

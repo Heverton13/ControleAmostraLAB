@@ -1,19 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="525.0" prefWidth="634.0" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TelaHistoricoController">
+<VBox alignment="CENTER" prefHeight="525.0" prefWidth="634.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TelaHistoricoController">
    <children>
-      <ImageView fitHeight="98.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="87.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../icones/clipboards.png" />
          </image>
       </ImageView>
-      <TableView prefHeight="375.0" prefWidth="634.0">
+      <TableView prefHeight="318.0" prefWidth="634.0">
         <columns>
           <TableColumn fx:id="colunaAmostra" prefWidth="173.0" text="IDENTIFICAÇÃO AMOSTRA" />
           <TableColumn fx:id="colunaDescricao" minWidth="0.0" prefWidth="82.0" text="DESCRIÇÃO" />
@@ -24,5 +25,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
+      <JFXButton fx:id="btGerarEtiqueta" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: #3CB371;" text="GERAR ETIQUETA" />
    </children>
 </VBox>

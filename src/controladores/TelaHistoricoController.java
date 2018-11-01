@@ -5,6 +5,7 @@
  */
 package controladores;
 
+import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -26,6 +27,8 @@ public class TelaHistoricoController implements Initializable {
     private TableColumn<?, ?> colunaFrascos;
     @FXML
     private TableColumn<?, ?> colunaAR;
+    @FXML
+    private JFXButton btGerarEtiqueta;
 
     /**
      * Initializes the controller class.
