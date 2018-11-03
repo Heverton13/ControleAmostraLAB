@@ -122,11 +122,11 @@ public class ControladorPrincipal implements Initializable {
     }
     
     @FXML
-    private void telaEtiquera(){
+    private void telaResponsavel(){
          try {
-            Parent telaE = FXMLLoader.load(getClass().getResource("/telasFX/TelaEtiqueta.fxml"));
+            Parent telaE = FXMLLoader.load(getClass().getResource("/telasFX/TelaResponsavel.fxml"));
             borderPrincipal.setCenter(telaE);
-            labelPrincipal.setText("Tela de Etiqueta");
+            labelPrincipal.setText("Tela de Responsável");
         } catch (IOException ex) {
             ex.printStackTrace();
             //Logger.getLogger(ControladorPrincipal.class.getName()).log(Level.SEVERE, null, ex);

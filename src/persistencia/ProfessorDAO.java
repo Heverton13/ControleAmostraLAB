@@ -21,9 +21,9 @@ public class ProfessorDAO {
      private Conexao con = new Conexao();
      
     private final String INSERTPROFESSOR = "INSERT INTO PROFESSOR (NOME_PROFESSOR, DEPARTAMENTO, TELEFONE, EMAIL_PROFESSOR) VALUES (?,?,?,?)";
-    private final String UPDATEPROFESSOR = "UPDATE PROFESSOR SET NOME_PROFESSOR = ?, DEPARTAMENTO = ?, TELEFONE = ?, EMAIL_PROFESSOR = ?";
+    private final String UPDATEPROFESSOR = "UPDATE PROFESSOR SET NOME_PROFESSOR = ?, DEPARTAMENTO = ?, TELEFONE = ?, EMAIL_PROFESSOR = ? WHERE ID_PROFESSOR = ?";
     private final String DELETEPROFESSOR = "DELETE FROM PROFESSOR WHERE ID_PROFESSOR = ?";
-    private final String LISTPROFESSOR = "SELECT * FROM PROFESSOR ORDER BY NOME";
+    private final String LISTPROFESSOR = "SELECT * FROM PROFESSOR ORDER BY ID_PROFESSOR";
     
     public boolean insertProfessor(Professor_Orientador p){
        con.conecta();
@@ -101,7 +101,12 @@ public boolean deleteProfessor(int id) {
 			
             while (rs.next()) { 
                 
-                Professor_Orientador a = new Professor_Orientador(rs.getInt("ID_PROFESSOR"),rs.getString("NOME"),rs.getString("DEPARTAMENTO"), rs.getString("TELEFONE"), rs.getString("EMAIL"));
+                Professor_Orientador a = new Professor_Orientador(
+                        rs.getInt("ID_PROFESSOR"),
+                        rs.getString("NOME_PROFESSOR"),
+                        rs.getString("DEPARTAMENTO"), 
+                        rs.getString("TELEFONE"), 
+                        rs.getString("EMAIL_PROFESSOR"));
 		lista.add(a);               
             }           
             con.desconecta();

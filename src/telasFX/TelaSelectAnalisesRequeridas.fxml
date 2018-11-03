@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox prefHeight="425.0" prefWidth="262.0" spacing="30.0">
+         <children>
+            <JFXCheckBox fx:id="umidade" text="Umidade" textFill="#009474">
+               <VBox.margin>
+                  <Insets left="20.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="mseca" text="Matéria Seca" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="mmineral" text="Matéria Mineral" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="extratoetero" text="Extrato Etéro" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="ppura" text="Protéina Pura" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="fda" text="Fibra Em Detergente Ácido" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="fdn" text="Fibra em Detergente Neutro" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="pidn" text="Proteína Insolúvel em Detergente Neutro" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+         </children>
+      </VBox>
+      <VBox layoutX="294.0" prefHeight="425.0" prefWidth="238.0" spacing="30.0">
+         <children>
+            <JFXCheckBox fx:id="pida" text="Proteína Insolúvel em Detergente Ácido" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="ct" text="Carboidratos Totais" textFill="#009474">
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+               <font>
+                  <Font size="13.0" />
+               </font>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="cnf" text="Carboidratos Não Fibrosos" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="liginina" text="Lignina" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="celulose" text="Celulose" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="hcelulose" text="Hemicelulose" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="edigestivel" text="Energia Digestível" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXCheckBox>
+            <JFXCheckBox fx:id="ndt" text="Nutrientes Disgestivos Totais" textFill="#009474">
+               <font>
+                  <Font size="13.0" />
+               </font>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </JFXCheckBox>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="564.0" prefHeight="425.0" prefWidth="223.0" style="-fx-background-color: black;">
+         <children>
+            <JFXButton fx:id="btConcluir" style="-fx-background-color: #009474;" text="Concluir" textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+   </children>
+</Pane>

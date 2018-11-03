@@ -22,8 +22,8 @@ public class Solicitante_Academico {
     }
 
     public Solicitante_Academico(int po1, String nome, String telefone, String email_solicitante) {
-        this.nome = nome;
         this.id_Professor = po1;
+        this.nome = nome;
         this.telefone = telefone;
         this.email_solicitante = email_solicitante;
     }
@@ -67,5 +67,12 @@ public class Solicitante_Academico {
     public void setEmail_solicitante(String email_solicitante) {
         this.email_solicitante = email_solicitante;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
+    
     
 }

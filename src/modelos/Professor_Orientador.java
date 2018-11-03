@@ -28,6 +28,10 @@ public class Professor_Orientador {
         this.telefone = telefone;
         this.email = email;
     }
+    
+    public Professor_Orientador(){
+        
+    }
 
     public String getNome() {
         return nome;
@@ -69,5 +73,10 @@ public class Professor_Orientador {
         this.id_professor = id_professor;
     }
 
-        
+    @Override
+    public String toString() {
+        return nome;
+    }
+
+      
 }

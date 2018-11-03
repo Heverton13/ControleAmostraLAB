@@ -17,7 +17,7 @@
    <children>
       <HBox alignment="CENTER" prefHeight="49.0" prefWidth="1016.0" spacing="30.0">
          <children>
-            <JFXTextField fx:id="nomeResponsavel1" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="500.0" prefWidth="400.0" promptText="NOME" />
+            <JFXTextField fx:id="nomeResponsavel" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="500.0" prefWidth="400.0" promptText="NOME" />
             <JFXTextField fx:id="assResponsavel" focusColor="MEDIUMSEAGREEN" labelFloat="true" prefWidth="400.0" promptText="ASSINATURA" />
          </children>
          <VBox.margin>

@@ -83,6 +83,18 @@
                   </ImageView>
                </graphic>
             </JFXButton>
+            <JFXButton fx:id="BtPedido" alignment="BASELINE_LEFT" onAction="#telaResponsavel" prefHeight="53.0" prefWidth="304.0" text="Reponsável" textFill="#111010">
+               <font>
+                  <Font size="17.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="46.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icones/icons8-usuário-80.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
             <JFXButton fx:id="BtHistorico" alignment="BASELINE_LEFT" onAction="#telaHistorico" prefHeight="53.0" prefWidth="304.0" text="Histórico" textFill="#111010">
                <font>
                   <Font size="17.0" />
@@ -91,18 +103,6 @@
                   <ImageView fitHeight="45.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../icones/icons8-teste-passado-64.png" />
-                     </image>
-                  </ImageView>
-               </graphic>
-            </JFXButton>
-            <JFXButton fx:id="BtPedido" alignment="BASELINE_LEFT" onAction="#telaEtiquera" prefHeight="53.0" prefWidth="304.0" text="Etiquetas" textFill="#111010">
-               <font>
-                  <Font size="17.0" />
-               </font>
-               <graphic>
-                  <ImageView fitHeight="46.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../icones/icons8-finalizar-pedido-64.png" />
                      </image>
                   </ImageView>
                </graphic>
