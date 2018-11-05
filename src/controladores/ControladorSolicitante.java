@@ -108,11 +108,11 @@ public class ControladorSolicitante implements Initializable {
     private void listarSolicitante(){
         
         ObservableList<Solicitante_Academico> solicitantes = FXCollections.observableArrayList(sDAO.listSolicitante());
-        tableSolicitante.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("ID_SOLITANTE"));
-        tableSolicitante.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("ID_PROFESSOR"));
-        tableSolicitante.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("NOME_SOLICITANTE"));
-        tableSolicitante.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("TELEFONE"));
-        tableSolicitante.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("EMAIL_PROFESSOR"));
+        tableSolicitante.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("id_solicitante"));
+        tableSolicitante.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("id_Professor"));
+        tableSolicitante.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("nome"));
+        tableSolicitante.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("telefone"));
+        tableSolicitante.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("email_solicitante"));
         tableSolicitante.setItems(solicitantes);
         
     }
@@ -122,12 +122,7 @@ public class ControladorSolicitante implements Initializable {
         professores.addAll(pbanco.listProfessor_Orientador());
         comboProfessores.setItems(professores);
         listarSolicitante();
-        /*
-        id_Solicitante.setCellValueFactory(new PropertyValueFactory<Solicitante_Academico, Integer>("ID_PROFESSOR"));
-        nomeSolicitante.setCellValueFactory(new PropertyValueFactory<Solicitante_Academico, String>("NOME_SOLICITANTE"));
-        telefoneSolicitante.setCellValueFactory(new PropertyValueFactory<Solicitante_Academico, String>("TELEFONE"));
-        emailSolicitante.setCellValueFactory(new PropertyValueFactory<Solicitante_Academico, String>("EMAIL_SOLICITANTE"));
-        */
+      
     }    
     
 }

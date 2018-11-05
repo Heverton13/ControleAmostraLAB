@@ -91,7 +91,7 @@ public class ControladorProfessor implements Initializable {
         //Fazer tratamentos aqui, Pedir explicação a Laura
         pbanco.insertProfessor(professorEdit);
         limparTextField();
-        //refreshTable();
+        refreshTable();
         
     }
     
@@ -105,7 +105,7 @@ public class ControladorProfessor implements Initializable {
         pbanco.updateProfessor(professorEdit);
         
         limparTextField();
-        //refreshTable();
+        refreshTable();
     }
     
     @FXML
@@ -119,16 +119,15 @@ public class ControladorProfessor implements Initializable {
     private void listarProfessores(){
         
         professores = FXCollections.observableArrayList(pbanco.listProfessor_Orientador());
+                
         
-        //id_Professor.setCellValueFactory(new PropertyValueFactory<Professor_Orientador, Integer>("ID_PROFESSOR"));
-        
-        
-        tabelaProfessor.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("ID_PROFESSOR"));
-        tabelaProfessor.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("NOME_PROFESSOR"));
-        tabelaProfessor.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("DEPARTAMENTO"));
-        tabelaProfessor.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("TELEFONE"));
-        tabelaProfessor.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("EMAIL_PROFESSOR"));
+        tabelaProfessor.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("id_professor"));
+        tabelaProfessor.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("nome"));
+        tabelaProfessor.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("departamento"));
+        tabelaProfessor.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("telefone"));
+        tabelaProfessor.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("email"));
         tabelaProfessor.setItems(professores);
+        
         
         
     }
