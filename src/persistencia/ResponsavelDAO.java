@@ -56,6 +56,7 @@ public class ResponsavelDAO {
 			preparaInstrucao.setDate(2, (Date) r.getData());
                         preparaInstrucao.setTime(3, r.getHora());
                         preparaInstrucao.setString(4, r.getAssinatura().toUpperCase());
+                        preparaInstrucao.setInt(5, r.getId_responsavel());
 			preparaInstrucao.execute();
 
 			con.desconecta();
