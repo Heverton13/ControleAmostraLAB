@@ -104,13 +104,18 @@ public class ControladorSolicitante implements Initializable {
         
         Solicitante_Academico solicitante = tableSolicitante.getSelectionModel().getSelectedItem();
         
+        
         if(solicitante != null){
         
-        solicitante.setId_Professor(comboProfessores.getSelectionModel().getSelectedItem().getId_professor());
-        solicitante.setNome(NomeSolicitante.getText());
-        solicitante.setTelefone( TelefoneSolicitante.getText());
-        solicitante.setEmail_solicitante( EmailSolicitante.getText());
-        
+        if(!NomeSolicitante.getText().equals("")){
+            solicitante.setNome(NomeSolicitante.getText());
+        }
+        if(!TelefoneSolicitante.getText().equals("")){
+            solicitante.setTelefone( TelefoneSolicitante.getText());
+        }
+        if(!EmailSolicitante.getText().equals("")){
+            solicitante.setEmail_solicitante( EmailSolicitante.getText());
+        }
         sDAO.updateSolicitante(solicitante);
         
         }

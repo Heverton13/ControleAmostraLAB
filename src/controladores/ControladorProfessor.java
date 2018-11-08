@@ -112,10 +112,18 @@ public class ControladorProfessor implements Initializable {
         
         if(professor != null){
             
-            professor.setNome(nomeProfessor.getText());
-            professor.setDepartamento(departamentoProfessor.getText());
-            professor.setTelefone(telefoneProfessor.getText());
-            professor.setEmail(emailProfessor.getText());
+            if(!nomeProfessor.getText().equals("")){
+                professor.setNome(nomeProfessor.getText());
+            }
+            if(!departamentoProfessor.getText().equals("")){
+                professor.setDepartamento(departamentoProfessor.getText());
+            }
+            if(!telefoneProfessor.getText().equals("")){
+                professor.setTelefone(telefoneProfessor.getText());
+            }
+            if(!emailProfessor.getText().equals("")){
+                professor.setEmail(emailProfessor.getText());
+            }
             pbanco.updateProfessor(professor);
             
         }
