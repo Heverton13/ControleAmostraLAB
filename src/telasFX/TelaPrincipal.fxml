@@ -33,7 +33,7 @@
       </HBox>
    </top>
    <left>
-      <VBox prefHeight="554.0" prefWidth="165.0" style="-fx-background-color: #98FB98;" BorderPane.alignment="CENTER">
+      <VBox prefHeight="554.0" prefWidth="165.0" spacing="20.0" style="-fx-background-color: #98FB98;" BorderPane.alignment="CENTER">
          <children>
             <JFXButton fx:id="BtInicio" alignment="BASELINE_LEFT" onAction="#inicio" prefHeight="53.0" prefWidth="304.0" text="Início" textFill="#111010">
                <font>

@@ -36,6 +36,8 @@ public class ControladorSolicitante implements Initializable {
     private ProfessorDAO pbanco = new ProfessorDAO();
     
     private ObservableList<Professor_Orientador> professores = FXCollections.observableArrayList();
+    
+    private ObservableList<Solicitante_Academico> solicitantes;
 
     @FXML
     private JFXComboBox<Professor_Orientador> comboProfessores;
@@ -76,6 +78,15 @@ public class ControladorSolicitante implements Initializable {
     }
     
     @FXML
+    private void refreshTable(){
+        
+        solicitantes.clear();
+        solicitantes.addAll(sDAO.listSolicitante());
+        tableSolicitante.setItems(solicitantes);
+        
+    }
+    
+    @FXML
     private void addSolicitante(){
         
         solicitanteEdit = new Solicitante_Academico
@@ -85,29 +96,39 @@ public class ControladorSolicitante implements Initializable {
                 EmailSolicitante.getText());
         sDAO.insertSolicitante(solicitanteEdit);
         limparTextos();
+        refreshTable();
     }
     
     @FXML
     private void updateSolicitante(){
         
-        solicitanteEdit.setId_Professor(comboProfessores.getSelectionModel().getSelectedItem().getId_professor());
-        solicitanteEdit.setNome(NomeSolicitante.getText());
-        solicitanteEdit.setTelefone( TelefoneSolicitante.getText());
-        solicitanteEdit.setEmail_solicitante( EmailSolicitante.getText());
-        sDAO.updateSolicitante(solicitanteEdit);
+        Solicitante_Academico solicitante = tableSolicitante.getSelectionModel().getSelectedItem();
+        
+        if(solicitante != null){
+        
+        solicitante.setId_Professor(comboProfessores.getSelectionModel().getSelectedItem().getId_professor());
+        solicitante.setNome(NomeSolicitante.getText());
+        solicitante.setTelefone( TelefoneSolicitante.getText());
+        solicitante.setEmail_solicitante( EmailSolicitante.getText());
+        
+        sDAO.updateSolicitante(solicitante);
+        
+        }
         limparTextos();
+        refreshTable();
     }
     
     @FXML
     private void deleteSolicitante(){
     
         sDAO.deleteSolicitante(tableSolicitante.getSelectionModel().getSelectedItem().getId_solicitante());
+        refreshTable();
     }
     
     @FXML
     private void listarSolicitante(){
         
-        ObservableList<Solicitante_Academico> solicitantes = FXCollections.observableArrayList(sDAO.listSolicitante());
+        solicitantes = FXCollections.observableArrayList(sDAO.listSolicitante());
         tableSolicitante.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("id_solicitante"));
         tableSolicitante.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("id_Professor"));
         tableSolicitante.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("nome"));

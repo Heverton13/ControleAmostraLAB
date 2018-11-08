@@ -60,6 +60,7 @@ public class ProfessorDAO {
             preparaInstrucao.setString(2, p.getDepartamento().toUpperCase());
             preparaInstrucao.setString(3, p.getTelefone().toUpperCase());
             preparaInstrucao.setString(4, p.getEmail().toUpperCase());
+            preparaInstrucao.setInt(5, p.getId_professor());
             
             preparaInstrucao.execute();
             con.desconecta();

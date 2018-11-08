@@ -90,29 +90,46 @@ public class ControladorProfessor implements Initializable {
         professorEdit = new Professor_Orientador(nomeProfessor.getText(),departamentoProfessor.getText(),telefoneProfessor.getText(),emailProfessor.getText());
         //Fazer tratamentos aqui, Pedir explicação a Laura
         pbanco.insertProfessor(professorEdit);
-        limparTextField();
         refreshTable();
+        limparTextField();
         
+        
+    }
+    
+    @FXML
+    private void retornarItens(){
+        
+        nomeProfessor.setText(professorEdit.getNome());
+        departamentoProfessor.setText(professorEdit.getDepartamento());
+        telefoneProfessor.setText(professorEdit.getTelefone());
+        emailProfessor.setText(professorEdit.getEmail());
     }
     
     @FXML
     private void updateProfessor(){
         
-        professorEdit.setNome(nomeProfessor.getText());
-        professorEdit.setDepartamento(departamentoProfessor.getText());
-        professorEdit.setTelefone(telefoneProfessor.getText());
-        professorEdit.setEmail(emailProfessor.getText());
-        pbanco.updateProfessor(professorEdit);
+        Professor_Orientador professor = tabelaProfessor.getSelectionModel().getSelectedItem();
         
-        limparTextField();
+        if(professor != null){
+            
+            professor.setNome(nomeProfessor.getText());
+            professor.setDepartamento(departamentoProfessor.getText());
+            professor.setTelefone(telefoneProfessor.getText());
+            professor.setEmail(emailProfessor.getText());
+            pbanco.updateProfessor(professor);
+            
+        }
+        
         refreshTable();
+        limparTextField();
+        
     }
     
     @FXML
     private void deleteProfessor(){
         
         pbanco.deleteProfessor(tabelaProfessor.getSelectionModel().getSelectedItem().getId_professor());
-        
+        refreshTable();
     }
     
     @FXML
@@ -135,6 +152,7 @@ public class ControladorProfessor implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         listarProfessores();
+       
         // TODO
     }    
     

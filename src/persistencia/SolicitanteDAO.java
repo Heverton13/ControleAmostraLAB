@@ -18,7 +18,7 @@ public class SolicitanteDAO {
     private final Conexao con = new Conexao();
     
         private final String INSERTSOLICITANTE = "INSERT INTO SOLICITANTE (ID_PROFESSOR, NOME_SOLICITANTE, TELEFONE, EMAIL_SOLICITANTE) VALUES (?,?,?,?)";
-	private final String UPDATESOLICITANTE = "UPDATE SOLICITANTE SET ID_PROFESSOR = ?, NOME_SOLICITANTE =?, TELEFONE  = ?,EMAIL_SOLICITANTE = ? WHERE ID_SOLICITANTE = ?";
+	private final String UPDATESOLICITANTE = "UPDATE SOLICITANTE SET ID_PROFESSOR = ?, NOME_SOLICITANTE = ?, TELEFONE  = ?, EMAIL_SOLICITANTE = ? WHERE ID_SOLICITANTE = ?";
 	private final String DELETESOLICITANTE = "DELETE FROM SOLICITANTE WHERE ID_SOLICITANTE = ?";
         private final String LISTSOLICITANTE = "SELECT * FROM SOLICITANTE ORDER BY ID_SOLICITANTE";
         
@@ -52,6 +52,7 @@ public boolean updateSolicitante(Solicitante_Academico s) {
                         preparaInstrucao.setString(2, s.getNome().toUpperCase());
                         preparaInstrucao.setString(3, s.getTelefone().toUpperCase());
                         preparaInstrucao.setString(4, s.getEmail_solicitante().toUpperCase());
+                        preparaInstrucao.setInt(5,s.getId_solicitante());
 
 			preparaInstrucao.execute();
 			con.desconecta();			
