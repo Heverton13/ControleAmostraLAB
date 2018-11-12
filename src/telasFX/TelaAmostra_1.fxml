@@ -60,6 +60,18 @@
          <children>
             <JFXDatePicker fx:id="dataAmostra" />
             <JFXTimePicker fx:id="horaAmostra" prefHeight="25.0" prefWidth="180.0" />
+            <JFXButton fx:id="btSelecionarAnalise" onAction="#telaSelectAnalisesRequiridas" prefHeight="64.0" prefWidth="206.0" style="-fx-background-color: #3CB371;" text="Selecionar Análise">
+               <font>
+                  <Font size="15.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icones/icons8-tubo-de-ensaio-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </JFXButton>
          </children>
       </HBox>
       <TableView fx:id="TabelaAmostra" prefHeight="329.0" prefWidth="1016.0">

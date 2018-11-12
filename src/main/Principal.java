@@ -18,6 +18,7 @@ import javafx.stage.Stage;
  */
 public class Principal extends Application {
     
+    
     public static void main(String[] args){
         launch(args);
     }
@@ -32,5 +33,10 @@ public class Principal extends Application {
                 stage.setTitle("Gerenciar Amostras");
                 stage.show();
     }
+    
+    
+    
+    
+    
     
 }

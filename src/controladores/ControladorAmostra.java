@@ -10,10 +10,13 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 
@@ -83,6 +86,9 @@ public class ControladorAmostra implements Initializable {
 
     @FXML
     private JFXButton btEditarAmostra;
+    
+    @FXML
+    private JFXButton btSelecionarAnalise;
  
     /**
      * Initializes the controller class.
@@ -91,5 +97,6 @@ public class ControladorAmostra implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+ 
     
 }
