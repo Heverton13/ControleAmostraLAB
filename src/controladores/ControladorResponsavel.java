@@ -10,11 +10,23 @@ import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
 import java.net.URL;
+import java.sql.Date;
+import java.sql.Time;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.util.StringConverter;
+import modelos.Responsavel;
+import persistencia.ResponsavelDAO;
 
 /**
  * FXML Controller class
@@ -23,6 +35,12 @@ import javafx.scene.control.TableView;
  */
 public class ControladorResponsavel implements Initializable {
 
+    private Responsavel rEdit;
+    
+    private ResponsavelDAO rbanco = new ResponsavelDAO();
+    
+     private ObservableList<Responsavel> responsaveis;
+    
     @FXML
     private JFXTextField nomeResponsavel1;
     @FXML
@@ -32,11 +50,13 @@ public class ControladorResponsavel implements Initializable {
     @FXML
     private JFXTimePicker horaRecebimento;
     @FXML
-    private TableView<?> tabelaResponsavel;
+    private TableView<Responsavel> tabelaResponsavel;
     @FXML
-    private TableColumn<?, ?> nomeTableResponsavel;
+    private TableColumn<Responsavel, Integer> id_responsavelT;
     @FXML
-    private TableColumn<?, ?> assinaturaResponsavel;
+    private TableColumn<Responsavel, String> nomeTableResponsavel;
+    @FXML
+    private TableColumn<Responsavel, String> assinaturaResponsavel;
     @FXML
     private JFXButton btCadastrar;
     @FXML
@@ -49,7 +69,69 @@ public class ControladorResponsavel implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+        dataRecebimento.setConverter(data());
+    }   
+    
+    @FXML
+    private void limparTextos(){
+        nomeResponsavel1.clear();
+        assResponsavel.clear();
+    }
+    
+    @FXML
+    private void refreshTable(){
+        responsaveis.clear();
+        responsaveis.addAll(rbanco.listResponsavel());
+        tabelaResponsavel.setItems(responsaveis);
+    }
+    
+    private StringConverter<LocalDate> data(){
+        
+        String pattern = "yyyy-MM-dd";
+        StringConverter<LocalDate> converter = new StringConverter<LocalDate>(){
+            DateTimeFormatter formatar = DateTimeFormatter.ofPattern(pattern);
+
+            @Override
+            public String toString(LocalDate date) {
+                if(date != null){
+                    return formatar.format(date);
+                }else{
+                    return "";
+                }
+            }
+
+            @Override
+            public LocalDate fromString(String string) {
+                if(string != null && !string.isEmpty()){
+                    return LocalDate.parse(string,formatar);
+                }else{
+                    return null;
+                }
+            }
+            
+        };
+        return converter;
+    }
+    /*
+    @FXML
+    private void addResponsavel() throws ParseException{
+       
+       Date dataRecebimento = Date.valueOf(this.dataRecebimento.getValue());
+       LocalTime str = horaRecebimento.getValue();
+       SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
+       Date data = (Date) formatador.parse(str);
+       Time time = new Time(data.getTime());
+        
+        rEdit = new Responsavel(
+                nomeResponsavel1.getText(),
+                dataRecebimento,
+                horaRecebimento,
+                assResponsavel.getText()
+        );
+        rbanco.insertResponsavel(rEdit);
+        limparTextos();
+        refreshTable();
+    }
+     */
     
 }
