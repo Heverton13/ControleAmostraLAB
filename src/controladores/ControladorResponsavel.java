@@ -15,7 +15,6 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.ResourceBundle;
@@ -42,7 +41,7 @@ public class ControladorResponsavel implements Initializable {
      private ObservableList<Responsavel> responsaveis;
     
     @FXML
-    private JFXTextField nomeResponsavel1;
+    private JFXTextField nomeResponsavel;
     @FXML
     private JFXTextField assResponsavel;
     @FXML
@@ -74,8 +73,10 @@ public class ControladorResponsavel implements Initializable {
     
     @FXML
     private void limparTextos(){
-        nomeResponsavel1.clear();
+        nomeResponsavel.clear();
         assResponsavel.clear();
+        dataRecebimento.setValue(null);
+        horaRecebimento.setValue(null);
     }
     
     @FXML
@@ -112,26 +113,26 @@ public class ControladorResponsavel implements Initializable {
         };
         return converter;
     }
-    /*
+    
     @FXML
     private void addResponsavel() throws ParseException{
        
        Date dataRecebimento = Date.valueOf(this.dataRecebimento.getValue());
-       LocalTime str = horaRecebimento.getValue();
-       SimpleDateFormat formatador = new SimpleDateFormat("HH:mm");
-       Date data = (Date) formatador.parse(str);
-       Time time = new Time(data.getTime());
+       Time horaRecebimento = Time.valueOf(this.horaRecebimento.getValue());
+       
+        System.out.println("Hora: " + horaRecebimento);
+        System.out.println("Hora: " + nomeResponsavel.getText());
         
         rEdit = new Responsavel(
-                nomeResponsavel1.getText(),
+                nomeResponsavel.getText(),
                 dataRecebimento,
                 horaRecebimento,
                 assResponsavel.getText()
         );
         rbanco.insertResponsavel(rEdit);
         limparTextos();
-        refreshTable();
+//        refreshTable();
     }
-     */
+     
     
 }

@@ -40,7 +40,7 @@
             </JFXTextField>
          </children>
       </HBox>
-      <TableView fx:id="tabelaProfessor" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tabelaProfessor" onMouseClicked="#mouseClicked" prefHeight="200.0" prefWidth="200.0">
         <columns>
             <TableColumn fx:id="id_Professor" prefWidth="75.0" text="ID PROFESSOR" />
             <TableColumn fx:id="nome" prefWidth="75.0" text="NOME" />

@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import modelos.Professor_Orientador;
 import persistencia.ProfessorDAO;
 import javafx.event.ActionEvent;
+import javafx.scene.input.MouseEvent;
 
 /**
  * FXML Controller class
@@ -103,6 +104,15 @@ public class ControladorProfessor implements Initializable {
         departamentoProfessor.setText(professorEdit.getDepartamento());
         telefoneProfessor.setText(professorEdit.getTelefone());
         emailProfessor.setText(professorEdit.getEmail());
+    }
+    
+    @FXML
+    private void mouseClicked (MouseEvent event) {
+        Professor_Orientador professor = tabelaProfessor.getSelectionModel().getSelectedItem();
+        nomeProfessor.setText(professor.getNome());
+        emailProfessor.setText(professor.getEmail());
+        departamentoProfessor.setText(professor.getDepartamento());
+        telefoneProfessor.setText(professor.getTelefone());
     }
     
     @FXML
