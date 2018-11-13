@@ -22,8 +22,8 @@ public class ResponsavelDAO {
     
         private final String INSERTRESPONSAVEL = "INSERT INTO RESPONSAVEL (NOME_RESPONSAVEL, DATA_RECEBIMENTO, HORA, ASSINATURA) VALUES (?,?,?,?)";
 	private final String UPDATERESPONSAVEL = "UPDATE RESPONSAVEL SET NOME_RESPONSAVEL = ?, DATA_RECEBIMENTO = ?, HORA = ?, ASSISNATURA = ? WHERE ID_REPONSAVEL = ?";
-	private final String DELETERESPONSAVEL = "DELETE FROM RESPONSAVEL WHERE ID_RESPONSAVEL = ?";
-        private final String LISTRESPONSAVEL = "SELECT * FROM RESPONSAVEL ORDER BY NOME";
+	private final String DELETERESPONSAVEL = "DELETE FROM RESPONSAVEL WHERE ID_REPONSAVEL = ?";
+        private final String LISTRESPONSAVEL = "SELECT * FROM RESPONSAVEL";
         
         public boolean insertResponsavel(Responsavel r) {
 		try {
@@ -94,19 +94,25 @@ public class ResponsavelDAO {
 	try {			
             con.conecta();
             PreparedStatement preparaInstrucao;
-            preparaInstrucao = con.getConexao().prepareStatement(LISTRESPONSAVEL); 
+            preparaInstrucao = con.getConexao().prepareStatement("SELECT * FROM responsavel;"); 
 			
             ResultSet rs = preparaInstrucao.executeQuery(); 
-			
+            
             while (rs.next()) { 
-                
-                Responsavel a = new Responsavel(rs.getInt("ID_RESPONSAVEL"),rs.getString("NOME"),rs.getDate("DATA"), rs.getTime("HORA"), rs.getString("ASSINATURA"));
-		lista.add(a);               
+                Responsavel a = new Responsavel(
+                        rs.getInt("ID_REPONSAVEL"),
+                        rs.getString("NOME_RESPONSAVEL"),
+                        rs.getDate("DATA_RECEBIMENTO"), 
+                        rs.getTime("HORA"), 
+                        rs.getString("ASSINATURA"));
+		lista.add(a);   
             }           
             con.desconecta();          
             } catch (SQLException e) {
+                System.out.println(e);
             }
             return lista;
+             
      
   }
 }

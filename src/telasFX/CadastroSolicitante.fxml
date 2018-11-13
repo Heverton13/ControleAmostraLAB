@@ -25,7 +25,7 @@
             <JFXTextField fx:id="EmailSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="25.0" prefWidth="504.0" promptText="E-MAIL" />
          </children>
       </HBox>
-      <TableView fx:id="tableSolicitante" prefHeight="200.0" prefWidth="200.0">
+      <TableView fx:id="tableSolicitante" onMouseClicked="#mouseClicked" prefHeight="200.0" prefWidth="200.0">
         <columns>
             <TableColumn fx:id="id_Solicitante" prefWidth="75.0" text="ID SOLICITANTE" />
             <TableColumn fx:id="id_Professor" prefWidth="75.0" text="ID PROFESSOR" />

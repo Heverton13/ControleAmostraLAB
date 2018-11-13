@@ -18,11 +18,14 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.util.StringConverter;
 import modelos.Responsavel;
 import persistencia.ResponsavelDAO;
@@ -38,7 +41,7 @@ public class ControladorResponsavel implements Initializable {
     
     private ResponsavelDAO rbanco = new ResponsavelDAO();
     
-     private ObservableList<Responsavel> responsaveis;
+    private ObservableList<Responsavel> responsaveis;
     
     @FXML
     private JFXTextField nomeResponsavel;
@@ -66,10 +69,7 @@ public class ControladorResponsavel implements Initializable {
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        dataRecebimento.setConverter(data());
-    }   
+    
     
     @FXML
     private void limparTextos(){
@@ -84,6 +84,14 @@ public class ControladorResponsavel implements Initializable {
         responsaveis.clear();
         responsaveis.addAll(rbanco.listResponsavel());
         tabelaResponsavel.setItems(responsaveis);
+    }
+    
+    @FXML
+    private void mouseClicked(MouseEvent event) {
+        Responsavel responsavel = tabelaResponsavel.getSelectionModel().getSelectedItem();
+        nomeResponsavel.setText(responsavel.getNome());
+        assResponsavel.setText(responsavel.getAssinatura());
+       
     }
     
     private StringConverter<LocalDate> data(){
@@ -115,13 +123,11 @@ public class ControladorResponsavel implements Initializable {
     }
     
     @FXML
-    private void addResponsavel() throws ParseException{
+    private void addResponsavel(){
        
        Date dataRecebimento = Date.valueOf(this.dataRecebimento.getValue());
        Time horaRecebimento = Time.valueOf(this.horaRecebimento.getValue());
        
-        System.out.println("Hora: " + horaRecebimento);
-        System.out.println("Hora: " + nomeResponsavel.getText());
         
         rEdit = new Responsavel(
                 nomeResponsavel.getText(),
@@ -131,8 +137,56 @@ public class ControladorResponsavel implements Initializable {
         );
         rbanco.insertResponsavel(rEdit);
         limparTextos();
-//        refreshTable();
+        refreshTable();
+    }
+    
+    @FXML
+    private void deleteResponsavel(){
+        
+        rbanco.deleteResponsavel(tabelaResponsavel.getSelectionModel().getSelectedItem().getId_responsavel());
+        refreshTable();
+        
     }
      
+    @FXML
+    private void updateResponsavel(){
+        
+        Responsavel r = tabelaResponsavel.getSelectionModel().getSelectedItem();
+        
+        if(r != null){
+            
+            if(!nomeResponsavel.getText().equals("")){
+                r.setNome(nomeResponsavel.getText());
+            }
+            if(!assResponsavel.getText().equals("")){
+                r.setAssinatura(assResponsavel.getText());
+            }
+            
+        }
+        rbanco.updateResponsavel(r);
+    }
     
+    @FXML
+    private void listResponsavel(){
+        
+        
+        responsaveis = FXCollections.observableArrayList(rbanco.listResponsavel());
+       
+
+         tabelaResponsavel.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id_responsavel"));
+         tabelaResponsavel.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("nome"));
+         tabelaResponsavel.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("data"));
+         tabelaResponsavel.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("hora"));
+         tabelaResponsavel.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("assinatura"));
+         
+         tabelaResponsavel.setItems(responsaveis);
+         
+    }
+    
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        dataRecebimento.setConverter(data());
+        listResponsavel();
+                                                                                                                                                  
+    }   
 }

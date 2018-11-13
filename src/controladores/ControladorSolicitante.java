@@ -17,6 +17,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import modelos.Professor_Orientador;
 import modelos.Solicitante_Academico;
 import persistencia.ProfessorDAO;
@@ -84,6 +85,15 @@ public class ControladorSolicitante implements Initializable {
         solicitantes.addAll(sDAO.listSolicitante());
         tableSolicitante.setItems(solicitantes);
         
+    }
+    
+    @FXML
+    private void mouseClicked(MouseEvent event) {
+        Solicitante_Academico solicitante = tableSolicitante.getSelectionModel().getSelectedItem();
+        NomeSolicitante.setText(solicitante.getNome());
+        TelefoneSolicitante.setText(solicitante.getTelefone());
+        EmailSolicitante.setText(solicitante.getEmail_solicitante());
+       
     }
     
     @FXML

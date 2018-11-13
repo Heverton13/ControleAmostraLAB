@@ -71,5 +71,11 @@ public class Responsavel {
     public void setAssinatura(String assinatura) {
         this.assinatura = assinatura;
     }
+
+    @Override
+    public String toString() {
+        return nome;
+    }
+    
     
 }
