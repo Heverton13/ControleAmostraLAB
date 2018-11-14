@@ -101,20 +101,36 @@ public class ControladorAmostra implements Initializable {
         // TODO
     }    
   
+    
+    
     @FXML
       private void telaSelectAnalisesRequiridas() throws Exception {
-        
+        Stage s1 = new Stage();
+        Parent root = FXMLLoader.load(getClass().getResource("/telasFX/TelaSelectAnalisesRequiridas.fxml"));
+        Scene scene = new Scene(root);
+
+        s1.setScene(scene);
+        s1.show();
+      }
+    
+    
+    
+    
+    // TENTATIVA FALHA
+   /* @FXML
+      private void telaSelectAnalisesRequiridas() throws Exception {
+         Stage stage = null; 
 		Parent root = FXMLLoader.load(getClass().getResource("/telasFX/TelaSelectAnalisesRequiridas.fxml"));
                 Scene scene = new Scene(root);
                 System.out.println("tste");
-                
-                Stage stage = null;
-                stage.setTitle("Selecionar Analises");
+                    
                 stage.setScene(scene);
-                stage.show();
-                 
-    } 
+                stage.setTitle("Selecionar Analises"); 
+                stage.show();               
+    } */
     
+    
+    // TENTATIVA FALHA
    /* @FXML
     protected void telaSelectAnalisesRequiridas(ActionEvent event) {
  
@@ -122,7 +138,7 @@ public class ControladorAmostra implements Initializable {
 
             Parent root = FXMLLoader.load(getClass().getResource("TelaSelectAnalisesRequiridas.fxml"));
             Stage stage = new Stage();
-            Scene scene = new Scene(root, 400, 240);
+            Scene scene = new Scene(root, 600, 600);
             stage.setScene(scene);
             stage.show();
 
