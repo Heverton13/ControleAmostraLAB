@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import com.jfoenix.controls.JFXTimePicker?>
@@ -35,11 +36,7 @@
                   <Font size="15.0" />
                </font>
             </JFXTextField>
-            <JFXTextField fx:id="recebidoPor" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="Recebido Por" unFocusColor="BLACK">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </JFXTextField>
+            <JFXComboBox fx:id="comboResponsavel" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="Recebido Por:" unFocusColor="MEDIUMSEAGREEN" />
          </children>
       </HBox>
       <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1016.0" spacing="30.0">

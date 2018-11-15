@@ -44,6 +44,7 @@ public class ProfessorDAO {
                    
         return true;    
        }catch (SQLException e) {
+           System.err.println(e);
         return false;    
       }
     }
@@ -67,6 +68,7 @@ public class ProfessorDAO {
             
             return true;
             } catch (SQLException e) {
+                System.err.println(e);
 		return false;
 
         }
@@ -84,6 +86,7 @@ public boolean deleteProfessor(int id) {
 			con.desconecta();		
 			return true;
 		} catch (SQLException e) {
+                    System.err.println(e);
                     return false;
                 }    				
 	}
@@ -113,6 +116,7 @@ public boolean deleteProfessor(int id) {
             con.desconecta();
             
             } catch (SQLException e) {
+                System.err.println(e);
             }
             return lista;
      

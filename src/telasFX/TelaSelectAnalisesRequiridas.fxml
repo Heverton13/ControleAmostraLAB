@@ -1,157 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
-<?import javafx.geometry.Insets?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="425.0" prefWidth="262.0" spacing="30.0">
+      <HBox alignment="CENTER" prefHeight="79.0" prefWidth="787.0" style="-fx-background-color: #3CB371;">
          <children>
-            <JFXCheckBox fx:id="umidade" text="Umidade" textFill="#009474">
-               <VBox.margin>
-                  <Insets left="20.0" top="30.0" />
-               </VBox.margin>
+            <Label text="Incluir Analises na Amostra">
                <font>
-                  <Font size="13.0" />
+                  <Font size="17.0" />
                </font>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="mseca" text="Matéria Seca" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="mmineral" text="Matéria Mineral" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="extratoetero" text="Extrato Etéro" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="ppura" text="Protéina Pura" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="fda" text="Fibra Em Detergente Ácido" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="fdn" text="Fibra em Detergente Neutro" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="pidn" text="Proteína Insolúvel em Detergente Neutro" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets left="20.0" />
-               </VBox.margin>
-            </JFXCheckBox>
+            </Label>
          </children>
-      </VBox>
-      <VBox layoutX="294.0" prefHeight="425.0" prefWidth="238.0" spacing="30.0">
+      </HBox>
+      <VBox alignment="CENTER" layoutY="79.0" prefHeight="346.0" prefWidth="787.0" spacing="25.0">
          <children>
-            <JFXCheckBox fx:id="pida" text="Proteína Insolúvel em Detergente Ácido" textFill="#009474">
+            <Label prefHeight="26.0" prefWidth="81.0" text="AMOSTRA">
                <font>
-                  <Font size="13.0" />
+                  <Font size="17.0" />
                </font>
-               <VBox.margin>
-                  <Insets top="30.0" />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="ct" text="Carboidratos Totais" textFill="#009474">
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
+            </Label>
+            <JFXComboBox fx:id="comboAmostra" focusColor="#16c969" prefHeight="24.0" prefWidth="228.0" promptText="SELECIONE AMOSTRA" unFocusColor="#13bf41" />
+            <Label prefHeight="26.0" prefWidth="81.0" text="ANALISES">
                <font>
-                  <Font size="13.0" />
+                  <Font size="17.0" />
                </font>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="cnf" text="Carboidratos Não Fibrosos" textFill="#009474">
+            </Label>
+            <JFXComboBox fx:id="comboAnalise" focusColor="#16c969" prefHeight="24.0" prefWidth="228.0" promptText="SELECIONE ANALISE" unFocusColor="#13bf41" />
+            <JFXButton fx:id="btAmostraAnalise" prefHeight="65.0" prefWidth="235.0" style="-fx-background-color: #3CB371;" text="INCLUIDAR ANALISE">
                <font>
-                  <Font size="13.0" />
+                  <Font size="15.0" />
                </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="liginina" text="Lignina" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="celulose" text="Celulose" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="hcelulose" text="Hemicelulose" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="edigestivel" text="Energia Digestível" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXCheckBox>
-            <JFXCheckBox fx:id="ndt" text="Nutrientes Disgestivos Totais" textFill="#009474">
-               <font>
-                  <Font size="13.0" />
-               </font>
-               <VBox.margin>
-                  <Insets />
-               </VBox.margin>
-            </JFXCheckBox>
-         </children>
-      </VBox>
-      <VBox alignment="CENTER" layoutX="564.0" prefHeight="425.0" prefWidth="223.0" style="-fx-background-color: black;">
-         <children>
-            <JFXButton fx:id="btConcluir" style="-fx-background-color: #009474;" text="Concluir" textFill="WHITE">
-               <font>
-                  <Font size="18.0" />
-               </font>
+               <graphic>
+                  <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../icones/icons8-adicionar-usuário-masculino-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
             </JFXButton>
          </children>
       </VBox>

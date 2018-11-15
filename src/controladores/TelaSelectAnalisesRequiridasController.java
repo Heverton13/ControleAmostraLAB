@@ -7,10 +7,16 @@ package controladores;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
+import com.jfoenix.controls.JFXComboBox;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import modelos.Amostra;
+import modelos.Analises;
+import persistencia.AnalisesDAO;
 
 /**
  * FXML Controller class
@@ -18,49 +24,35 @@ import javafx.fxml.Initializable;
  * @author Denys
  */
 public class TelaSelectAnalisesRequiridasController implements Initializable {
+  
+    private AnalisesDAO anBanco = new AnalisesDAO();
+    
+    private ObservableList<Analises> analises = FXCollections.observableArrayList();
 
     @FXML
-    private JFXCheckBox umidade;
+    private JFXComboBox<Amostra> comboAmostra;
+
     @FXML
-    private JFXCheckBox mseca;
+    private JFXComboBox<Analises> comboAnalise;
+
     @FXML
-    private JFXCheckBox mmineral;
-    @FXML
-    private JFXCheckBox extratoetero;
-    @FXML
-    private JFXCheckBox ppura;
-    @FXML
-    private JFXCheckBox fda;
-    @FXML
-    private JFXCheckBox fdn;
-    @FXML
-    private JFXCheckBox pidn;
-    @FXML
-    private JFXCheckBox pida;
-    @FXML
-    private JFXCheckBox ct;
-    @FXML
-    private JFXCheckBox cnf;
-    @FXML
-    private JFXCheckBox liginina;
-    @FXML
-    private JFXCheckBox celulose;
-    @FXML
-    private JFXCheckBox hcelulose;
-    @FXML
-    private JFXCheckBox edigestivel;
-    @FXML
-    private JFXCheckBox ndt;
-    @FXML
-    private JFXButton btConcluir;
+    private JFXButton btAmostraAnalise;
     
     
     /**
      * Initializes the controller class.
      */
+    @FXML
+    private void addAnalises(){
+        anBanco.preencherAnalises();
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        addAnalises();
+        analises.addAll(anBanco.listarAnalise());
+        comboAnalise.setItems(analises);
+        
     }    
     
 }

@@ -7,6 +7,7 @@ package controladores;
 
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
 import com.jfoenix.controls.JFXTimePicker;
@@ -22,6 +23,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.stage.Stage;
+import modelos.Responsavel;
 
 /**
  * FXML Controller class
@@ -92,7 +94,9 @@ public class ControladorAmostra implements Initializable {
     
     @FXML
     private JFXButton btSelecionarAnalise;
- 
+    
+    @FXML
+    private JFXComboBox<Responsavel> comboResponsavel;
     /**
      * Initializes the controller class.
      */
@@ -100,8 +104,6 @@ public class ControladorAmostra implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-  
-    
     
     @FXML
       private void telaSelectAnalisesRequiridas() throws Exception {
@@ -113,38 +115,6 @@ public class ControladorAmostra implements Initializable {
         s1.show();
       }
     
-    
-    
-    
-    // TENTATIVA FALHA
-   /* @FXML
-      private void telaSelectAnalisesRequiridas() throws Exception {
-         Stage stage = null; 
-		Parent root = FXMLLoader.load(getClass().getResource("/telasFX/TelaSelectAnalisesRequiridas.fxml"));
-                Scene scene = new Scene(root);
-                System.out.println("tste");
-                    
-                stage.setScene(scene);
-                stage.setTitle("Selecionar Analises"); 
-                stage.show();               
-    } */
-    
-    
-    // TENTATIVA FALHA
-   /* @FXML
-    protected void telaSelectAnalisesRequiridas(ActionEvent event) {
- 
-        try {
 
-            Parent root = FXMLLoader.load(getClass().getResource("TelaSelectAnalisesRequiridas.fxml"));
-            Stage stage = new Stage();
-            Scene scene = new Scene(root, 600, 600);
-            stage.setScene(scene);
-            stage.show();
-
-        } catch (IOException e) {
-            e.printStackTrace();
-       
-} */
     }
         

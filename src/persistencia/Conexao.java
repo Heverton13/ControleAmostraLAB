@@ -66,10 +66,8 @@ public class Conexao {
     
     public static void main(String[] args) throws ParseException {
      
-        ProfessorDAO p = new ProfessorDAO();
+        AnalisesDAO a = new AnalisesDAO();
         
-        System.out.println(p.listProfessor_Orientador());
-        
-        
+        System.out.println(a.listarAnalise());
     }
 }

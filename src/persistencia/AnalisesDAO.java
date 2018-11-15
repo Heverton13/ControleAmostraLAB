@@ -22,12 +22,7 @@ public class AnalisesDAO {
     private Conexao con = new Conexao();
     
     private final static String PREENCHERANALISES =
-            "INSERT INTO ANALISES(NOME_ANALISE) VALUES ('UMIDADE'),\n" +
-            "  ('MATERIA_SECA'),\n" +
-            "  ('MATERIA_MINERAL'),\n" +
-            "  ('EXTRATO_ETEREO'),\n" +
-            "  ('PROTEINA_BRUTA'),\n" +
-            "  ('FIBRA_EM_DERTERGENTE_ACIDO'),\n" +
+            "INSERT INTO ANALISES(NOME_ANALISE) VALUES ('UMIDADE'),'MATERIA_SECA'),('MATERIA_MINERAL'),('EXTRATO_ETEREO'),('PROTEINA_BRUTA'),('FIBRA_EM_DERTERGENTE_ACIDO'),\n" +
             "  ('FIBRA_EM_DERTEGENTE_NEUTRO'),\n" +
             "  ('PROTEINA_INSULUVEL_EM_DETERGENTE_NEUTRO'),\n" +
             "  ('PROTEINA_INSULUVEL_EM_DETERGENTE_ACIDO'),\n" +
@@ -51,6 +46,7 @@ public class AnalisesDAO {
             return true;
         } catch (SQLException ex) {
             Logger.getLogger(AnalisesDAO.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println(ex);
             return false;
         }
         
@@ -60,9 +56,10 @@ public class AnalisesDAO {
         
         ArrayList<Analises>  lista = new ArrayList<>();
         
+        con.conecta();
         try {
 			
-            con.conecta();
+            
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(LISTANALISES); 
 			
@@ -74,11 +71,13 @@ public class AnalisesDAO {
                         rs.getInt("ID_ANALISE"),
                         rs.getString("NOME_ANALISE"));
                         
-		lista.add(a);               
+		lista.add(a);
+                System.out.println("Teste Lista");
             }           
             con.desconecta();
             
             } catch (SQLException e) {
+                System.err.println(e);
             }
             return lista;
 
