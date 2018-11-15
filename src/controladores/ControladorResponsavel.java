@@ -162,8 +162,12 @@ public class ControladorResponsavel implements Initializable {
                 r.setAssinatura(assResponsavel.getText());
             }
             
+            rbanco.updateResponsavel(r);
+            
         }
-        rbanco.updateResponsavel(r);
+        
+        limparTextos();
+        refreshTable();
     }
     
     @FXML

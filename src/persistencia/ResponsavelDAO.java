@@ -21,7 +21,7 @@ public class ResponsavelDAO {
     private final Conexao con = new Conexao();
     
         private final String INSERTRESPONSAVEL = "INSERT INTO RESPONSAVEL (NOME_RESPONSAVEL, DATA_RECEBIMENTO, HORA, ASSINATURA) VALUES (?,?,?,?)";
-	private final String UPDATERESPONSAVEL = "UPDATE RESPONSAVEL SET NOME_RESPONSAVEL = ?, DATA_RECEBIMENTO = ?, HORA = ?, ASSISNATURA = ? WHERE ID_REPONSAVEL = ?";
+	private final String UPDATERESPONSAVEL = "UPDATE RESPONSAVEL SET NOME_RESPONSAVEL = ?,ASSINATURA = ?, DATA_RECEBIMENTO = ?, HORA = ? WHERE ID_REPONSAVEL = ?";
 	private final String DELETERESPONSAVEL = "DELETE FROM RESPONSAVEL WHERE ID_REPONSAVEL = ?";
         private final String LISTRESPONSAVEL = "SELECT * FROM RESPONSAVEL";
         
@@ -53,9 +53,9 @@ public class ResponsavelDAO {
 			preparaInstrucao = con.getConexao().prepareStatement(UPDATERESPONSAVEL);
                         
 			preparaInstrucao.setString(1, r.getNome().toUpperCase());
-			preparaInstrucao.setDate(2, (Date) r.getData());
-                        preparaInstrucao.setTime(3, r.getHora());
-                        preparaInstrucao.setString(4, r.getAssinatura().toUpperCase());
+                        preparaInstrucao.setString(2, r.getAssinatura().toUpperCase());
+			preparaInstrucao.setDate(3, (Date) r.getData());
+                        preparaInstrucao.setTime(4, r.getHora());
                         preparaInstrucao.setInt(5, r.getId_responsavel());
 			preparaInstrucao.execute();
 
@@ -63,6 +63,7 @@ public class ResponsavelDAO {
 			
 			return true;
 		} catch (SQLException e) {
+                        System.err.println(e);
 			return false;
 
 		}
