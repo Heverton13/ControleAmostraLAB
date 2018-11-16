@@ -49,7 +49,6 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        addAnalises();
         analises.addAll(anBanco.listarAnalise());
         comboAnalise.setItems(analises);
         

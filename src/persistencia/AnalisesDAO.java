@@ -32,7 +32,7 @@ public class AnalisesDAO {
             "  ('HEMICELULOSE'),\n" +
             "  ('ENERGIA_DISGESTIVEL'),\n" +
             "  ('NUTRIENTES_DIGESTIVOS_TOTAIS');";
-    private static final String LISTANALISES = "SELECT * FROM ANALISES ORDER BY ID_ANALISE";
+    private static final String LISTANALISES = "SELECT * FROM ANALISES;";
     
     public boolean preencherAnalises(){
         con.conecta();
@@ -72,7 +72,6 @@ public class AnalisesDAO {
                         rs.getString("NOME_ANALISE"));
                         
 		lista.add(a);
-                System.out.println("Teste Lista");
             }           
             con.desconecta();
             

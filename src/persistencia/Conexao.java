@@ -33,7 +33,7 @@ public class Conexao {
        postgre na máquina exemplo localhost:5432 ou localhost:5433 ou qualquer outro, sempre verificar
        o mesmo vale para p usuário e senha postados acima.
     */
-    private static final String CAMINHO = "jdbc:postgresql://localhost:5433/labnutricao";
+    private static final String CAMINHO = "jdbc:postgresql://localhost:5432/labnutricao";
     private static final String DRIVER = "org.postgresql.Driver";
    
     private Connection conexao;
@@ -67,7 +67,6 @@ public class Conexao {
     public static void main(String[] args) throws ParseException {
      
         AnalisesDAO a = new AnalisesDAO();
-        
         System.out.println(a.listarAnalise());
     }
 }
