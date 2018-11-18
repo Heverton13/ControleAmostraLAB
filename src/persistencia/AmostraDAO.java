@@ -24,7 +24,7 @@ public class AmostraDAO {
     
     private Conexao con = new Conexao();
     
-    private final String INSERTAMOSTRA = "INSERT INTO AMOSTRA (IDENTIFICACAO_AMOSTRA, ID_SOLICITANTE, ID_REPONSAVEL, DESCRICAO, FRACOS,OBSERVACOES,DATA_ENTRADA) VALUES (?,?,?,?,?,?,?)";
+    private final String INSERTAMOSTRA = "INSERT INTO AMOSTRA (IDENTIFICACAO_AMOSTRA, ID_SOLICITANTE, ID_REPONSAVEL, DESCRICAO, FRASCOS ,OBSERVACOES,DATA_ENTRADA) VALUES (?,?,?,?,?,?,?)";
     private final String UPDATEAMOSTRA = "UPDATE AMOSTRA SET IDENTIFICACAO_AMOSTRA = ?, DESCRICAO = ?, FRACOS = ?, OBSERVACOES = ?, DATA_ENTRADA = ?, TIPO_AMOSTRA = ?";
     private final String DELETEAAMOSTRA = "DELETE FROM AMOSTRA WHERE ID_AMOSTRA = ?";
     private final String LISTAMOSTRA = "SELECT * FROM AMOSTRA ORDER BY IDENTIFICACAO_AMOSTRA";
@@ -58,6 +58,8 @@ public class AmostraDAO {
 			
             return true;   
         }catch (SQLException ex) {
+            System.err.println(ex);
+            ex.printStackTrace();
             return false;
         }
     }
@@ -86,6 +88,7 @@ public class AmostraDAO {
             return true;
 
             } catch (SQLException e) {
+                System.err.println(e);
 		return false;
 
         }
@@ -108,6 +111,7 @@ public class AmostraDAO {
             return true;
 
             } catch (SQLException e) {
+                System.err.println(e);
                 return false;
 
         }    
@@ -142,6 +146,7 @@ public class AmostraDAO {
             con.desconecta();
             
             } catch (SQLException e) {
+                System.err.println(e);
             }
             return lista;
 

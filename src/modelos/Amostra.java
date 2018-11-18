@@ -9,6 +9,7 @@ import java.util.Date;
  */
 public class Amostra {
     
+    private int id;
     private String id_amostra;
     private int id_solicitante;
     private int id_responsavel;
@@ -17,7 +18,8 @@ public class Amostra {
     private String observacoes;
     private Date data_entrada;
     
-    public Amostra(String id_amostra, int id_solicitante, int id_responsavel, String descricao, int frascos, String observacoes, Date data_entrada) {
+    public Amostra(int id, String id_amostra, int id_solicitante, int id_responsavel, String descricao, int frascos, String observacoes, Date data_entrada) {
+        this.id = id;
         this.id_amostra = id_amostra;
         this.id_solicitante = id_solicitante;
         this.id_responsavel = id_responsavel;
@@ -28,11 +30,11 @@ public class Amostra {
         
     }
 
-    public Amostra(int id_solicitante, int id_responsavel, String id_amostra, String descricao, int frascos, String observacoes, Date data_entrada) {
+    public Amostra(String id_amostra, int id_solicitante, int id_responsavel, String descricao, int frascos, String observacoes, Date data_entrada) {
         
+        this.id_amostra = id_amostra;
         this.id_solicitante = id_solicitante;
         this.id_responsavel = id_responsavel;
-        this.id_amostra = id_amostra;
         this.descricao = descricao;
         this.frascos = frascos;
         this.observacoes = observacoes;
@@ -95,7 +97,11 @@ public class Amostra {
     public void setData_entrada(Date data_entrada) {
         this.data_entrada = data_entrada;
     }
-    
+
+    @Override
+    public String toString() {
+        return "Amostra{" + "id=" + id + ", id_amostra=" + id_amostra + ", id_solicitante=" + id_solicitante + ", id_responsavel=" + id_responsavel + ", descricao=" + descricao + ", frascos=" + frascos + ", observacoes=" + observacoes + ", data_entrada=" + data_entrada + '}';
+    }
     
     
 }
