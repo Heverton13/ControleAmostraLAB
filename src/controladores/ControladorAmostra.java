@@ -210,31 +210,35 @@ public class ControladorAmostra implements Initializable {
     
     @FXML
     private void updateAmostra(){
-        
+         
         Amostra a = TabelaAmostra.getSelectionModel().getSelectedItem();
-        System.out.println(a.getId_amostra());
+        
+        
         if(a != null){
             
-            if(idAmostra.getText().equals("")){
+            if(!idAmostra.getText().equals("")){
                 a.setId_amostra(idAmostra.getText());
+                
             }
             
-            if(descricao.getText().equals("")){
+            if(!descricao.getText().equals("")){
                 a.setDescricao(descricaoAmostra.getText());
             }
             
-            if(obervacoesAmostra.getText().equals("")){
+            if(!obervacoesAmostra.getText().equals("")){
                 a.setObservacoes(obervacoesAmostra.getText());
             }
             
-            if(frascosAmostra.getText().equals("")){
+            if(!frascosAmostra.getText().equals("")){
                 int frasco = Integer.parseInt(frascosAmostra.getText());
                 a.setFrascos(frasco);
             }
+            aBanco.update(a);
+            
         }
         
-        aBanco.update(a);
-        System.out.println(a.getId_amostra());
+      
+       
         limparTextFild();
         refreshTable();
         

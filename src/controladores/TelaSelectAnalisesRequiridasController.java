@@ -16,6 +16,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import modelos.Amostra;
 import modelos.Analises;
+import persistencia.AmostraDAO;
 import persistencia.AnalisesDAO;
 
 /**
@@ -27,7 +28,11 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
   
     private AnalisesDAO anBanco = new AnalisesDAO();
     
+    private AmostraDAO amostraBanco = new AmostraDAO();
+    
     private ObservableList<Analises> analises = FXCollections.observableArrayList();
+    
+    private ObservableList<Amostra> amostras = FXCollections.observableArrayList();
 
     @FXML
     private JFXComboBox<Amostra> comboAmostra;
@@ -49,8 +54,13 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+        amostras.addAll(amostraBanco.list());
+        comboAmostra.setItems(amostras);
+        
         analises.addAll(anBanco.listarAnalise());
         comboAnalise.setItems(analises);
+        
         
     }    
     

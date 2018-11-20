@@ -25,7 +25,7 @@ public class AmostraDAO implements DAO <Amostra>{
     private Conexao con = new Conexao();
     
     private final String INSERTAMOSTRA = "INSERT INTO AMOSTRA (IDENTIFICACAO_AMOSTRA, ID_SOLICITANTE, ID_REPONSAVEL, DESCRICAO, FRASCOS ,OBSERVACOES,DATA_ENTRADA) VALUES (?,?,?,?,?,?,?)";
-    private final String UPDATEAMOSTRA = "UPDATE AMOSTRA SET IDENTIFICACAO_AMOSTRA = ?, DESCRICAO = ?,ID_SOLICITANTE = ?, ID_REPONSAVEL = ?, FRASCOS = ?, OBSERVACOES = ?, DATA_ENTRADA = ? WHERE ID_AMOSTRA = ?";
+    private final String UPDATEAMOSTRA = "UPDATE AMOSTRA SET IDENTIFICACAO_AMOSTRA = ?,ID_SOLICITANTE = ?, ID_REPONSAVEL = ?, DESCRICAO = ?, FRASCOS = ?, OBSERVACOES = ?, DATA_ENTRADA = ? WHERE ID_AMOSTRA = ?";
     private final String DELETEAAMOSTRA = "DELETE FROM AMOSTRA WHERE ID_AMOSTRA = ?";
     private final String LISTAMOSTRA = "SELECT * FROM AMOSTRA ORDER BY IDENTIFICACAO_AMOSTRA";
     
@@ -82,8 +82,8 @@ public class AmostraDAO implements DAO <Amostra>{
 
 			
             preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
-            preparaInstrucao.setInt(2, a.getId_solicitante());
-            preparaInstrucao.setInt(3, a.getId_responsavel());
+            preparaInstrucao.setInt(2, a.getId_responsavel());
+            preparaInstrucao.setInt(3, a.getId_solicitante());
             preparaInstrucao.setString(4, a.getDescricao().toUpperCase());
             preparaInstrucao.setInt(5, a.getFrascos());
             preparaInstrucao.setString(6, a.getObservacoes().toUpperCase());
@@ -99,6 +99,7 @@ public class AmostraDAO implements DAO <Amostra>{
 
             } catch (SQLException e) {
                 System.err.println(e);
+                e.printStackTrace();
 		return false;
 
         }
