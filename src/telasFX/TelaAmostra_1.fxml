@@ -65,15 +65,16 @@
             </JFXButton>
          </children>
       </HBox>
-      <TableView fx:id="TabelaAmostra" prefHeight="329.0" prefWidth="1016.0">
+      <TableView fx:id="TabelaAmostra" onMouseClicked="#mouseClicked" prefHeight="329.0" prefWidth="1016.0">
          <columns>
-            <TableColumn fx:id="id" prefWidth="142.0" text="Id Amostra" />
-            <TableColumn fx:id="descricao" prefWidth="365.0" text="Descrição" />
-            <TableColumn fx:id="frascos" prefWidth="75.0" text="Frascos" />
-            <TableColumn fx:id="recebido" prefWidth="75.0" text="Recebido Por" />
-            <TableColumn fx:id="responsavel" prefWidth="75.0" text="Responsavel" />
-            <TableColumn fx:id="observacoes" prefWidth="75.0" text="Observações" />
-            <TableColumn fx:id="data" prefWidth="75.0" text="Data" />
+            <TableColumn prefWidth="75.0" text="ID" />
+            <TableColumn fx:id="id" prefWidth="142.0" text="IDENTIFICAÇÃO" />
+            <TableColumn fx:id="descricao" prefWidth="365.0" text="DESCRIÇÃO" />
+            <TableColumn fx:id="frascos" prefWidth="75.0" text="FRASCOS" />
+            <TableColumn fx:id="recebido" prefWidth="75.0" text="RESPONSAVEL" />
+            <TableColumn fx:id="responsavel" prefWidth="75.0" text="SOLICITANTE" />
+            <TableColumn fx:id="observacoes" prefWidth="75.0" text="OBSERVAÇÕES" />
+            <TableColumn fx:id="data" prefWidth="75.0" text="DATA" />
          </columns>
          <columnResizePolicy>
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
@@ -93,7 +94,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btExcluirAmostra" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="EXCLUIR">
+            <JFXButton fx:id="btExcluirAmostra" onAction="#deletarAmostra" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="EXCLUIR">
                <font>
                   <Font size="15.0" />
                </font>
@@ -105,7 +106,7 @@
                   </ImageView>
                </graphic>
             </JFXButton>
-            <JFXButton fx:id="btEditarAmostra" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="EDITAR">
+            <JFXButton fx:id="btEditarAmostra" onAction="#updateAmostra" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="EDITAR">
                <font>
                   <Font size="15.0" />
                </font>

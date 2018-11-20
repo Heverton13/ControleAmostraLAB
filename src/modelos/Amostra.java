@@ -98,9 +98,19 @@ public class Amostra {
         this.data_entrada = data_entrada;
     }
 
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+    
+    
+    
     @Override
     public String toString() {
-        return "Amostra{" + "id=" + id + ", id_amostra=" + id_amostra + ", id_solicitante=" + id_solicitante + ", id_responsavel=" + id_responsavel + ", descricao=" + descricao + ", frascos=" + frascos + ", observacoes=" + observacoes + ", data_entrada=" + data_entrada + '}';
+        return id_amostra;
     }
     
     

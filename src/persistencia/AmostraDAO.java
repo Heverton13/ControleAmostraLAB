@@ -20,16 +20,22 @@ import modelos.Solicitante_Academico;
  *
  * @author Heverton
  */
-public class AmostraDAO {
+public class AmostraDAO implements DAO <Amostra>{
     
     private Conexao con = new Conexao();
     
     private final String INSERTAMOSTRA = "INSERT INTO AMOSTRA (IDENTIFICACAO_AMOSTRA, ID_SOLICITANTE, ID_REPONSAVEL, DESCRICAO, FRASCOS ,OBSERVACOES,DATA_ENTRADA) VALUES (?,?,?,?,?,?,?)";
-    private final String UPDATEAMOSTRA = "UPDATE AMOSTRA SET IDENTIFICACAO_AMOSTRA = ?, DESCRICAO = ?, FRACOS = ?, OBSERVACOES = ?, DATA_ENTRADA = ?, TIPO_AMOSTRA = ?";
+    private final String UPDATEAMOSTRA = "UPDATE AMOSTRA SET IDENTIFICACAO_AMOSTRA = ?, DESCRICAO = ?,ID_SOLICITANTE = ?, ID_REPONSAVEL = ?, FRASCOS = ?, OBSERVACOES = ?, DATA_ENTRADA = ? WHERE ID_AMOSTRA = ?";
     private final String DELETEAAMOSTRA = "DELETE FROM AMOSTRA WHERE ID_AMOSTRA = ?";
     private final String LISTAMOSTRA = "SELECT * FROM AMOSTRA ORDER BY IDENTIFICACAO_AMOSTRA";
     
-    public boolean inserirAmostra(Amostra a){
+    /**
+     *
+     * @param a
+     * @return
+     */
+    @Override
+    public boolean add(Amostra a){
         
         con.conecta();
         
@@ -64,7 +70,8 @@ public class AmostraDAO {
         }
     }
     
-    public boolean updateAmostra(Amostra a){
+    @Override
+    public boolean update(Amostra a){
         
         
         try {
@@ -75,10 +82,13 @@ public class AmostraDAO {
 
 			
             preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
-            preparaInstrucao.setString(2, a.getDescricao().toUpperCase());
-            preparaInstrucao.setInt(3, a.getFrascos());
-            preparaInstrucao.setString(4, a.getObservacoes().toUpperCase());
-            preparaInstrucao.setDate(5, (Date) a.getData_entrada());
+            preparaInstrucao.setInt(2, a.getId_solicitante());
+            preparaInstrucao.setInt(3, a.getId_responsavel());
+            preparaInstrucao.setString(4, a.getDescricao().toUpperCase());
+            preparaInstrucao.setInt(5, a.getFrascos());
+            preparaInstrucao.setString(6, a.getObservacoes().toUpperCase());
+            preparaInstrucao.setDate(7, (Date) a.getData_entrada());
+            preparaInstrucao.setInt(8,a.getId());
             
             
             preparaInstrucao.execute();
@@ -94,7 +104,8 @@ public class AmostraDAO {
         }
     }
     
-    public boolean deleteAmostra(int idAmostra){
+    @Override
+    public boolean remove(int idAmostra){
         
         try {
             
@@ -117,7 +128,8 @@ public class AmostraDAO {
         }    
     }
     
-  public ArrayList<Amostra> listarAmostra(){
+  @Override
+  public ArrayList<Amostra> list(){
       
       ArrayList<Amostra> lista = new ArrayList<>(); 
 
@@ -132,9 +144,10 @@ public class AmostraDAO {
             while (rs.next()) { 
                 
                 Amostra a = new Amostra(
+                        rs.getInt("ID_AMOSTRA"),
                         rs.getString("IDENTIFICACAO_AMOSTRA"),
-                        rs.getInt("ID_Amostra"),
-                        rs.getInt("ID_RESPONSAVEL"), 
+                        rs.getInt("ID_REPONSAVEL"), 
+                        rs.getInt("ID_SOLICITANTE"),
                         rs.getString("DESCRICAO"),
                         rs.getInt("FRASCOS"), 
                         rs.getString("OBSERVACOES"), 

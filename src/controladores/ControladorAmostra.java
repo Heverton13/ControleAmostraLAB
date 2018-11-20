@@ -28,6 +28,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 import modelos.Amostra;
@@ -166,6 +168,23 @@ public class ControladorAmostra implements Initializable {
         frascosAmostra.clear();
         dataAmostra.setValue(null);
     }
+    @FXML
+    private void refreshTable(){
+        amostras.clear();
+        amostras.addAll(aBanco.list());
+        TabelaAmostra.setItems(amostras);
+                
+    }
+    
+    @FXML
+    private void mouseClicked(MouseEvent event) {
+        Amostra amostras = TabelaAmostra.getSelectionModel().getSelectedItem();
+        idAmostra.setText(amostras.getId_amostra());
+        descricaoAmostra.setText(amostras.getDescricao());
+        frascosAmostra.setText(Integer.toString(amostras.getFrascos()));
+        obervacoesAmostra.setText(amostras.getObservacoes());
+        dataAmostra.setValue(null);
+    }
     
     @FXML
     private void addAmostra(){
@@ -184,8 +203,50 @@ public class ControladorAmostra implements Initializable {
                 dataEntrega
         );
         System.out.println(amostraEdit);
-        aBanco.inserirAmostra(amostraEdit);
+        aBanco.add(amostraEdit);
         limparTextFild();
+        refreshTable();
+    }
+    
+    @FXML
+    private void updateAmostra(){
+        
+        Amostra a = TabelaAmostra.getSelectionModel().getSelectedItem();
+        System.out.println(a.getId_amostra());
+        if(a != null){
+            
+            if(idAmostra.getText().equals("")){
+                a.setId_amostra(idAmostra.getText());
+            }
+            
+            if(descricao.getText().equals("")){
+                a.setDescricao(descricaoAmostra.getText());
+            }
+            
+            if(obervacoesAmostra.getText().equals("")){
+                a.setObservacoes(obervacoesAmostra.getText());
+            }
+            
+            if(frascosAmostra.getText().equals("")){
+                int frasco = Integer.parseInt(frascosAmostra.getText());
+                a.setFrascos(frasco);
+            }
+        }
+        
+        aBanco.update(a);
+        System.out.println(a.getId_amostra());
+        limparTextFild();
+        refreshTable();
+        
+    }
+    
+    @FXML
+    private void deletarAmostra(){
+        
+        aBanco.remove(TabelaAmostra.getSelectionModel().getSelectedItem().getId());
+        limparTextFild();
+        refreshTable();
+        
     }
     
     @FXML
@@ -198,6 +259,23 @@ public class ControladorAmostra implements Initializable {
         s1.show();
     }
     
+    @FXML
+    private void listarAmostras(){
+        
+        amostras = FXCollections.observableArrayList(aBanco.list());
+        
+        TabelaAmostra.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id"));
+        TabelaAmostra.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("id_amostra"));
+        TabelaAmostra.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        TabelaAmostra.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("frascos"));
+        TabelaAmostra.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("id_responsavel"));
+        TabelaAmostra.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("id_solicitante"));
+        TabelaAmostra.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("observacoes"));
+        TabelaAmostra.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("data_entrada"));
+        
+        TabelaAmostra.setItems(amostras);
+    }
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         dataAmostra.setConverter(data());
@@ -206,6 +284,7 @@ public class ControladorAmostra implements Initializable {
         comboResponsavel.setItems(responsaveis);
         solicitantes.addAll(sBanco.listSolicitante());
         comboSolicitante.setItems(solicitantes);
+        listarAmostras();
         
     }   
  }
