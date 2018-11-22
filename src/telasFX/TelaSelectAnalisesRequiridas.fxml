@@ -35,7 +35,7 @@
                </font>
             </Label>
             <JFXComboBox fx:id="comboAnalise" focusColor="#16c969" prefHeight="24.0" prefWidth="228.0" promptText="SELECIONE ANALISE" unFocusColor="#13bf41" />
-            <JFXButton fx:id="btAmostraAnalise" prefHeight="65.0" prefWidth="235.0" style="-fx-background-color: #3CB371;" text="INCLUIDAR ANALISE">
+            <JFXButton fx:id="btAmostraAnalise" onAction="#addAnalises" prefHeight="65.0" prefWidth="235.0" style="-fx-background-color: #3CB371;" text="INCLUIDAR ANALISE">
                <font>
                   <Font size="15.0" />
                </font>

@@ -14,7 +14,9 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.SingleSelectionModel;
 import modelos.Amostra;
+import modelos.Amostra_Analise;
 import modelos.Analises;
 import persistencia.AmostraDAO;
 import persistencia.AnalisesDAO;
@@ -27,6 +29,8 @@ import persistencia.AnalisesDAO;
 public class TelaSelectAnalisesRequiridasController implements Initializable {
   
     private AnalisesDAO anBanco = new AnalisesDAO();
+    
+    private Amostra_Analise adicionar;
     
     private AmostraDAO amostraBanco = new AmostraDAO();
     
@@ -41,15 +45,22 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
     private JFXComboBox<Analises> comboAnalise;
 
     @FXML
-    private JFXButton btAmostraAnalise;
-    
+    private JFXButton btAmostraAnalise;    
     
     /**
      * Initializes the controller class.
      */
+     
     @FXML
     private void addAnalises(){
         anBanco.preencherAnalises();
+          
+        adicionar = new Amostra_Analise(
+                
+                comboAmostra.getSelectionModel().getSelectedItem().getId(),
+                comboAnalise.getSelectionModel().getSelectedItem().getId_analise()
+                
+        );
     }
     
     @Override
