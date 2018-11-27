@@ -15,8 +15,11 @@ public class Amostra_Analise {
     private int id_amostra;
     private int id_analise;
     
+    private Amostra amostra;
+    private Analises analises;
     
     private Analises as;
+    
 
     public Amostra_Analise(int id_amostra_analise, int id_amostra, int id_analise) {
         this.id_amostra_analise = id_amostra_analise;

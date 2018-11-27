@@ -19,6 +19,7 @@ import modelos.Amostra;
 import modelos.Amostra_Analise;
 import modelos.Analises;
 import persistencia.AmostraDAO;
+import persistencia.AmostraEmAnaliseDAO;
 import persistencia.AnalisesDAO;
 
 /**
@@ -27,12 +28,15 @@ import persistencia.AnalisesDAO;
  * @author Denys
  */
 public class TelaSelectAnalisesRequiridasController implements Initializable {
-  
+    //Para listar analises  
     private AnalisesDAO anBanco = new AnalisesDAO();
+    // Para listar amostras
+    private AmostraDAO amostraBanco = new AmostraDAO();
     
     private Amostra_Analise adicionar;
     
-    private AmostraDAO amostraBanco = new AmostraDAO();
+    private AmostraEmAnaliseDAO amostraAnaliseDAO = new AmostraEmAnaliseDAO();
+    
     
     private ObservableList<Analises> analises = FXCollections.observableArrayList();
     
@@ -53,19 +57,21 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
      
     @FXML
     private void addAnalises(){
-        anBanco.preencherAnalises();
+        
           
         adicionar = new Amostra_Analise(
                 
                 comboAmostra.getSelectionModel().getSelectedItem().getId(),
-                comboAnalise.getSelectionModel().getSelectedItem().getId_analise()
-                
+                comboAnalise.getSelectionModel().getSelectedItem().getId_analise()             
         );
+        
+        amostraAnaliseDAO.insertAnaliseAmostra(adicionar);
+        
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+        anBanco.preencherAnalises();
         amostras.addAll(amostraBanco.list());
         comboAmostra.setItems(amostras);
         
