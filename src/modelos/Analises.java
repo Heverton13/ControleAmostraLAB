@@ -23,6 +23,10 @@ public class Analises {
         this.nome_analise = nome_analise;
     }
 
+    Analises() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public int getId_analise() {
         return id_analise;
     }

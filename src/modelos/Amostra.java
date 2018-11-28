@@ -42,6 +42,10 @@ public class Amostra {
         
     }
 
+    Amostra() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getId_amostra() {
         return id_amostra;
     }

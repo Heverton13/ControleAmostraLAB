@@ -14,7 +14,7 @@
             <Image url="@../icones/clipboards.png" />
          </image>
       </ImageView>
-      <TableView prefHeight="318.0" prefWidth="634.0">
+      <TableView fx:id="tabelaHistorico" prefHeight="318.0" prefWidth="634.0">
         <columns>
           <TableColumn fx:id="colunaAmostra" prefWidth="173.0" text="IDENTIFICAÇÃO AMOSTRA" />
           <TableColumn fx:id="colunaDescricao" minWidth="0.0" prefWidth="82.0" text="DESCRIÇÃO" />

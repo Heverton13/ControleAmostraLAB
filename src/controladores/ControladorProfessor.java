@@ -88,6 +88,11 @@ public class ControladorProfessor implements Initializable {
     @FXML
     private void addProfessor(){
         
+        if(!"".equals(nomeProfessor.getText())){
+            
+        }
+        
+        
         professorEdit = new Professor_Orientador(nomeProfessor.getText(),departamentoProfessor.getText(),telefoneProfessor.getText(),emailProfessor.getText());
         //Fazer tratamentos aqui, Pedir explicação a Laura
         pbanco.insertProfessor(professorEdit);

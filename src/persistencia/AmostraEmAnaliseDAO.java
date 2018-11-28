@@ -106,11 +106,13 @@ public class AmostraEmAnaliseDAO {
 			
             while (rs.next()) { 
                 
-                Amostra_Analise a = new Amostra_Analise(
-                        rs.getInt("ID_AMOSTRA_ANALISE"),
-                        rs.getInt("ID_AMOSTRAR"),
-                        rs.getInt("ID_ANALISER"));
-		lista.add(a);               
+                Amostra_Analise a = new Amostra_Analise(       
+                        rs.getString("IDENTIFICACAO_AMOSTRA"),
+                        rs.getString("DESCRICAO"),
+                        rs.getInt("FRASCOS"),
+                        rs.getString("NOME_ANALISE"));
+		lista.add(a);  
+                System.out.println(lista);
             }           
             con.desconecta();
             
