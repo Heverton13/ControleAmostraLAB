@@ -46,16 +46,15 @@ public class TelaHistoricoController implements Initializable {
      * Initializes the controller class.
      */
     
-    @FXML
     private void listHistorico(){
         
         am_an = FXCollections.observableArrayList(amDAO.listAnalise_Amostra());
         
         
-        tabelaHistorico.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("getAm().getId_amostra()"));
-        //tabelaHistorico.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("am.getDescricao()"));
-        //tabelaHistorico.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("am.getFrascos()"));
-        //tabelaHistorico.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("anal.getNome_analise()"));
+        tabelaHistorico.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("identificao_amostra"));
+        tabelaHistorico.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("descricao"));
+        tabelaHistorico.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("frascos"));
+        tabelaHistorico.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("nome_analise"));
         tabelaHistorico.setItems(am_an);
         
     }

@@ -112,8 +112,9 @@ public class AmostraEmAnaliseDAO {
                         rs.getInt("FRASCOS"),
                         rs.getString("NOME_ANALISE"));
 		lista.add(a);  
-                System.out.println(lista);
-            }           
+               
+            }  
+             System.out.println(lista);
             con.desconecta();
             
             } catch (SQLException e) {

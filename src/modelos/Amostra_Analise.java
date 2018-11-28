@@ -14,9 +14,10 @@ public class Amostra_Analise {
     private int id_amostra_analise;
     private int id_amostra;
     private int id_analise;
-    // Abaixo para histórico
-    private Amostra am = new Amostra();
-    private Analises anal = new Analises();    
+    
+    //TODO
+    String identificao_amostra, descricao, nome_analise; 
+    int frascos;
     
     
 
@@ -32,12 +33,14 @@ public class Amostra_Analise {
     }
     
     //Contrutor para Historico
-    public Amostra_Analise(String identificao_amostra,String descricao, int frascos, String nome_analise){
-        am.setId_amostra(identificao_amostra);
-        am.setDescricao(descricao);
-        am.setFrascos(frascos);
-        anal.setNome_analise(nome_analise);
+
+    public Amostra_Analise(String identificao_amostra, String descricao,int frascos, String nome_analise) {
+        this.identificao_amostra = identificao_amostra;
+        this.descricao = descricao;
+        this.nome_analise = nome_analise;
+        this.frascos = frascos;
     }
+   
 
     public int getId_amostra_analise() {
         return id_amostra_analise;
@@ -63,26 +66,30 @@ public class Amostra_Analise {
         this.id_analise = id_analise;
     }
 
-    public Amostra getAm() {
-        return am;
+    public String getIdentificao_amostra() {
+        return identificao_amostra;
     }
 
-    public void setAm(Amostra am) {
-        this.am = am;
+    public String getDescricao() {
+        return descricao;
     }
 
-    public Analises getAnal() {
-        return anal;
+    public String getNome_analise() {
+        return nome_analise;
     }
 
-    public void setAnal(Analises anal) {
-        this.anal = anal;
+    public int getFrascos() {
+        return frascos;
     }
-    /*
-    public static void main(String[] args) {
-        Amostra_Analise an = null;
-        an.getAm().getId_amostra();
+
+    
+    
+
+    @Override
+    public String toString() {
+        return "Amostra_Analise{" + "identificao_amostra=" + identificao_amostra + ", descricao=" + descricao + ", nome_analise=" + nome_analise + ", frascos=" + frascos + '}';
     }
-    */
+
+    
     
 }

@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -93,6 +94,15 @@ public class ControladorSolicitante implements Initializable {
         NomeSolicitante.setText(solicitante.getNome());
         TelefoneSolicitante.setText(solicitante.getTelefone());
         EmailSolicitante.setText(solicitante.getEmail_solicitante());
+        
+        //TODO
+        Professor_Orientador prof = null;
+        for(Professor_Orientador p: professores){
+            if(p.getId_professor() == solicitante.getId_Professor())
+                prof = p;
+        }
+       
+        comboProfessores.setValue(prof);
        
     }
     
@@ -117,6 +127,7 @@ public class ControladorSolicitante implements Initializable {
         
         if(solicitante != null){
         
+            solicitante.setId_Professor(comboProfessores.getSelectionModel().getSelectedItem().getId_professor());
         if(!NomeSolicitante.getText().equals("")){
             solicitante.setNome(NomeSolicitante.getText());
         }

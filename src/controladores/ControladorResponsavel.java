@@ -162,6 +162,9 @@ public class ControladorResponsavel implements Initializable {
                 r.setAssinatura(assResponsavel.getText());
             }
             
+            r.setData(Date.valueOf(dataRecebimento.getValue()));
+            r.setHora(Time.valueOf(horaRecebimento.getValue()));
+            
             rbanco.updateResponsavel(r);
             
         }
