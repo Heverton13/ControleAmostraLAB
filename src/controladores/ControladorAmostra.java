@@ -178,12 +178,29 @@ public class ControladorAmostra implements Initializable {
     
     @FXML
     private void mouseClicked(MouseEvent event) {
+        
         Amostra amostras = TabelaAmostra.getSelectionModel().getSelectedItem();
         idAmostra.setText(amostras.getId_amostra());
         descricaoAmostra.setText(amostras.getDescricao());
         frascosAmostra.setText(Integer.toString(amostras.getFrascos()));
         obervacoesAmostra.setText(amostras.getObservacoes());
-        dataAmostra.setValue(null);
+        
+        Solicitante_Academico solicitante = null;
+        for(Solicitante_Academico s: solicitantes){
+            if(s.getId_solicitante() == amostras.getId_solicitante())
+                solicitante = s;
+        }
+        comboSolicitante.setValue(solicitante);
+        
+        
+        Responsavel resp = null;
+        for(Responsavel r: responsaveis){
+            if(r.getId_responsavel() == amostras.getId_responsavel());
+            resp = r;
+        }
+        //Está mostrando apenas o último responsavel da lista ao clicar nela, update normal
+        comboResponsavel.setValue(resp);
+        //Retornar Amostra
     }
     
     @FXML
@@ -233,6 +250,18 @@ public class ControladorAmostra implements Initializable {
                 int frasco = Integer.parseInt(frascosAmostra.getText());
                 a.setFrascos(frasco);
             }
+            
+            if(!dataAmostra.getValue().equals("")){
+                a.setData_entrada(Date.valueOf(dataAmostra.getValue()));
+            }
+            
+            
+            a.setId_solicitante(comboSolicitante.getSelectionModel().getSelectedItem().getId_solicitante());
+            
+            
+            a.setId_responsavel(comboResponsavel.getSelectionModel().getSelectedItem().getId_responsavel());
+            
+            
             aBanco.update(a);
             
         }

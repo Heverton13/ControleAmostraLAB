@@ -15,6 +15,8 @@ import java.sql.Time;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.ResourceBundle;
@@ -90,8 +92,10 @@ public class ControladorResponsavel implements Initializable {
     private void mouseClicked(MouseEvent event) {
         Responsavel responsavel = tabelaResponsavel.getSelectionModel().getSelectedItem();
         nomeResponsavel.setText(responsavel.getNome());
-        assResponsavel.setText(responsavel.getAssinatura());
-       
+        assResponsavel.setText(responsavel.getAssinatura());        
+        
+        // Ver como retornar data e hora através desse método
+        
     }
     
     private StringConverter<LocalDate> data(){
@@ -161,9 +165,13 @@ public class ControladorResponsavel implements Initializable {
             if(!assResponsavel.getText().equals("")){
                 r.setAssinatura(assResponsavel.getText());
             }
+            if(!dataRecebimento.getValue().equals("")){
+                r.setData(Date.valueOf(dataRecebimento.getValue()));
+            }
             
-            r.setData(Date.valueOf(dataRecebimento.getValue()));
-            r.setHora(Time.valueOf(horaRecebimento.getValue()));
+            if(!horaRecebimento.getValue().equals("")){
+                r.setHora(Time.valueOf(horaRecebimento.getValue()));
+            }
             
             rbanco.updateResponsavel(r);
             

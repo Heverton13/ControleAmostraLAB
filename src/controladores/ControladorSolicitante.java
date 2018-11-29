@@ -127,7 +127,9 @@ public class ControladorSolicitante implements Initializable {
         
         if(solicitante != null){
         
-            solicitante.setId_Professor(comboProfessores.getSelectionModel().getSelectedItem().getId_professor());
+        
+        solicitante.setId_Professor(comboProfessores.getSelectionModel().getSelectedItem().getId_professor());
+        
         if(!NomeSolicitante.getText().equals("")){
             solicitante.setNome(NomeSolicitante.getText());
         }

@@ -25,6 +25,6 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <JFXButton fx:id="btGerarEtiqueta" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: #3CB371;" text="GERAR ETIQUETA" />
+      <JFXButton fx:id="btGerarEtiqueta" onAction="#gerarEtiqueta" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: #3CB371;" text="GERAR ETIQUETA" />
    </children>
 </VBox>
