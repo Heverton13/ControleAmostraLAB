@@ -15,7 +15,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
@@ -201,6 +204,10 @@ public class ControladorAmostra implements Initializable {
         //Está mostrando apenas o último responsavel da lista ao clicar nela, update normal
         comboResponsavel.setValue(resp);
         //Retornar Amostra
+        
+        Instant instant = Instant.ofEpochMilli(amostras.getData_entrada().getTime());
+        LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+        dataAmostra.setValue(localDate);
     }
     
     @FXML

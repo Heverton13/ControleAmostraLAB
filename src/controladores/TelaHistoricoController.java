@@ -6,7 +6,6 @@
 package controladores;
 
 import com.itextpdf.text.BaseColor;
-import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
@@ -22,20 +21,17 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonBar;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javax.swing.JOptionPane;
 
 import modelos.Amostra_Analise;
 import persistencia.AmostraEmAnaliseDAO;
@@ -88,7 +84,7 @@ public class TelaHistoricoController implements Initializable {
     @FXML
     private void gerarEtiqueta(){
         
-        am_anEdit = tabelaHistorico.getSelectionModel().getSelectedItem();
+        am_an = tabelaHistorico.getSelectionModel().getSelectedItems();
         
         Document doc = new Document();
         
@@ -99,38 +95,13 @@ public class TelaHistoricoController implements Initializable {
             Font ft = new Font(FontFamily.TIMES_ROMAN, 10.0f, Font.BOLD, BaseColor.BLACK);
             Font f = new Font(FontFamily.TIMES_ROMAN, 7.0f, Font.NORMAL, BaseColor.BLACK);
             
-            doc.add(new Paragraph(am_anEdit.getIdentificao_amostra(),ft));
-            doc.add(new Paragraph("TIPO AMOSTRA: " + am_anEdit.getDescricao(),f));
-            doc.add(new Paragraph("SOLICITANTE: " + am_anEdit.getNome_solicitante(),f));
-            doc.add(new Paragraph("DATA ENTRADA: " + am_anEdit.getData_entrada(),f));
-            doc.add(new Paragraph("ANÁLISES: " + am_anEdit.getNome_analise(),f));
-            
-            
-            Alert dialogoErro = new Alert(Alert.AlertType.CONFIRMATION);
-            ButtonType btnSim = new ButtonType("Sim",ButtonData.APPLY);
-            ButtonType btnNao = new ButtonType("Não",ButtonData.CANCEL_CLOSE);
-            //Apresentação
-            dialogoErro.setTitle("Geração de Etiquetas");
-            dialogoErro.setHeaderText("Geração em Andamento");
-            dialogoErro.setContentText("ATENÇÃO! INFORME SE DESEJA ADICIONAR MAIS ETIQUETAS A FOLHA!");
-            dialogoErro.getButtonTypes().setAll(btnSim, btnNao);
-            
-            Optional<ButtonType> result =  dialogoErro.showAndWait();
-            
-            if(result.get() == btnSim){
-                
-               Amostra_Analise add = tabelaHistorico.getSelectionModel().getSelectedItem();
-               
-               doc.add(new Paragraph(add.getIdentificao_amostra(),ft));
-               doc.add(new Paragraph("TIPO AMOSTRA: " + add.getDescricao(),f));
-               doc.add(new Paragraph("SOLICITANTE: " + add.getNome_solicitante(),f));
-               doc.add(new Paragraph("DATA ENTRADA: " + add.getData_entrada(),f));
-               doc.add(new Paragraph("ANÁLISES: " + add.getNome_analise(),f));
-            
-            }else{
-                btnNao.getButtonData();
+            for (int i = 0; i < am_an.size(); i++) {
+                doc.add(new Paragraph(am_an.get(i).getIdentificao_amostra(),ft));
+                doc.add(new Paragraph("TIPO AMOSTRA: " + am_an.get(i).getDescricao(),f));
+                doc.add(new Paragraph("SOLICITANTE: " + am_an.get(i).getNome_solicitante(),f));
+                doc.add(new Paragraph("DATA ENTRADA: " + am_an.get(i).getData_entrada(),f));
+                doc.add(new Paragraph("ANÁLISES: " + am_an.get(i).getNome_analise(),f));
             }
-            
             
         } catch (FileNotFoundException | DocumentException ex) {
             System.err.println("Erro: "+ex);
@@ -149,6 +120,7 @@ public class TelaHistoricoController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        tabelaHistorico.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listHistorico();
     }    
     

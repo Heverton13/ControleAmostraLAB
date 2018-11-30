@@ -12,13 +12,12 @@ import com.jfoenix.controls.JFXTimePicker;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.Time;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.Instant;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -94,7 +93,13 @@ public class ControladorResponsavel implements Initializable {
         nomeResponsavel.setText(responsavel.getNome());
         assResponsavel.setText(responsavel.getAssinatura());        
         
-        // Ver como retornar data e hora através desse método
+        Instant instant = Instant.ofEpochMilli(responsavel.getData().getTime());
+        LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
+        dataRecebimento.setValue(localDate);
+        
+        Instant instant2 = Instant.ofEpochMilli(responsavel.getHora().getTime());
+        LocalTime localTime = LocalDateTime.ofInstant(instant2, ZoneId.systemDefault()).toLocalTime();
+        horaRecebimento.setValue(localTime);
         
     }
     
