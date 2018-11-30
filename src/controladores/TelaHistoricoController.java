@@ -79,8 +79,8 @@ public class TelaHistoricoController implements Initializable {
         tabelaHistorico.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("identificao_amostra"));
         tabelaHistorico.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("descricao"));
         tabelaHistorico.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("nome_solicitante"));
-        tabelaHistorico.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("nome_analise"));
-        tabelaHistorico.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("data_entrada"));
+        tabelaHistorico.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("data_entrada"));
+        tabelaHistorico.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("nome_analise"));
         tabelaHistorico.setItems(am_an);
         
     }
@@ -107,7 +107,7 @@ public class TelaHistoricoController implements Initializable {
             
             
             Alert dialogoErro = new Alert(Alert.AlertType.CONFIRMATION);
-            ButtonType btnSim = new ButtonType("Sim",ButtonData.CANCEL_CLOSE);
+            ButtonType btnSim = new ButtonType("Sim",ButtonData.APPLY);
             ButtonType btnNao = new ButtonType("Não",ButtonData.CANCEL_CLOSE);
             //Apresentação
             dialogoErro.setTitle("Geração de Etiquetas");
@@ -118,7 +118,14 @@ public class TelaHistoricoController implements Initializable {
             Optional<ButtonType> result =  dialogoErro.showAndWait();
             
             if(result.get() == btnSim){
-              
+                
+               Amostra_Analise add = tabelaHistorico.getSelectionModel().getSelectedItem();
+               
+               doc.add(new Paragraph(add.getIdentificao_amostra(),ft));
+               doc.add(new Paragraph("TIPO AMOSTRA: " + add.getDescricao(),f));
+               doc.add(new Paragraph("SOLICITANTE: " + add.getNome_solicitante(),f));
+               doc.add(new Paragraph("DATA ENTRADA: " + add.getData_entrada(),f));
+               doc.add(new Paragraph("ANÁLISES: " + add.getNome_analise(),f));
             
             }else{
                 btnNao.getButtonData();
