@@ -5,6 +5,8 @@
  */
 package modelos;
 
+import java.sql.Date;
+
 /**
  *
  * @author Heverton
@@ -16,8 +18,8 @@ public class Amostra_Analise {
     private int id_analise;
     
     //TODO
-    String identificao_amostra, descricao, nome_analise; 
-    int frascos;
+    private String identificao_amostra, descricao,nome_solicitante, nome_analise; 
+    private Date data_entrada;
     
     
 
@@ -34,12 +36,15 @@ public class Amostra_Analise {
     
     //Contrutor para Historico
 
-    public Amostra_Analise(String identificao_amostra, String descricao,int frascos, String nome_analise) {
+    public Amostra_Analise(String identificao_amostra, String descricao, String nome_solicitante, Date data_entrada, String nome_analise) {
         this.identificao_amostra = identificao_amostra;
         this.descricao = descricao;
+        this.nome_solicitante = nome_solicitante;
         this.nome_analise = nome_analise;
-        this.frascos = frascos;
+        this.data_entrada = data_entrada;
     }
+    
+    
    
 
     public int getId_amostra_analise() {
@@ -78,18 +83,25 @@ public class Amostra_Analise {
         return nome_analise;
     }
 
-    public int getFrascos() {
-        return frascos;
+    public String getNome_solicitante() {
+        return nome_solicitante;
     }
 
-    
-    
+    public Date getData_entrada() {
+        return data_entrada;
+    }
 
     @Override
     public String toString() {
-        return "Amostra_Analise{" + "identificao_amostra=" + identificao_amostra + ", descricao=" + descricao + ", nome_analise=" + nome_analise + ", frascos=" + frascos + '}';
+        return "Amostra_Analise{" + "identificao_amostra=" + identificao_amostra + ", descricao=" + descricao + ", nome_solicitante=" + nome_solicitante + ", nome_analise=" + nome_analise + ", data_entrada=" + data_entrada + '}';
     }
 
+    
+
+    
+    
+
+   
     
     
 }

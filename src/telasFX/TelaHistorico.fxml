@@ -7,7 +7,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" prefHeight="525.0" prefWidth="634.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TelaHistoricoController">
+<VBox alignment="CENTER" prefHeight="525.0" prefWidth="1016.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TelaHistoricoController">
    <children>
       <ImageView fitHeight="87.0" fitWidth="96.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -18,7 +18,8 @@
         <columns>
           <TableColumn fx:id="colunaAmostra" prefWidth="173.0" text="IDENTIFICAÇÃO AMOSTRA" />
           <TableColumn fx:id="colunaDescricao" minWidth="0.0" prefWidth="82.0" text="DESCRIÇÃO" />
-            <TableColumn fx:id="colunaFrascos" prefWidth="75.0" text="FRASCOS" />
+            <TableColumn fx:id="colunaFrascos" prefWidth="75.0" text="SOLICITANTE" />
+            <TableColumn prefWidth="75.0" text="DATA ENTRADA" />
             <TableColumn fx:id="colunaAR" prefWidth="153.0" text="ANÁLISES REQUERIDAS" />
         </columns>
          <columnResizePolicy>

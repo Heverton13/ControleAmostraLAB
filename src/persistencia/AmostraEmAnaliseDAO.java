@@ -22,7 +22,7 @@ public class AmostraEmAnaliseDAO {
     private static final String INSERTANALISEAMOSTRA = "INSERT INTO AMOSTRA_ANALISES (ID_AMOSTRAR, ID_ANALISER) VALUES (?,?);";
     private static final String UPDATEANALISEAMOSTRA = "UPDATE AMOSTRA_ANALISES SET ID_AMOSTRAR = ?, ID_ANALISER = ? WHERE ID_AMOSTRA_ANALISE = ?;";
     private static final String DELETEANALISEAMOSTRA = "DELETE FROM AMOSTRA_ANALISES WHERE ID_AMOSTRA_ANALISE = ?;";
-    private static final String LISTANALISEAMOSTRA = "SELECT IDENTIFICACAO_AMOSTRA, DESCRICAO, FRASCOS, NOME_ANALISE FROM AMOSTRA_ANALISES,AMOSTRA,ANALISES WHERE ID_AMOSTRAR =  ID_AMOSTRA AND ID_ANALISER = ID_ANALISE;";
+    private static final String LISTANALISEAMOSTRA = "SELECT IDENTIFICACAO_AMOSTRA, DESCRICAO, NOME_SOLICITANTE,DATA_ENTRADA, NOME_ANALISE FROM AMOSTRA_ANALISES,AMOSTRA,ANALISES,SOLICITANTE S WHERE ID_AMOSTRAR =  ID_AMOSTRA AND ID_ANALISER = ID_ANALISE AND ID_AMOSTRA = S.ID_SOLICITANTE;";
 
 
     public boolean insertAnaliseAmostra(Amostra_Analise aa){
@@ -109,7 +109,8 @@ public class AmostraEmAnaliseDAO {
                 Amostra_Analise a = new Amostra_Analise(       
                         rs.getString("IDENTIFICACAO_AMOSTRA"),
                         rs.getString("DESCRICAO"),
-                        rs.getInt("FRASCOS"),
+                        rs.getString("NOME_SOLICITANTE"),
+                        rs.getDate("DATA_ENTRADA"),
                         rs.getString("NOME_ANALISE"));
 		lista.add(a);  
                
