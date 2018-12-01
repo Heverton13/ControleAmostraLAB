@@ -29,6 +29,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -212,11 +213,23 @@ public class ControladorAmostra implements Initializable {
     
     @FXML
     private void addAmostra(){
-        
-        Date dataEntrega = Date.valueOf(this.dataAmostra.getValue());
-        
+         
+        Date dataEntrega = Date.valueOf(this.dataAmostra.getValue());       
         int frascos = Integer.parseInt(frascosAmostra.getText());
         
+        if (!idAmostra.getText().equals("") &&
+            !idAmostra.getText().equals("") &&
+            !frascosAmostra.getText().equals("") &&
+            !comboSolicitante.getSelectionModel().isEmpty() &&
+            !comboResponsavel.getSelectionModel().isEmpty() &&
+            !obervacoesAmostra.getText().equals("") &&  
+                //NAO TA APARENDO ALERTA SE DEIXAR DATA VAZIA, MAS TAMBÉM NÃO TA DEIXANDO ADICIONAR
+                //SE NAO PREECNHER 
+            dataAmostra != null    
+                
+                )
+        {
+             
         amostraEdit = new Amostra(
                 idAmostra.getText(),
                 comboResponsavel.getSelectionModel().getSelectedItem().getId_responsavel(),
@@ -230,6 +243,15 @@ public class ControladorAmostra implements Initializable {
         aBanco.add(amostraEdit);
         limparTextFild();
         refreshTable();
+        
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Campos em branco");
+            alert.setContentText("Por favor, preencha todas as informações antes de adicionar");
+            alert.showAndWait();
+        }
     }
     
     @FXML

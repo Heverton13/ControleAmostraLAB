@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.SingleSelectionModel;
 import modelos.Amostra;
 import modelos.Amostra_Analise;
@@ -58,12 +59,23 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
     @FXML
     private void addAnalises(){
         
-          
+        if (!comboAmostra.getSelectionModel().isEmpty() &&
+            !comboAnalise.getSelectionModel().isEmpty()) {
+   
         adicionar = new Amostra_Analise(
                 
                 comboAmostra.getSelectionModel().getSelectedItem().getId(),
                 comboAnalise.getSelectionModel().getSelectedItem().getId_analise()             
         );
+        }
+        
+                else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Campos em branco");
+            alert.setContentText("Por favor, preencha todas as informações antes de adicionar");
+            alert.showAndWait();
+        }
         
         amostraAnaliseDAO.insertAnaliseAmostra(adicionar);
         

@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXTextArea?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox alignment="CENTER" prefHeight="500.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorAjuda">
+<VBox alignment="CENTER" prefHeight="500.0" prefWidth="810.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorAjuda">
    <children>
-      <Label text="Em caso de dúvidas entre em contato com Heverton ou Denys" textFill="#ea0a0a">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
+      <AnchorPane prefHeight="495.0" prefWidth="600.0">
+         <children>
+            <Label layoutX="4.0" layoutY="1.0" prefHeight="26.0" prefWidth="213.0" text="Como usar o programa:">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Label>
+            <JFXTextArea focusColor="#40a843" layoutX="5.0" layoutY="27.0" prefHeight="454.0" prefWidth="796.0" styleClass="#3cbc3a" text="A opção &quot;Orientador&quot; no menu principal do sistema serve para adicionar os professores responsáveis, são os professores quem podem autorizar o solicitante de pegar a amostra.&#10;&#10;A opção &quot;Solicitante&quot; serve para fazer o cadastro de quem deseja receber uma amostra,  pra isso seleciona o professor que autorizou a pegar a amostra, o nome do solicitante, seu número e email.&#10;&#10;A opção &quot;Responsável&quot; no menu principal serve para adicionar, editar ou excluir os resposáveis, os responsáveis são os que recebem as amostras, as solicitações de amostra e que podem adicionar as amostras ao sistema.&#10;&#10;Opção &quot;Amostra&quot; no menu principal, serve para colocar adicionar amostras ao sistema, pegando sua identificação,  descrição, quantidade de frascos, o seu solicitante, quem autorizou,  observações e data de registro da amostra. Ainda dentro da opção amostra tem um botão chamado &quot;Selecionar Análise&quot; esse botão serve para o usuário escolher a amostra e a analise que deseja.&#10;&#10;A opção &quot;Histórico&quot; no menu principal, ao abrir essa opção se vê todas as amostras juntamente com suas analises que já foram adicionadas ao sistema, juntamente com sua descrição, solicitante e data de registro. O usuário pode selecionar uma ou mais de uma Amostras e clicar em &quot;Gerar Etiqueta&quot; para gerar o documento em PDF com os dados da amostra.&#10;&#10;" unFocusColor="#3cbc3a">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXTextArea>
+         </children>
+      </AnchorPane>
    </children>
 </VBox>

@@ -27,7 +27,7 @@ import modelos.Solicitante_Academico;
 public class Conexao {
     
     private static final String USUARIO = "postgres";
-    private static final String SENHA = "postgre";
+    private static final String SENHA = "12345";
     /* No caminho devemos usar(criar) um banco com nome: labnutricao
        Além disso devemos utilizar o localhost que está sendo usado no 
        postgre na máquina exemplo localhost:5432 ou localhost:5433 ou qualquer outro, sempre verificar

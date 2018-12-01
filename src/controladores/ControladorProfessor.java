@@ -19,6 +19,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import modelos.Professor_Orientador;
 import persistencia.ProfessorDAO;
 import javafx.event.ActionEvent;
+import javafx.scene.control.Alert;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -86,20 +87,25 @@ public class ControladorProfessor implements Initializable {
     }
     
     @FXML
-    private void addProfessor(){
+    private void addProfessor(){      
         
-        if(!"".equals(nomeProfessor.getText())){
-            
-        }
-        
-        
+       if (!nomeProfessor.getText().equals("") &&
+           !departamentoProfessor.getText().equals("") &&
+           !telefoneProfessor.getText().equals("") &&
+           !emailProfessor.getText().equals("")) {
+           
         professorEdit = new Professor_Orientador(nomeProfessor.getText(),departamentoProfessor.getText(),telefoneProfessor.getText(),emailProfessor.getText());
-        //Fazer tratamentos aqui, Pedir explicação a Laura
         pbanco.insertProfessor(professorEdit);
         refreshTable();
         limparTextField();
-        
-        
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Campos em branco");
+            alert.setContentText("Por favor, preencha todas as informações antes de adicionar");
+            alert.showAndWait();
+        }
     }
     
     @FXML

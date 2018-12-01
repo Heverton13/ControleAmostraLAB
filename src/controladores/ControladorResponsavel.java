@@ -23,6 +23,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -130,7 +131,7 @@ public class ControladorResponsavel implements Initializable {
         };
         return converter;
     }
-    
+     
     @FXML
     private void addResponsavel(){
        
@@ -138,6 +139,15 @@ public class ControladorResponsavel implements Initializable {
        Time horaRecebimento = Time.valueOf(this.horaRecebimento.getValue());
        
         
+       if (!nomeResponsavel.getText().equals("") &&
+           !assResponsavel.getText().equals("") &&
+               //NAO TA APARENDO ALERTA SE DEIXAR DATA E HORA VAZIAS, MAS TAMBÉM NÃO TA DEIXANDO ADICIONAR
+               //SE NAO PREENCHER
+            dataRecebimento == null  &&
+              horaRecebimento == null
+               )
+       {
+ 
         rEdit = new Responsavel(
                 nomeResponsavel.getText(),
                 dataRecebimento,
@@ -147,6 +157,15 @@ public class ControladorResponsavel implements Initializable {
         rbanco.insertResponsavel(rEdit);
         limparTextos();
         refreshTable();
+        
+        } else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Campos em branco");
+            alert.setContentText("Por favor, preencha todas as informações antes de adicionar");
+            alert.showAndWait();
+        }
+   
     }
     
     @FXML

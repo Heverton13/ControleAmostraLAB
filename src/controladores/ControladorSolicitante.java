@@ -14,6 +14,7 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -109,14 +110,28 @@ public class ControladorSolicitante implements Initializable {
     @FXML
     private void addSolicitante(){
         
-        solicitanteEdit = new Solicitante_Academico
-               (comboProfessores.getSelectionModel().getSelectedItem().getId_professor(),
-                NomeSolicitante.getText(),
-                TelefoneSolicitante.getText(),
-                EmailSolicitante.getText());
-        sDAO.insertSolicitante(solicitanteEdit);
-        limparTextos();
-        refreshTable();
+  if (!comboProfessores.getSelectionModel().isEmpty() &&
+            !NomeSolicitante.getText().equals("") &&
+            !TelefoneSolicitante.getText().equals("") &&
+            !EmailSolicitante.getText().equals("")) {
+            
+            solicitanteEdit = new Solicitante_Academico
+                   (comboProfessores.getSelectionModel().getSelectedItem().getId_professor(),
+                    NomeSolicitante.getText(),
+                    TelefoneSolicitante.getText(),
+                    EmailSolicitante.getText());
+            sDAO.insertSolicitante(solicitanteEdit);
+            limparTextos();
+            refreshTable();
+            
+        }
+        else {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Erro");
+            alert.setHeaderText("Campos em branco");
+            alert.setContentText("Por favor, preencha todas as informações antes de adicionar");
+            alert.showAndWait();
+        }
     }
     
     @FXML
