@@ -15,6 +15,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.control.SingleSelectionModel;
 import modelos.Amostra;
 import modelos.Amostra_Analise;
@@ -50,7 +51,10 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
     private JFXComboBox<Analises> comboAnalise;
 
     @FXML
-    private JFXButton btAmostraAnalise;    
+    private JFXButton btAmostraAnalise; 
+    
+    @FXML
+    private Label labelMovimento;
     
     /**
      * Initializes the controller class.
@@ -78,12 +82,13 @@ public class TelaSelectAnalisesRequiridasController implements Initializable {
         }
         
         amostraAnaliseDAO.insertAnaliseAmostra(adicionar);
+        labelMovimento.setText("ANALISE "+comboAnalise.getSelectionModel().getSelectedItem().getNome_analise() + " FOI ADICIONADA A AMOSTRA " +  comboAmostra.getSelectionModel().getSelectedItem().getId_amostra());
         
     }
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //anBanco.preencherAnalises();
+       
         amostras.addAll(amostraBanco.list());
         comboAmostra.setItems(amostras);
         

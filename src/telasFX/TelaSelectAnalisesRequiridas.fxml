@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TelaSelectAnalisesRequiridasController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="787.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TelaSelectAnalisesRequiridasController">
    <children>
       <HBox alignment="CENTER" prefHeight="79.0" prefWidth="787.0" style="-fx-background-color: #3CB371;">
          <children>
@@ -21,7 +21,7 @@
             </Label>
          </children>
       </HBox>
-      <VBox alignment="CENTER" layoutY="79.0" prefHeight="346.0" prefWidth="787.0" spacing="25.0">
+      <VBox alignment="CENTER" layoutY="79.0" prefHeight="372.0" prefWidth="787.0" spacing="25.0">
          <children>
             <Label prefHeight="26.0" prefWidth="81.0" text="AMOSTRA">
                <font>
@@ -42,11 +42,12 @@
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icones/icons8-adicionar-usuário-masculino-48.png" />
+                        <Image url="@../icones/icons8-tubo-de-ensaio-64.png" />
                      </image>
                   </ImageView>
                </graphic>
             </JFXButton>
+            <Label fx:id="labelMovimento" text="MOVIMENTAÇÃO DAS ANALISES" />
          </children>
       </VBox>
    </children>

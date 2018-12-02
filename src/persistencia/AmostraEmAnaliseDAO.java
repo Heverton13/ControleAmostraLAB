@@ -22,7 +22,7 @@ public class AmostraEmAnaliseDAO {
     private static final String INSERTANALISEAMOSTRA = "INSERT INTO AMOSTRA_ANALISES (ID_AMOSTRAR, ID_ANALISER) VALUES (?,?);";
     private static final String UPDATEANALISEAMOSTRA = "UPDATE AMOSTRA_ANALISES SET ID_AMOSTRAR = ?, ID_ANALISER = ? WHERE ID_AMOSTRA_ANALISE = ?;";
     private static final String DELETEANALISEAMOSTRA = "DELETE FROM AMOSTRA_ANALISES WHERE ID_AMOSTRA_ANALISE = ?;";
-    private static final String LISTANALISEAMOSTRA = "SELECT IDENTIFICACAO_AMOSTRA, DESCRICAO, NOME_SOLICITANTE,DATA_ENTRADA, NOME_ANALISE FROM AMOSTRA_ANALISES,AMOSTRA,ANALISES,SOLICITANTE S WHERE ID_AMOSTRAR =  ID_AMOSTRA AND ID_ANALISER = ID_ANALISE AND ID_AMOSTRA = S.ID_SOLICITANTE;";
+    private static final String LISTANALISEAMOSTRA = "SELECT ID_AMOSTRA_ANALISE,IDENTIFICACAO_AMOSTRA, DESCRICAO, NOME_SOLICITANTE,DATA_ENTRADA, NOME_ANALISE FROM AMOSTRA_ANALISES,AMOSTRA,ANALISES,SOLICITANTE S WHERE ID_AMOSTRAR =  ID_AMOSTRA AND ID_ANALISER = ID_ANALISE AND ID_AMOSTRA = S.ID_SOLICITANTE;";
 
 
     public boolean insertAnaliseAmostra(Amostra_Analise aa){
@@ -71,19 +71,20 @@ public class AmostraEmAnaliseDAO {
         }
     }
     
-    public boolean deleteAnaliseAmostra(int id){
+    public boolean deleteAnaliseAmostra(int aa){
         
         try {
             
             con.conecta();
+            System.out.println("Aq entrou");
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(DELETEANALISEAMOSTRA);
             
-            preparaInstrucao.setInt(1, id);
+            preparaInstrucao.setInt(1, aa);
             
             preparaInstrucao.execute();
             con.desconecta();
-            
+            System.out.println("Deletou");
             return true;
         } catch (Exception e) {
             System.err.println(e);
@@ -106,7 +107,8 @@ public class AmostraEmAnaliseDAO {
 			
             while (rs.next()) { 
                 
-                Amostra_Analise a = new Amostra_Analise(       
+                Amostra_Analise a = new Amostra_Analise(  
+                        rs.getInt("ID_AMOSTRA_ANALISE"),
                         rs.getString("IDENTIFICACAO_AMOSTRA"),
                         rs.getString("DESCRICAO"),
                         rs.getString("NOME_SOLICITANTE"),

@@ -140,11 +140,11 @@ public class ControladorResponsavel implements Initializable {
        
         
        if (!nomeResponsavel.getText().equals("") &&
-           !assResponsavel.getText().equals("") &&
+           !assResponsavel.getText().equals("") //&&
                //NAO TA APARENDO ALERTA SE DEIXAR DATA E HORA VAZIAS, MAS TAMBÉM NÃO TA DEIXANDO ADICIONAR
                //SE NAO PREENCHER
-            dataRecebimento == null  &&
-              horaRecebimento == null
+              //dataRecebimento == null  &&
+              //horaRecebimento == null
                )
        {
  

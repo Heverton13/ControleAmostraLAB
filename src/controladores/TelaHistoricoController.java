@@ -11,6 +11,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
 import java.awt.Desktop;
@@ -26,6 +27,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.SelectionMode;
@@ -65,18 +67,43 @@ public class TelaHistoricoController implements Initializable {
     /**
      * Initializes the controller class.
      */
+     @FXML
+    private void refreshTable(){
+        am_an.clear();
+        am_an.addAll(amDAO.listAnalise_Amostra());
+        tabelaHistorico.setItems(am_an);            
+    }
+    
+    @FXML   
+    private void deleteEtiqueta(){
+        
+        Alert alert = new Alert(AlertType.CONFIRMATION);
+        alert.setTitle("Execluir Etiquta");
+        alert.setHeaderText("Ateção, Ao apagar etiqueta vc precisara adicionar novamente a analise a amostra");
+        alert.setContentText("Se deseja apagar, Aperte OK");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK){
+            amDAO.deleteAnaliseAmostra(tabelaHistorico.getSelectionModel().getSelectedItem().getId_amostra_analise());
+            refreshTable();       
+        } else {
+            
+        }
+        
+            
+    } 
     
     @FXML
     private void listHistorico(){
         
         am_an = FXCollections.observableArrayList(amDAO.listAnalise_Amostra());
         
-        
-        tabelaHistorico.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("identificao_amostra"));
-        tabelaHistorico.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("descricao"));
-        tabelaHistorico.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("nome_solicitante"));
-        tabelaHistorico.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("data_entrada"));
-        tabelaHistorico.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("nome_analise"));
+        tabelaHistorico.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("id_amostra_analise"));
+        tabelaHistorico.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("identificao_amostra"));
+        tabelaHistorico.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("descricao"));
+        tabelaHistorico.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("nome_solicitante"));
+        tabelaHistorico.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("data_entrada"));
+        tabelaHistorico.getColumns().get(5).setCellValueFactory(new  PropertyValueFactory<>("nome_analise"));
         tabelaHistorico.setItems(am_an);
         
     }
@@ -95,12 +122,16 @@ public class TelaHistoricoController implements Initializable {
             Font ft = new Font(FontFamily.TIMES_ROMAN, 10.0f, Font.BOLD, BaseColor.BLACK);
             Font f = new Font(FontFamily.TIMES_ROMAN, 7.0f, Font.NORMAL, BaseColor.BLACK);
             
-            for (int i = 0; i < am_an.size(); i++) {
+            PdfPTable ttable = new PdfPTable(1); 
+            for (int i = 0; i < am_an.size(); i++) {                          
+               
                 doc.add(new Paragraph(am_an.get(i).getIdentificao_amostra(),ft));
                 doc.add(new Paragraph("TIPO AMOSTRA: " + am_an.get(i).getDescricao(),f));
                 doc.add(new Paragraph("SOLICITANTE: " + am_an.get(i).getNome_solicitante(),f));
                 doc.add(new Paragraph("DATA ENTRADA: " + am_an.get(i).getData_entrada(),f));
                 doc.add(new Paragraph("ANÁLISES: " + am_an.get(i).getNome_analise(),f));
+                doc.add(new Paragraph("  "));
+                
             }
             
         } catch (FileNotFoundException | DocumentException ex) {

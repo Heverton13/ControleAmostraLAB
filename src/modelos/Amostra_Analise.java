@@ -36,7 +36,8 @@ public class Amostra_Analise {
     
     //Contrutor para Historico
 
-    public Amostra_Analise(String identificao_amostra, String descricao, String nome_solicitante, Date data_entrada, String nome_analise) {
+    public Amostra_Analise(int id_amostra_analise,String identificao_amostra, String descricao, String nome_solicitante, Date data_entrada, String nome_analise) {
+        this.id_amostra_analise = id_amostra_analise;
         this.identificao_amostra = identificao_amostra;
         this.descricao = descricao;
         this.nome_solicitante = nome_solicitante;

@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
 <VBox alignment="CENTER" prefHeight="525.0" prefWidth="1016.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.TelaHistoricoController">
@@ -16,6 +17,7 @@
       </ImageView>
       <TableView fx:id="tabelaHistorico" prefHeight="318.0" prefWidth="634.0">
         <columns>
+            <TableColumn prefWidth="75.0" text="ID" />
           <TableColumn fx:id="colunaAmostra" prefWidth="173.0" text="IDENTIFICAÇÃO AMOSTRA" />
           <TableColumn fx:id="colunaDescricao" minWidth="0.0" prefWidth="82.0" text="DESCRIÇÃO" />
             <TableColumn fx:id="colunaFrascos" prefWidth="75.0" text="SOLICITANTE" />
@@ -26,6 +28,11 @@
             <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
          </columnResizePolicy>
       </TableView>
-      <JFXButton fx:id="btGerarEtiqueta" onAction="#gerarEtiqueta" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: #3CB371;" text="GERAR ETIQUETA" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="30.0">
+         <children>
+            <JFXButton fx:id="btGerarEtiqueta" onAction="#gerarEtiqueta" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: #3CB371;" text="GERAR ETIQUETA" />
+            <JFXButton fx:id="btRetirar" onAction="#deleteEtiqueta" prefHeight="57.0" prefWidth="194.0" style="-fx-background-color: RED;" text="RETIRAR ETIQUETA" />
+         </children>
+      </HBox>
    </children>
 </VBox>
