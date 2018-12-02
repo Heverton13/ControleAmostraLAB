@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXDatePicker?>
 <?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.image.Image?>
@@ -14,7 +15,8 @@
 
 <VBox alignment="CENTER" prefHeight="615.0" prefWidth="1127.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorAmostra">
    <children>
-      <HBox alignment="CENTER" prefHeight="45.0" prefWidth="1016.0" spacing="30.0">
+      <Label text="Por favor, preencha todos os campos antes de fazer o cadastro da amostra." />
+      <HBox alignment="CENTER" prefHeight="23.0" prefWidth="1127.0" spacing="30.0">
          <children>
             <JFXTextField fx:id="idAmostra" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="Identificação Amostra" unFocusColor="BLACK">
                <font>
@@ -28,7 +30,7 @@
             </JFXTextField>
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1016.0" spacing="30.0">
+      <HBox alignment="CENTER" prefHeight="36.0" prefWidth="1127.0" spacing="30.0">
          <children>
             <JFXTextField fx:id="frascosAmostra" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="Frascos" unFocusColor="BLACK">
                <font>
@@ -38,7 +40,7 @@
             <JFXComboBox fx:id="comboSolicitante" focusColor="MEDIUMSEAGREEN" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="Solicitante:" unFocusColor="MEDIUMSEAGREEN" />
          </children>
       </HBox>
-      <HBox alignment="CENTER" prefHeight="44.0" prefWidth="1016.0" spacing="30.0">
+      <HBox alignment="CENTER" prefHeight="35.0" prefWidth="1127.0" spacing="30.0">
          <children>
             <JFXComboBox fx:id="comboResponsavel" focusColor="MEDIUMSEAGREEN" labelFloat="true" prefHeight="19.0" prefWidth="400.0" promptText="Responsavel:" unFocusColor="MEDIUMSEAGREEN" />
             <JFXTextField fx:id="obervacoesAmostra" alignment="TOP_LEFT" focusColor="#3fa85e" labelFloat="true" maxWidth="400.0" prefHeight="19.0" prefWidth="400.0" promptText="Observações" unFocusColor="BLACK">

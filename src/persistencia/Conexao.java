@@ -23,17 +23,17 @@ import modelos.Solicitante_Academico;
 /**
  *
  * @author Heverton
- */
+ */ 
 public class Conexao {
-    
+     
     private static final String USUARIO = "postgres";
-    private static final String SENHA = "postgre";
+    private static final String SENHA = "12345";
     /* No caminho devemos usar(criar) um banco com nome: labnutricao
        Além disso devemos utilizar o localhost que está sendo usado no 
        postgre na máquina exemplo localhost:5432 ou localhost:5433 ou qualquer outro, sempre verificar
        o mesmo vale para p usuário e senha postados acima.
     */
-    private static final String CAMINHO = "jdbc:postgresql://localhost:5433/labnutricao";
+    private static final String CAMINHO = "jdbc:postgresql://localhost:5432/labnutricao"; //MUDAR PARA 5433
     private static final String DRIVER = "org.postgresql.Driver";
    
     private Connection conexao;
