@@ -109,7 +109,7 @@ public class AmostraDAO implements DAO <Amostra>{
     public boolean remove(int idAmostra){
         
         try {
-            
+             
             con.conecta();
             PreparedStatement preparaInstrucao;
             preparaInstrucao = con.getConexao().prepareStatement(DELETEAAMOSTRA);
