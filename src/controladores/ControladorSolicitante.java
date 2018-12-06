@@ -165,6 +165,7 @@ public class ControladorSolicitante implements Initializable {
     private void deleteSolicitante(){
     
         sDAO.deleteSolicitante(tableSolicitante.getSelectionModel().getSelectedItem().getId_solicitante());
+         limparTextos();
         refreshTable();
     }
     

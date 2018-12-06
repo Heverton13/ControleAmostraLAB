@@ -158,7 +158,9 @@ public class ControladorProfessor implements Initializable {
     private void deleteProfessor(){
         
         pbanco.deleteProfessor(tabelaProfessor.getSelectionModel().getSelectedItem().getId_professor());
+        limparTextField();
         refreshTable();
+        
     }
     
     @FXML

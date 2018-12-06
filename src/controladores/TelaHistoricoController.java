@@ -79,7 +79,7 @@ public class TelaHistoricoController implements Initializable {
         
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Execluir Etiquta");
-        alert.setHeaderText("Ateção, Ao apagar etiqueta vc precisara adicionar novamente a analise a amostra");
+        alert.setHeaderText("Ateção, Ao apagar etiqueta você precisara adicionar novamente a analise a amostra");
         alert.setContentText("Se deseja apagar, Aperte OK");
 
         Optional<ButtonType> result = alert.showAndWait();

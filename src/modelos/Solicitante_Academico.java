@@ -8,7 +8,7 @@ package modelos;
 public class Solicitante_Academico {
     
     private int id_solicitante;
-    private String nome;
+    private String nome,nome_professor;
     private int id_Professor;
     private String telefone;
     private String email_solicitante;

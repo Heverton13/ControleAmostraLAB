@@ -172,6 +172,7 @@ public class ControladorResponsavel implements Initializable {
     private void deleteResponsavel(){
         
         rbanco.deleteResponsavel(tabelaResponsavel.getSelectionModel().getSelectedItem().getId_responsavel());
+        limparTextos();
         refreshTable();
         
     }
