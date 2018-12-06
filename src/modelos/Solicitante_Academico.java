@@ -12,21 +12,34 @@ public class Solicitante_Academico {
     private int id_Professor;
     private String telefone;
     private String email_solicitante;
-    private Professor_Orientador pol;
+    private Professor_Orientador professor;
 
-    public Solicitante_Academico(int id_solicitante,int id_Professor, String nome, String telefone, String email_solicitante) {
+    public Solicitante_Academico(int id_solicitante,Professor_Orientador poli, String nome, String telefone, String email_solicitante) {
         this.id_solicitante = id_solicitante;
+        this.professor = poli;
         this.nome = nome;
         this.id_Professor = id_Professor;
         this.telefone = telefone;
         this.email_solicitante = email_solicitante;
     }
 
-    public Solicitante_Academico(int id, String nome, String telefone, String email_solicitante) {
-        this.id_Professor = id;
+    public Solicitante_Academico(Professor_Orientador poli, String nome, String telefone, String email_solicitante) {
+        this.professor = poli;
         this.nome = nome;
         this.telefone = telefone;
         this.email_solicitante = email_solicitante;
+    }
+    
+    public Solicitante_Academico(){
+        
+    }
+
+    public Professor_Orientador getProfessor() {
+        return professor;
+    }
+
+    public void setProfessor(Professor_Orientador professor) {
+        this.professor = professor;
     }
     
     public int getId_solicitante() {

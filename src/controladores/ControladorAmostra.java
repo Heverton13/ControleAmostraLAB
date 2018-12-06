@@ -232,8 +232,8 @@ public class ControladorAmostra implements Initializable {
              
         amostraEdit = new Amostra(
                 idAmostra.getText(),
-                comboResponsavel.getSelectionModel().getSelectedItem().getId_responsavel(),
-                comboSolicitante.getSelectionModel().getSelectedItem().getId_solicitante(),
+                comboResponsavel.getSelectionModel().getSelectedItem(),
+                comboSolicitante.getSelectionModel().getSelectedItem(),
                 descricaoAmostra.getText(),
                 frascos,
                 obervacoesAmostra.getText(),
@@ -330,8 +330,8 @@ public class ControladorAmostra implements Initializable {
         TabelaAmostra.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("id_amostra"));
         TabelaAmostra.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("descricao"));
         TabelaAmostra.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("frascos"));
-        TabelaAmostra.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("id_responsavel"));
-        TabelaAmostra.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("id_solicitante"));
+        TabelaAmostra.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("responsavel"));
+        TabelaAmostra.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("sol"));
         TabelaAmostra.getColumns().get(6).setCellValueFactory(new PropertyValueFactory<>("observacoes"));
         TabelaAmostra.getColumns().get(7).setCellValueFactory(new PropertyValueFactory<>("data_entrada"));
         

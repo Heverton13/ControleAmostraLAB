@@ -9,6 +9,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Time;
 import java.util.ArrayList;
 import modelos.Responsavel;
 
@@ -87,6 +88,42 @@ public class ResponsavelDAO {
                    return false;	 
                 }	              
 	}
+    
+    public Responsavel findById(int id) {
+        
+        con.conecta();
+        
+        Responsavel usuario = new  Responsavel();
+        String query = "SELECT * FROM RESPONSAVEL WHERE ID_REPONSAVEL = ?;";
+        try {
+            PreparedStatement pst = con.getConexao().prepareStatement(query);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
+
+                String nome = rs.getString("NOME_RESPONSAVEL");
+                Date data = rs.getDate("DATA_RECEBIMENTO");
+                Time hora = rs.getTime("HORA");
+                String assinatura = rs.getString("ASSINATURA");
+
+                usuario.setNome(nome);
+                usuario.setData(data);
+                usuario.setHora(hora);
+                usuario.setAssinatura(assinatura);
+
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao procurar usuario: " + id + e.getMessage());
+        } finally {
+            con.desconecta();
+        }
+        return usuario;
+    }
+    
+    
+    
+    
     
     public ArrayList<Responsavel> listResponsavel(){
       

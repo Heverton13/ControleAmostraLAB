@@ -17,12 +17,15 @@ public class Amostra {
     private int frascos;
     private String observacoes;
     private Date data_entrada;
+    private Solicitante_Academico sol;
+    private Responsavel responsavel;
     
-    public Amostra(int id, String id_amostra, int id_solicitante, int id_responsavel, String descricao, int frascos, String observacoes, Date data_entrada) {
+    public Amostra(int id, String id_amostra, Solicitante_Academico solicitante, Responsavel responsavel, String descricao, int frascos, String observacoes, Date data_entrada) {
+       
         this.id = id;
         this.id_amostra = id_amostra;
-        this.id_solicitante = id_solicitante;
-        this.id_responsavel = id_responsavel;
+        this.sol = solicitante;
+        this.responsavel = responsavel;
         this.descricao = descricao;
         this.frascos = frascos;
         this.observacoes = observacoes;
@@ -30,11 +33,11 @@ public class Amostra {
         
     }
 
-    public Amostra(String id_amostra, int id_solicitante, int id_responsavel, String descricao, int frascos, String observacoes, Date data_entrada) {
+    public Amostra(String id_amostra, Responsavel responsavel, Solicitante_Academico solicitante,String descricao, int frascos, String observacoes, Date data_entrada) {
         
         this.id_amostra = id_amostra;
-        this.id_solicitante = id_solicitante;
-        this.id_responsavel = id_responsavel;
+        this.sol=solicitante;
+        this.responsavel = responsavel;
         this.descricao = descricao;
         this.frascos = frascos;
         this.observacoes = observacoes;
@@ -42,9 +45,22 @@ public class Amostra {
         
     }
 
-    Amostra() {
-       
+    public Solicitante_Academico getSol() {
+        return sol;
     }
+
+    public void setSol(Solicitante_Academico sol) {
+        this.sol = sol;
+    }
+
+    public Responsavel getResponsavel() {
+        return responsavel;
+    }
+
+    public void setResponsavel(Responsavel responsavel) {
+        this.responsavel = responsavel;
+    }
+    
 
     public String getId_amostra() {
         return id_amostra;

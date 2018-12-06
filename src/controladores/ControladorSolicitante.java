@@ -110,14 +110,14 @@ public class ControladorSolicitante implements Initializable {
     
     @FXML
     private void addSolicitante(){
-        
+        Professor_Orientador po;
   if (!comboProfessores.getSelectionModel().isEmpty() &&
             !NomeSolicitante.getText().equals("") &&
             !TelefoneSolicitante.getText().equals("") &&
             !EmailSolicitante.getText().equals("")) {
             
             solicitanteEdit = new Solicitante_Academico
-                   (comboProfessores.getSelectionModel().getSelectedItem().getId_professor(),
+                   (comboProfessores.getSelectionModel().getSelectedItem(),
                     NomeSolicitante.getText(),
                     TelefoneSolicitante.getText(),
                     EmailSolicitante.getText());
@@ -175,7 +175,7 @@ public class ControladorSolicitante implements Initializable {
         
         solicitantes = FXCollections.observableArrayList(sDAO.listSolicitante());
         tableSolicitante.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("id_solicitante"));
-        tableSolicitante.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("id_Professor"));
+        tableSolicitante.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("professor"));
         tableSolicitante.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("nome"));
         tableSolicitante.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("telefone"));
         tableSolicitante.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("email_solicitante"));

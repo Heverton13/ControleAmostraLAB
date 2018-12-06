@@ -32,6 +32,10 @@ public class Responsavel {
         this.assinatura = assinatura;
     }
 
+    public Responsavel() {
+      
+    }
+
     public int getId_responsavel() {
         return id_responsavel;
     }

@@ -90,8 +90,39 @@ public boolean deleteProfessor(int id) {
                     return false;
                 }    				
 	}
+    public Professor_Orientador findById(int id) {
+        con.conecta();
+        Professor_Orientador usuario = new Professor_Orientador();
+        String query = "SELECT * FROM PROFESSOR WHERE ID_PROFESSOR = ?;";
+        try {
+            PreparedStatement pst = con.getConexao().prepareStatement(query);
+            pst.setInt(1, id);
+            ResultSet rs = pst.executeQuery();
+            if (rs.next()) {
 
- public ArrayList<Professor_Orientador> listProfessor_Orientador(){
+                String nome = rs.getString("NOME_PROFESSOR");
+                String departamento = rs.getString("DEPARTAMENTO");
+                String telefone = rs.getString("TELEFONE");
+                String email = rs.getString("EMAIL_PROFESSOR");
+
+                usuario.setNome(nome);
+                usuario.setDepartamento(departamento);
+                usuario.setTelefone(telefone);
+                usuario.setEmail(email);
+
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Erro ao procurar usuario: " + id + e.getMessage());
+        } finally {
+            con.desconecta();
+        }
+        return usuario;
+    }
+ 
+
+
+public ArrayList<Professor_Orientador> listProfessor_Orientador(){
       
       ArrayList<Professor_Orientador> lista = new ArrayList<>(); 
 

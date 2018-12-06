@@ -51,8 +51,8 @@ public class AmostraDAO implements DAO <Amostra>{
             
             
             preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
-            preparaInstrucao.setInt(2, a.getId_responsavel());
-            preparaInstrucao.setInt(3, a.getId_solicitante());
+            preparaInstrucao.setInt(2, a.getResponsavel().getId_responsavel()); // Aqui eu pego id do professor pelo objeto para adicionar por causa FindbyId
+            preparaInstrucao.setInt(3, a.getSol().getId_solicitante());
             preparaInstrucao.setString(4, a.getDescricao().toUpperCase());
             preparaInstrucao.setInt(5, a.getFrascos());
             preparaInstrucao.setString(6, a.getObservacoes().toUpperCase());
@@ -141,14 +141,16 @@ public class AmostraDAO implements DAO <Amostra>{
             preparaInstrucao = con.getConexao().prepareStatement(LISTAMOSTRA); 
 			
             ResultSet rs = preparaInstrucao.executeQuery(); 
-			
+            SolicitanteDAO solicitanteDAO = new SolicitanteDAO();
+            ResponsavelDAO responsavelDAO = new ResponsavelDAO();
             while (rs.next()) { 
-                
+                Solicitante_Academico solicitante = solicitanteDAO.findById(rs.getInt("ID_SOLICITANTE"));
+                Responsavel responsavel = responsavelDAO.findById(rs.getInt("ID_REPONSAVEL"));
                 Amostra a = new Amostra(
                         rs.getInt("ID_AMOSTRA"),
                         rs.getString("IDENTIFICACAO_AMOSTRA"),
-                        rs.getInt("ID_REPONSAVEL"), 
-                        rs.getInt("ID_SOLICITANTE"),
+                        solicitante,
+                        responsavel,
                         rs.getString("DESCRICAO"),
                         rs.getInt("FRASCOS"), 
                         rs.getString("OBSERVACOES"), 
