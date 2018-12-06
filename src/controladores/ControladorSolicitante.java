@@ -78,6 +78,7 @@ public class ControladorSolicitante implements Initializable {
         NomeSolicitante.clear();
         TelefoneSolicitante.clear();
         EmailSolicitante.clear();
+        comboProfessores.getValue().equals(" ");
     }
     
     @FXML

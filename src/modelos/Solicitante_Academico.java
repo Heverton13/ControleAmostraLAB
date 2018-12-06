@@ -12,6 +12,7 @@ public class Solicitante_Academico {
     private int id_Professor;
     private String telefone;
     private String email_solicitante;
+    private Professor_Orientador pol;
 
     public Solicitante_Academico(int id_solicitante,int id_Professor, String nome, String telefone, String email_solicitante) {
         this.id_solicitante = id_solicitante;
@@ -21,8 +22,8 @@ public class Solicitante_Academico {
         this.email_solicitante = email_solicitante;
     }
 
-    public Solicitante_Academico(int po1, String nome, String telefone, String email_solicitante) {
-        this.id_Professor = po1;
+    public Solicitante_Academico(int id, String nome, String telefone, String email_solicitante) {
+        this.id_Professor = id;
         this.nome = nome;
         this.telefone = telefone;
         this.email_solicitante = email_solicitante;
