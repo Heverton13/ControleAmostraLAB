@@ -11,6 +11,7 @@ import com.itextpdf.text.DocumentException;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.jfoenix.controls.JFXButton;
@@ -121,10 +122,42 @@ public class TelaHistoricoController implements Initializable {
             doc.open();
             Font ft = new Font(FontFamily.TIMES_ROMAN, 10.0f, Font.BOLD, BaseColor.BLACK);
             Font f = new Font(FontFamily.TIMES_ROMAN, 7.0f, Font.NORMAL, BaseColor.BLACK);
+            Font lista = new Font(FontFamily.HELVETICA, 15.0f, Font.BOLD, BaseColor.BLACK);
             
-            PdfPTable ttable = new PdfPTable(1); 
+            PdfPTable table = new PdfPTable(3); 
+            
+            PdfPCell cell1 = new PdfPCell(new Paragraph("IDENTIFICAÇÃO AMOSTRA", ft));
+            PdfPCell cell2 = new PdfPCell(new Paragraph("DESCRIÇÃO", ft));
+            PdfPCell cell3 = new PdfPCell(new Paragraph("SOLICITANTE",ft));
+            PdfPCell cell4 = new PdfPCell(new Paragraph("DATA ENTRADA",ft));
+            PdfPCell cell5 = new PdfPCell(new Paragraph("ANÁLISES REQUERIDAS",ft));
+            
+            
+            table.addCell(cell1);
+            table.addCell(cell2);
+            table.addCell(cell3);
+            table.addCell(cell4);
+            table.addCell(cell5);
+            
             for (int i = 0; i < am_an.size(); i++) {                          
                
+                Paragraph p1 = new Paragraph(am_an.get(i).getIdentificao_amostra(),ft);
+                Paragraph p2 = new Paragraph(am_an.get(i).getIdentificao_amostra(),ft);
+                
+                /*
+                cell1 = new PdfPCell(new Paragraph(am_an.get(i).getIdentificao_amostra(),ft));
+                cell2 = new PdfPCell(new Paragraph("TIPO AMOSTRA: " + am_an.get(i).getDescricao(),f));
+                cell3 = new PdfPCell(new Paragraph("SOLICITANTE: " + am_an.get(i).getNome_solicitante(),f));
+                cell4 = new PdfPCell(new Paragraph("DATA ENTRADA: " + am_an.get(i).getData_entrada(),f));
+                cell5 = new PdfPCell(new Paragraph("ANÁLISES: " + am_an.get(i).getNome_analise(),f));
+                
+                table.addCell(cell1);
+                table.addCell(cell2);
+                table.addCell(cell3);
+                table.addCell(cell4);
+                table.addCell(cell5);
+                */
+                
                 doc.add(new Paragraph(am_an.get(i).getIdentificao_amostra(),ft));
                 doc.add(new Paragraph("TIPO AMOSTRA: " + am_an.get(i).getDescricao(),f));
                 doc.add(new Paragraph("SOLICITANTE: " + am_an.get(i).getNome_solicitante(),f));
@@ -132,7 +165,10 @@ public class TelaHistoricoController implements Initializable {
                 doc.add(new Paragraph("ANÁLISES: " + am_an.get(i).getNome_analise(),f));
                 doc.add(new Paragraph("  "));
                 
-            }
+                
+               }
+            
+             doc.add(table);
             
         } catch (FileNotFoundException | DocumentException ex) {
             System.err.println("Erro: "+ex);

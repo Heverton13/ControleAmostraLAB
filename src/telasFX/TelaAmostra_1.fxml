@@ -13,7 +13,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="615.0" prefWidth="1127.0" spacing="5.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorAmostra">
+<VBox alignment="CENTER" prefHeight="615.0" prefWidth="1127.0" spacing="15.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controladores.ControladorAmostra">
    <children>
       <Label text="Por favor, preencha todos os campos antes de fazer o cadastro da amostra." />
       <HBox alignment="CENTER" prefHeight="23.0" prefWidth="1127.0" spacing="30.0">
@@ -67,7 +67,7 @@
             </JFXButton>
          </children>
       </HBox>
-      <TableView fx:id="TabelaAmostra" onMouseClicked="#mouseClicked" prefHeight="329.0" prefWidth="1016.0">
+      <TableView fx:id="TabelaAmostra" onMouseClicked="#mouseClicked" prefHeight="212.0" prefWidth="1127.0">
          <columns>
             <TableColumn prefWidth="75.0" text="ID" />
             <TableColumn fx:id="id" prefWidth="142.0" text="IDENTIFICAÇÃO" />

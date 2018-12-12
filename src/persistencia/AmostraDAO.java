@@ -82,8 +82,8 @@ public class AmostraDAO implements DAO <Amostra>{
 
 			
             preparaInstrucao.setString(1, a.getId_amostra().toUpperCase());
-            preparaInstrucao.setInt(2, a.getId_responsavel());
-            preparaInstrucao.setInt(3, a.getId_solicitante());
+            preparaInstrucao.setInt(2, a.getResponsavel().getId_responsavel());
+            preparaInstrucao.setInt(3, a.getSol().getId_solicitante());
             preparaInstrucao.setString(4, a.getDescricao().toUpperCase());
             preparaInstrucao.setInt(5, a.getFrascos());
             preparaInstrucao.setString(6, a.getObservacoes().toUpperCase());
