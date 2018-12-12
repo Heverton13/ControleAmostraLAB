@@ -191,7 +191,7 @@ public class ControladorAmostra implements Initializable {
         
         Solicitante_Academico solicitante = null;
         for(Solicitante_Academico s: solicitantes){
-            if(s.getId_solicitante() == amostras.getId_solicitante())
+            if(s.getId_solicitante() == amostras.getSol().getId_solicitante())
                 solicitante = s;
         }
         comboSolicitante.setValue(solicitante);
@@ -199,12 +199,10 @@ public class ControladorAmostra implements Initializable {
         
         Responsavel resp = null;
         for(Responsavel r: responsaveis){
-            if(r.getId_responsavel() == amostras.getId_responsavel());
+            if(r.getId_responsavel() == amostras.getResponsavel().getId_responsavel());
             resp = r;
         }
-        //Está mostrando apenas o último responsavel da lista ao clicar nela, update normal
         comboResponsavel.setValue(resp);
-        //Retornar Amostra
         
         Instant instant = Instant.ofEpochMilli(amostras.getData_entrada().getTime());
         LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();

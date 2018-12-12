@@ -106,6 +106,7 @@ public class ResponsavelDAO {
                 Time hora = rs.getTime("HORA");
                 String assinatura = rs.getString("ASSINATURA");
 
+                usuario.setId_responsavel(id);
                 usuario.setNome(nome);
                 usuario.setData(data);
                 usuario.setHora(hora);

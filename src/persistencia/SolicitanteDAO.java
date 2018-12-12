@@ -97,7 +97,8 @@ public class SolicitanteDAO {
                 String nome = rs.getString("NOME_SOLICITANTE");
                 String telefone = rs.getString("TELEFONE");
                 String email = rs.getString("EMAIL_SOLICITANTE");
-
+                
+                usuario.setId_solicitante(id);
                 usuario.setNome(nome);
                 usuario.setTelefone(telefone);
                 usuario.setEmail_solicitante(email);

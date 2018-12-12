@@ -8,6 +8,7 @@ package controladores;
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
 import com.itextpdf.text.Font;
 import com.itextpdf.text.Font.FontFamily;
 import com.itextpdf.text.Paragraph;
@@ -38,6 +39,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 
 import modelos.Amostra_Analise;
 import persistencia.AmostraEmAnaliseDAO;
+import sun.rmi.runtime.Log;
 
 /**
  * FXML Controller class
@@ -47,11 +49,11 @@ import persistencia.AmostraEmAnaliseDAO;
 public class TelaHistoricoController implements Initializable {
 
     private AmostraEmAnaliseDAO amDAO = new AmostraEmAnaliseDAO();
-    
+
     private Amostra_Analise am_anEdit;
-    
+
     private ObservableList<Amostra_Analise> am_an;
-    
+
     @FXML
     private TableView<Amostra_Analise> tabelaHistorico;
     @FXML
@@ -68,127 +70,116 @@ public class TelaHistoricoController implements Initializable {
     /**
      * Initializes the controller class.
      */
-     @FXML
-    private void refreshTable(){
+    @FXML
+    private void refreshTable() {
         am_an.clear();
         am_an.addAll(amDAO.listAnalise_Amostra());
-        tabelaHistorico.setItems(am_an);            
+        tabelaHistorico.setItems(am_an);
     }
-    
-    @FXML   
-    private void deleteEtiqueta(){
-        
+
+    @FXML
+    private void deleteEtiqueta() {
+
         Alert alert = new Alert(AlertType.CONFIRMATION);
         alert.setTitle("Execluir Etiquta");
         alert.setHeaderText("Ateção, Ao apagar etiqueta você precisara adicionar novamente a analise a amostra");
         alert.setContentText("Se deseja apagar, Aperte OK");
 
         Optional<ButtonType> result = alert.showAndWait();
-        if (result.get() == ButtonType.OK){
+        if (result.get() == ButtonType.OK) {
             amDAO.deleteAnaliseAmostra(tabelaHistorico.getSelectionModel().getSelectedItem().getId_amostra_analise());
-            refreshTable();       
+            refreshTable();
         } else {
-            
+
         }
-        
-            
-    } 
-    
-    @FXML
-    private void listHistorico(){
-        
-        am_an = FXCollections.observableArrayList(amDAO.listAnalise_Amostra());
-        
-        tabelaHistorico.getColumns().get(0).setCellValueFactory(new  PropertyValueFactory<>("id_amostra_analise"));
-        tabelaHistorico.getColumns().get(1).setCellValueFactory(new  PropertyValueFactory<>("identificao_amostra"));
-        tabelaHistorico.getColumns().get(2).setCellValueFactory(new  PropertyValueFactory<>("descricao"));
-        tabelaHistorico.getColumns().get(3).setCellValueFactory(new  PropertyValueFactory<>("nome_solicitante"));
-        tabelaHistorico.getColumns().get(4).setCellValueFactory(new  PropertyValueFactory<>("data_entrada"));
-        tabelaHistorico.getColumns().get(5).setCellValueFactory(new  PropertyValueFactory<>("nome_analise"));
-        tabelaHistorico.setItems(am_an);
-        
+
     }
-    
+
     @FXML
-    private void gerarEtiqueta(){
+    private void listHistorico() {
+
+        am_an = FXCollections.observableArrayList(amDAO.listAnalise_Amostra());
+
+        tabelaHistorico.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("id_amostra_analise"));
+        tabelaHistorico.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("identificao_amostra"));
+        tabelaHistorico.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("descricao"));
+        tabelaHistorico.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("nome_solicitante"));
+        tabelaHistorico.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("data_entrada"));
+        tabelaHistorico.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("nome_analise"));
+        tabelaHistorico.setItems(am_an);
+
+    }
+
+    @FXML
+    private void gerarEtiqueta() {
         
+        int cont = 0;
         am_an = tabelaHistorico.getSelectionModel().getSelectedItems();
-        
+
         Document doc = new Document();
-        
+
         try {
-            PdfWriter.getInstance(doc, new FileOutputStream("arquivos/documento.pdf"));
-             
+            PdfWriter.getInstance(doc, new FileOutputStream("arquivos/Etiquetas.pdf"));
+
             doc.open();
             Font ft = new Font(FontFamily.TIMES_ROMAN, 10.0f, Font.BOLD, BaseColor.BLACK);
             Font f = new Font(FontFamily.TIMES_ROMAN, 7.0f, Font.NORMAL, BaseColor.BLACK);
-            Font lista = new Font(FontFamily.HELVETICA, 15.0f, Font.BOLD, BaseColor.BLACK);
+            Font lista = new Font(FontFamily.HELVETICA, 13.0f, Font.BOLD, BaseColor.BLACK);
+
+            Paragraph p1 = new Paragraph(" LISTAGEM DE ETIQUETAS ", lista);
+            p1.setAlignment(Element.ALIGN_CENTER);
+            doc.add(p1);
+        
             
-            PdfPTable table = new PdfPTable(3); 
-            
-            PdfPCell cell1 = new PdfPCell(new Paragraph("IDENTIFICAÇÃO AMOSTRA", ft));
-            PdfPCell cell2 = new PdfPCell(new Paragraph("DESCRIÇÃO", ft));
-            PdfPCell cell3 = new PdfPCell(new Paragraph("SOLICITANTE",ft));
-            PdfPCell cell4 = new PdfPCell(new Paragraph("DATA ENTRADA",ft));
-            PdfPCell cell5 = new PdfPCell(new Paragraph("ANÁLISES REQUERIDAS",ft));
-            
-            
-            table.addCell(cell1);
-            table.addCell(cell2);
-            table.addCell(cell3);
-            table.addCell(cell4);
-            table.addCell(cell5);
-            
-            for (int i = 0; i < am_an.size(); i++) {                          
-               
-                Paragraph p1 = new Paragraph(am_an.get(i).getIdentificao_amostra(),ft);
-                Paragraph p2 = new Paragraph(am_an.get(i).getIdentificao_amostra(),ft);
+
+            PdfPTable table = new PdfPTable(3);
+            table.setWidthPercentage(100);
+            table.setSpacingAfter(35f);
+            table.setSpacingBefore(35f);
+
+            for (int i = 0; i < am_an.size(); i++) {
+
+                String dados = am_an.get(i).getIdentificao_amostra()
+                        + "\n" + "TIPO AMOSTRA: " + am_an.get(i).getDescricao()
+                        + "\n" + "SOLICITANTE: " + am_an.get(i).getNome_solicitante()
+                        + "\n" + "DATA ENTRADA: " + am_an.get(i).getData_entrada()
+                        + "\n" + "ANÁLISES: " + am_an.get(i).getNome_analise()+ "\n";
+
+                PdfPCell cell = new PdfPCell(new Paragraph(dados, f));
                 
-                /*
-                cell1 = new PdfPCell(new Paragraph(am_an.get(i).getIdentificao_amostra(),ft));
-                cell2 = new PdfPCell(new Paragraph("TIPO AMOSTRA: " + am_an.get(i).getDescricao(),f));
-                cell3 = new PdfPCell(new Paragraph("SOLICITANTE: " + am_an.get(i).getNome_solicitante(),f));
-                cell4 = new PdfPCell(new Paragraph("DATA ENTRADA: " + am_an.get(i).getData_entrada(),f));
-                cell5 = new PdfPCell(new Paragraph("ANÁLISES: " + am_an.get(i).getNome_analise(),f));
+                //System.out.println(dados);
                 
-                table.addCell(cell1);
-                table.addCell(cell2);
-                table.addCell(cell3);
-                table.addCell(cell4);
-                table.addCell(cell5);
-                */
-                
-                doc.add(new Paragraph(am_an.get(i).getIdentificao_amostra(),ft));
-                doc.add(new Paragraph("TIPO AMOSTRA: " + am_an.get(i).getDescricao(),f));
-                doc.add(new Paragraph("SOLICITANTE: " + am_an.get(i).getNome_solicitante(),f));
-                doc.add(new Paragraph("DATA ENTRADA: " + am_an.get(i).getData_entrada(),f));
-                doc.add(new Paragraph("ANÁLISES: " + am_an.get(i).getNome_analise(),f));
-                doc.add(new Paragraph("  "));
-                
-                
-               }
+                cell.setPadding(10);
+
+                table.addCell(cell);
+                //System.out.println(cell);
+
+                //Log.i("VDC", ""+dados);
             
-             doc.add(table);
-            
+                cont++;
+            }
+            doc.add(table);
+            doc.add(new Paragraph("  "));
+
         } catch (FileNotFoundException | DocumentException ex) {
-            System.err.println("Erro: "+ex);
-        }finally{
+            System.err.println("Erro: " + ex);
+        } finally {
+            
             doc.close();
         }
-        
-        
+
         try {
-            Desktop.getDesktop().open(new File("arquivos/documento.pdf"));
+            Desktop.getDesktop().open(new File("arquivos/Etiquetas.pdf"));
         } catch (IOException ex) {
-            System.err.println("Erro: "+ex);
+            System.err.println("Erro: " + ex);
         }
-        
+
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         tabelaHistorico.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
         listHistorico();
-    }    
-    
+    }
+
 }
