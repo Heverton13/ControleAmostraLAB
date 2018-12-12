@@ -112,7 +112,7 @@ public class TelaHistoricoController implements Initializable {
 
     @FXML
     private void gerarEtiqueta() {
-        
+
         int cont = 0;
         am_an = tabelaHistorico.getSelectionModel().getSelectedItems();
 
@@ -129,8 +129,6 @@ public class TelaHistoricoController implements Initializable {
             Paragraph p1 = new Paragraph(" LISTAGEM DE ETIQUETAS ", lista);
             p1.setAlignment(Element.ALIGN_CENTER);
             doc.add(p1);
-        
-            
 
             PdfPTable table = new PdfPTable(3);
             table.setWidthPercentage(100);
@@ -139,23 +137,20 @@ public class TelaHistoricoController implements Initializable {
 
             for (int i = 0; i < am_an.size(); i++) {
 
-                String dados = am_an.get(i).getIdentificao_amostra()
+                String dados = dados = am_an.get(i).getIdentificao_amostra()
                         + "\n" + "TIPO AMOSTRA: " + am_an.get(i).getDescricao()
                         + "\n" + "SOLICITANTE: " + am_an.get(i).getNome_solicitante()
                         + "\n" + "DATA ENTRADA: " + am_an.get(i).getData_entrada()
-                        + "\n" + "ANÁLISES: " + am_an.get(i).getNome_analise()+ "\n";
+                        + "\n" + "ANÁLISES: " + am_an.get(i).getNome_analise() + "\n";
 
                 PdfPCell cell = new PdfPCell(new Paragraph(dados, f));
-                
-                //System.out.println(dados);
-                
+                //System.out.println(dados); 
                 cell.setPadding(10);
 
                 table.addCell(cell);
                 //System.out.println(cell);
 
                 //Log.i("VDC", ""+dados);
-            
                 cont++;
             }
             doc.add(table);
@@ -164,7 +159,7 @@ public class TelaHistoricoController implements Initializable {
         } catch (FileNotFoundException | DocumentException ex) {
             System.err.println("Erro: " + ex);
         } finally {
-            
+
             doc.close();
         }
 

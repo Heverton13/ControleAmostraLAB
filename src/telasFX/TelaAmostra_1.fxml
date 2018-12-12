@@ -84,14 +84,14 @@
       </TableView>
       <HBox alignment="CENTER" prefHeight="74.0" prefWidth="1016.0" spacing="20.0">
          <children>
-            <JFXButton fx:id="btCadastrarAmostra" onAction="#addAmostra" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="CADASTRAR">
+            <JFXButton fx:id="btCadastrarAmostra" lineSpacing="10.0" onAction="#addAmostra" prefHeight="65.0" prefWidth="175.0" style="-fx-background-color: #3CB371;" text="CADASTRAR">
                <font>
                   <Font size="15.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icones/icons8-adicionar-usuário-masculino-48.png" />
+                        <Image url="@../icones/icons8-microscope-64.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -103,7 +103,7 @@
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icones/icons8-remover-usuário-masculino-48.png" />
+                        <Image url="@../icones/icons8-error-64.png" />
                      </image>
                   </ImageView>
                </graphic>
@@ -115,7 +115,7 @@
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icones/icons8-lápis-48.png" />
+                        <Image url="@../icones/icons8-available-updates-48.png" />
                      </image>
                   </ImageView>
                </graphic>

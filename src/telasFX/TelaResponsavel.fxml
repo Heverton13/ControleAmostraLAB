@@ -77,7 +77,7 @@
                <graphic>
                   <ImageView fitHeight="55.0" fitWidth="54.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@../icones/icons8-lápis-48.png" />
+                        <Image url="@../icones/icons8-available-updates-48.png" />
                      </image>
                   </ImageView>
                </graphic>

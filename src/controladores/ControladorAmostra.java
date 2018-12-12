@@ -183,11 +183,14 @@ public class ControladorAmostra implements Initializable {
     @FXML
     private void mouseClicked(MouseEvent event) {
         
+        
+        
         Amostra amostras = TabelaAmostra.getSelectionModel().getSelectedItem();
         idAmostra.setText(amostras.getId_amostra());
         descricaoAmostra.setText(amostras.getDescricao());
         frascosAmostra.setText(Integer.toString(amostras.getFrascos()));
         obervacoesAmostra.setText(amostras.getObservacoes());
+        
         
         Solicitante_Academico solicitante = null;
         for(Solicitante_Academico s: solicitantes){
@@ -196,13 +199,14 @@ public class ControladorAmostra implements Initializable {
         }
         comboSolicitante.setValue(solicitante);
         
-        
-        Responsavel resp = null;
-        for(Responsavel r: responsaveis){
-            if(r.getId_responsavel() == amostras.getResponsavel().getId_responsavel());
-            resp = r;
+        Responsavel responsavel = null;
+        for(Responsavel resp : responsaveis){
+            if(resp.getId_responsavel() == amostras.getResponsavel().getId_responsavel()){
+            responsavel = resp;
+            }
         }
-        comboResponsavel.setValue(resp);
+        comboResponsavel.setValue(responsavel);
+        System.out.println(responsavel.getId_responsavel());
         
         Instant instant = Instant.ofEpochMilli(amostras.getData_entrada().getTime());
         LocalDate localDate = LocalDateTime.ofInstant(instant, ZoneId.systemDefault()).toLocalDate();
