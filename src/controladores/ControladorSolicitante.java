@@ -99,8 +99,9 @@ public class ControladorSolicitante implements Initializable {
         
         //TODO
         Professor_Orientador prof = null;
+        System.out.println("IDPROFE: "+solicitante.getProfessor().getId_professor());
         for(Professor_Orientador p: professores){
-            if(p.getId_professor() == solicitante.getId_Professor())
+            if(p.getId_professor() == solicitante.getProfessor().getId_professor())
                 prof = p;
         }
        

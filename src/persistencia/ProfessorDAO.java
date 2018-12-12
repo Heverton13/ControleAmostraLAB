@@ -105,6 +105,7 @@ public boolean deleteProfessor(int id) {
                 String telefone = rs.getString("TELEFONE");
                 String email = rs.getString("EMAIL_PROFESSOR");
 
+                usuario.setId_professor(id);
                 usuario.setNome(nome);
                 usuario.setDepartamento(departamento);
                 usuario.setTelefone(telefone);
