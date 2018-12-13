@@ -134,7 +134,8 @@ public class TelaHistoricoController implements Initializable {
             table.setWidthPercentage(100);
             table.setSpacingAfter(35f);
             table.setSpacingBefore(35f);
-
+           
+                
             for (int i = 0; i < am_an.size(); i++) {
 
                 String dados = dados = am_an.get(i).getIdentificao_amostra()
@@ -153,6 +154,7 @@ public class TelaHistoricoController implements Initializable {
                 //Log.i("VDC", ""+dados);
                 cont++;
             }
+            table.completeRow(); //completa a linha
             doc.add(table);
             doc.add(new Paragraph("  "));
 
