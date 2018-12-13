@@ -311,7 +311,7 @@ public class ControladorAmostra implements Initializable {
         
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Execluir Amostra");
-        alert.setHeaderText("Ateção, ao apagar a amostra você apaga todas as analises existentes nela");
+        alert.setHeaderText("Atenção, ao apagar a amostra você apaga todas as analises existentes nela");
         alert.setContentText("Se deseja apagar, Aperte OK");
 
         Optional<ButtonType> result = alert.showAndWait();

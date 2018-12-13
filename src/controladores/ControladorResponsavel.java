@@ -175,7 +175,7 @@ public class ControladorResponsavel implements Initializable {
         
         Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
         alert.setTitle("Execluir Professor");
-        alert.setHeaderText("Ateção, ao apagar o responsavel você apagará todos itens relacionados a ele");
+        alert.setHeaderText("Atenção, ao apagar o responsavel você apagará todos itens relacionados a ele");
         alert.setContentText("Se deseja apagar, Aperte OK");
 
         Optional<ButtonType> result = alert.showAndWait();
