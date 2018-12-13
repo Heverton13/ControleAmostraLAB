@@ -8,6 +8,7 @@ package controladores;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -20,6 +21,7 @@ import modelos.Professor_Orientador;
 import persistencia.ProfessorDAO;
 import javafx.event.ActionEvent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.input.MouseEvent;
 
 /**
@@ -157,7 +159,18 @@ public class ControladorProfessor implements Initializable {
     @FXML
     private void deleteProfessor(){
         
-        pbanco.deleteProfessor(tabelaProfessor.getSelectionModel().getSelectedItem().getId_professor());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Execluir Professor");
+        alert.setHeaderText("Ateção, ao apagar o professor você apagará todos itens relacionados a ele");
+        alert.setContentText("Se deseja apagar, Aperte OK");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            pbanco.deleteProfessor(tabelaProfessor.getSelectionModel().getSelectedItem().getId_professor());
+        } else {
+            System.out.println("Não");
+        }  
+        
         limparTextField();
         refreshTable();
         

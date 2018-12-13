@@ -18,12 +18,14 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -171,7 +173,18 @@ public class ControladorResponsavel implements Initializable {
     @FXML
     private void deleteResponsavel(){
         
-        rbanco.deleteResponsavel(tabelaResponsavel.getSelectionModel().getSelectedItem().getId_responsavel());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Execluir Professor");
+        alert.setHeaderText("Ateção, ao apagar o responsavel você apagará todos itens relacionados a ele");
+        alert.setContentText("Se deseja apagar, Aperte OK");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            rbanco.deleteResponsavel(tabelaResponsavel.getSelectionModel().getSelectedItem().getId_responsavel());
+        } else {
+            System.out.println("Não");
+        }  
+        
         limparTextos();
         refreshTable();
         

@@ -6,9 +6,11 @@
 package controladores;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXButton.ButtonType;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import java.net.URL;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -166,8 +168,19 @@ public class ControladorSolicitante implements Initializable {
     @FXML
     private void deleteSolicitante(){
     
-        sDAO.deleteSolicitante(tableSolicitante.getSelectionModel().getSelectedItem().getId_solicitante());
-         limparTextos();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Execluir Professor");
+        alert.setHeaderText("Ateção, ao apagar o solicitante você apagará todos itens relacionados a ele");
+        alert.setContentText("Se deseja apagar, Aperte OK");
+
+        Optional<javafx.scene.control.ButtonType> result = alert.showAndWait();
+        if (result.get() == javafx.scene.control.ButtonType.OK) {
+          sDAO.deleteSolicitante(tableSolicitante.getSelectionModel().getSelectedItem().getId_solicitante());
+        } else {
+            System.out.println("Não");
+        }  
+        
+        limparTextos();
         refreshTable();
     }
     

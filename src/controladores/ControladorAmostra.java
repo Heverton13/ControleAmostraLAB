@@ -20,6 +20,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -30,6 +31,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -307,7 +309,19 @@ public class ControladorAmostra implements Initializable {
     @FXML
     private void deletarAmostra(){
         
-        aBanco.remove(TabelaAmostra.getSelectionModel().getSelectedItem().getId());
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Execluir Amostra");
+        alert.setHeaderText("Ateção, ao apagar a amostra você apaga todas as analises existentes nela");
+        alert.setContentText("Se deseja apagar, Aperte OK");
+
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            aBanco.remove(TabelaAmostra.getSelectionModel().getSelectedItem().getId());
+        } else {
+            System.out.println("Não apagou");
+        }
+        
+        
         limparTextFild();
         refreshTable();
         
